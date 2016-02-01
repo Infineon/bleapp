@@ -1,0 +1,2044 @@
+ARM GAS  C:\Users\Alan\AppData\Local\Temp\ccKFavBa.s 			page 1
+
+
+   1              		.cpu cortex-m0
+   2              		.fpu softvfp
+   3              		.eabi_attribute 20, 1
+   4              		.eabi_attribute 21, 1
+   5              		.eabi_attribute 23, 3
+   6              		.eabi_attribute 24, 1
+   7              		.eabi_attribute 25, 1
+   8              		.eabi_attribute 26, 1
+   9              		.eabi_attribute 30, 1
+  10              		.eabi_attribute 34, 0
+  11              		.eabi_attribute 18, 4
+  12              		.code	16
+  13              		.file	"tachTimer.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.section	.text.tachTimer_Interrupt,"ax",%progbits
+  18              		.align	2
+  19              		.global	tachTimer_Interrupt
+  20              		.code	16
+  21              		.thumb_func
+  22              		.type	tachTimer_Interrupt, %function
+  23              	tachTimer_Interrupt:
+  24              	.LFB5:
+  25              		.file 1 ".\\Generated_Source\\PSoC4\\tachTimer.c"
+   1:.\Generated_Source\PSoC4/tachTimer.c **** /*******************************************************************************
+   2:.\Generated_Source\PSoC4/tachTimer.c **** * File Name: tachTimer.c  
+   3:.\Generated_Source\PSoC4/tachTimer.c **** * Version 1.70
+   4:.\Generated_Source\PSoC4/tachTimer.c **** *
+   5:.\Generated_Source\PSoC4/tachTimer.c **** *  Description:
+   6:.\Generated_Source\PSoC4/tachTimer.c **** *   API for controlling the state of an interrupt.
+   7:.\Generated_Source\PSoC4/tachTimer.c **** *
+   8:.\Generated_Source\PSoC4/tachTimer.c **** *
+   9:.\Generated_Source\PSoC4/tachTimer.c **** *  Note:
+  10:.\Generated_Source\PSoC4/tachTimer.c **** *
+  11:.\Generated_Source\PSoC4/tachTimer.c **** ********************************************************************************
+  12:.\Generated_Source\PSoC4/tachTimer.c **** * Copyright 2008-2015, Cypress Semiconductor Corporation.  All rights reserved.
+  13:.\Generated_Source\PSoC4/tachTimer.c **** * You may use this file only in accordance with the license, terms, conditions, 
+  14:.\Generated_Source\PSoC4/tachTimer.c **** * disclaimers, and limitations in the end user license agreement accompanying 
+  15:.\Generated_Source\PSoC4/tachTimer.c **** * the software package with which this file was provided.
+  16:.\Generated_Source\PSoC4/tachTimer.c **** *******************************************************************************/
+  17:.\Generated_Source\PSoC4/tachTimer.c **** 
+  18:.\Generated_Source\PSoC4/tachTimer.c **** 
+  19:.\Generated_Source\PSoC4/tachTimer.c **** #include <cydevice_trm.h>
+  20:.\Generated_Source\PSoC4/tachTimer.c **** #include <CyLib.h>
+  21:.\Generated_Source\PSoC4/tachTimer.c **** #include <tachTimer.h>
+  22:.\Generated_Source\PSoC4/tachTimer.c **** #include "cyapicallbacks.h"
+  23:.\Generated_Source\PSoC4/tachTimer.c **** 
+  24:.\Generated_Source\PSoC4/tachTimer.c **** #if !defined(tachTimer__REMOVED) /* Check for removal by optimization */
+  25:.\Generated_Source\PSoC4/tachTimer.c **** 
+  26:.\Generated_Source\PSoC4/tachTimer.c **** /*******************************************************************************
+  27:.\Generated_Source\PSoC4/tachTimer.c **** *  Place your includes, defines and code here 
+  28:.\Generated_Source\PSoC4/tachTimer.c **** ********************************************************************************/
+  29:.\Generated_Source\PSoC4/tachTimer.c **** /* `#START tachTimer_intc` */
+  30:.\Generated_Source\PSoC4/tachTimer.c **** 
+  31:.\Generated_Source\PSoC4/tachTimer.c **** /* `#END` */
+  32:.\Generated_Source\PSoC4/tachTimer.c **** 
+ARM GAS  C:\Users\Alan\AppData\Local\Temp\ccKFavBa.s 			page 2
+
+
+  33:.\Generated_Source\PSoC4/tachTimer.c **** extern cyisraddress CyRamVectors[CYINT_IRQ_BASE + CY_NUM_INTERRUPTS];
+  34:.\Generated_Source\PSoC4/tachTimer.c **** 
+  35:.\Generated_Source\PSoC4/tachTimer.c **** /* Declared in startup, used to set unused interrupts to. */
+  36:.\Generated_Source\PSoC4/tachTimer.c **** CY_ISR_PROTO(IntDefaultHandler);
+  37:.\Generated_Source\PSoC4/tachTimer.c **** 
+  38:.\Generated_Source\PSoC4/tachTimer.c **** 
+  39:.\Generated_Source\PSoC4/tachTimer.c **** /*******************************************************************************
+  40:.\Generated_Source\PSoC4/tachTimer.c **** * Function Name: tachTimer_Start
+  41:.\Generated_Source\PSoC4/tachTimer.c **** ********************************************************************************
+  42:.\Generated_Source\PSoC4/tachTimer.c **** *
+  43:.\Generated_Source\PSoC4/tachTimer.c **** * Summary:
+  44:.\Generated_Source\PSoC4/tachTimer.c **** *  Set up the interrupt and enable it. This function disables the interrupt, 
+  45:.\Generated_Source\PSoC4/tachTimer.c **** *  sets the default interrupt vector, sets the priority from the value in the
+  46:.\Generated_Source\PSoC4/tachTimer.c **** *  Design Wide Resources Interrupt Editor, then enables the interrupt to the 
+  47:.\Generated_Source\PSoC4/tachTimer.c **** *  interrupt controller.
+  48:.\Generated_Source\PSoC4/tachTimer.c **** *
+  49:.\Generated_Source\PSoC4/tachTimer.c **** * Parameters:  
+  50:.\Generated_Source\PSoC4/tachTimer.c **** *   None
+  51:.\Generated_Source\PSoC4/tachTimer.c **** *
+  52:.\Generated_Source\PSoC4/tachTimer.c **** * Return:
+  53:.\Generated_Source\PSoC4/tachTimer.c **** *   None
+  54:.\Generated_Source\PSoC4/tachTimer.c **** *
+  55:.\Generated_Source\PSoC4/tachTimer.c **** *******************************************************************************/
+  56:.\Generated_Source\PSoC4/tachTimer.c **** void tachTimer_Start(void)
+  57:.\Generated_Source\PSoC4/tachTimer.c **** {
+  58:.\Generated_Source\PSoC4/tachTimer.c ****     /* For all we know the interrupt is active. */
+  59:.\Generated_Source\PSoC4/tachTimer.c ****     tachTimer_Disable();
+  60:.\Generated_Source\PSoC4/tachTimer.c **** 
+  61:.\Generated_Source\PSoC4/tachTimer.c ****     /* Set the ISR to point to the tachTimer Interrupt. */
+  62:.\Generated_Source\PSoC4/tachTimer.c ****     tachTimer_SetVector(&tachTimer_Interrupt);
+  63:.\Generated_Source\PSoC4/tachTimer.c **** 
+  64:.\Generated_Source\PSoC4/tachTimer.c ****     /* Set the priority. */
+  65:.\Generated_Source\PSoC4/tachTimer.c ****     tachTimer_SetPriority((uint8)tachTimer_INTC_PRIOR_NUMBER);
+  66:.\Generated_Source\PSoC4/tachTimer.c **** 
+  67:.\Generated_Source\PSoC4/tachTimer.c ****     /* Enable it. */
+  68:.\Generated_Source\PSoC4/tachTimer.c ****     tachTimer_Enable();
+  69:.\Generated_Source\PSoC4/tachTimer.c **** }
+  70:.\Generated_Source\PSoC4/tachTimer.c **** 
+  71:.\Generated_Source\PSoC4/tachTimer.c **** 
+  72:.\Generated_Source\PSoC4/tachTimer.c **** /*******************************************************************************
+  73:.\Generated_Source\PSoC4/tachTimer.c **** * Function Name: tachTimer_StartEx
+  74:.\Generated_Source\PSoC4/tachTimer.c **** ********************************************************************************
+  75:.\Generated_Source\PSoC4/tachTimer.c **** *
+  76:.\Generated_Source\PSoC4/tachTimer.c **** * Summary:
+  77:.\Generated_Source\PSoC4/tachTimer.c **** *  Sets up the interrupt and enables it. This function disables the interrupt,
+  78:.\Generated_Source\PSoC4/tachTimer.c **** *  sets the interrupt vector based on the address passed in, sets the priority 
+  79:.\Generated_Source\PSoC4/tachTimer.c **** *  from the value in the Design Wide Resources Interrupt Editor, then enables 
+  80:.\Generated_Source\PSoC4/tachTimer.c **** *  the interrupt to the interrupt controller.
+  81:.\Generated_Source\PSoC4/tachTimer.c **** *  
+  82:.\Generated_Source\PSoC4/tachTimer.c **** *  When defining ISR functions, the CY_ISR and CY_ISR_PROTO macros should be 
+  83:.\Generated_Source\PSoC4/tachTimer.c **** *  used to provide consistent definition across compilers:
+  84:.\Generated_Source\PSoC4/tachTimer.c **** *  
+  85:.\Generated_Source\PSoC4/tachTimer.c **** *  Function definition example:
+  86:.\Generated_Source\PSoC4/tachTimer.c **** *   CY_ISR(MyISR)
+  87:.\Generated_Source\PSoC4/tachTimer.c **** *   {
+  88:.\Generated_Source\PSoC4/tachTimer.c **** *   }
+  89:.\Generated_Source\PSoC4/tachTimer.c **** *   Function prototype example:
+ARM GAS  C:\Users\Alan\AppData\Local\Temp\ccKFavBa.s 			page 3
+
+
+  90:.\Generated_Source\PSoC4/tachTimer.c **** *   CY_ISR_PROTO(MyISR);
+  91:.\Generated_Source\PSoC4/tachTimer.c **** *
+  92:.\Generated_Source\PSoC4/tachTimer.c **** * Parameters:  
+  93:.\Generated_Source\PSoC4/tachTimer.c **** *   address: Address of the ISR to set in the interrupt vector table.
+  94:.\Generated_Source\PSoC4/tachTimer.c **** *
+  95:.\Generated_Source\PSoC4/tachTimer.c **** * Return:
+  96:.\Generated_Source\PSoC4/tachTimer.c **** *   None
+  97:.\Generated_Source\PSoC4/tachTimer.c **** *
+  98:.\Generated_Source\PSoC4/tachTimer.c **** *******************************************************************************/
+  99:.\Generated_Source\PSoC4/tachTimer.c **** void tachTimer_StartEx(cyisraddress address)
+ 100:.\Generated_Source\PSoC4/tachTimer.c **** {
+ 101:.\Generated_Source\PSoC4/tachTimer.c ****     /* For all we know the interrupt is active. */
+ 102:.\Generated_Source\PSoC4/tachTimer.c ****     tachTimer_Disable();
+ 103:.\Generated_Source\PSoC4/tachTimer.c **** 
+ 104:.\Generated_Source\PSoC4/tachTimer.c ****     /* Set the ISR to point to the tachTimer Interrupt. */
+ 105:.\Generated_Source\PSoC4/tachTimer.c ****     tachTimer_SetVector(address);
+ 106:.\Generated_Source\PSoC4/tachTimer.c **** 
+ 107:.\Generated_Source\PSoC4/tachTimer.c ****     /* Set the priority. */
+ 108:.\Generated_Source\PSoC4/tachTimer.c ****     tachTimer_SetPriority((uint8)tachTimer_INTC_PRIOR_NUMBER);
+ 109:.\Generated_Source\PSoC4/tachTimer.c **** 
+ 110:.\Generated_Source\PSoC4/tachTimer.c ****     /* Enable it. */
+ 111:.\Generated_Source\PSoC4/tachTimer.c ****     tachTimer_Enable();
+ 112:.\Generated_Source\PSoC4/tachTimer.c **** }
+ 113:.\Generated_Source\PSoC4/tachTimer.c **** 
+ 114:.\Generated_Source\PSoC4/tachTimer.c **** 
+ 115:.\Generated_Source\PSoC4/tachTimer.c **** /*******************************************************************************
+ 116:.\Generated_Source\PSoC4/tachTimer.c **** * Function Name: tachTimer_Stop
+ 117:.\Generated_Source\PSoC4/tachTimer.c **** ********************************************************************************
+ 118:.\Generated_Source\PSoC4/tachTimer.c **** *
+ 119:.\Generated_Source\PSoC4/tachTimer.c **** * Summary:
+ 120:.\Generated_Source\PSoC4/tachTimer.c **** *   Disables and removes the interrupt.
+ 121:.\Generated_Source\PSoC4/tachTimer.c **** *
+ 122:.\Generated_Source\PSoC4/tachTimer.c **** * Parameters:  
+ 123:.\Generated_Source\PSoC4/tachTimer.c **** *   None
+ 124:.\Generated_Source\PSoC4/tachTimer.c **** *
+ 125:.\Generated_Source\PSoC4/tachTimer.c **** * Return:
+ 126:.\Generated_Source\PSoC4/tachTimer.c **** *   None
+ 127:.\Generated_Source\PSoC4/tachTimer.c **** *
+ 128:.\Generated_Source\PSoC4/tachTimer.c **** *******************************************************************************/
+ 129:.\Generated_Source\PSoC4/tachTimer.c **** void tachTimer_Stop(void)
+ 130:.\Generated_Source\PSoC4/tachTimer.c **** {
+ 131:.\Generated_Source\PSoC4/tachTimer.c ****     /* Disable this interrupt. */
+ 132:.\Generated_Source\PSoC4/tachTimer.c ****     tachTimer_Disable();
+ 133:.\Generated_Source\PSoC4/tachTimer.c **** 
+ 134:.\Generated_Source\PSoC4/tachTimer.c ****     /* Set the ISR to point to the passive one. */
+ 135:.\Generated_Source\PSoC4/tachTimer.c ****     tachTimer_SetVector(&IntDefaultHandler);
+ 136:.\Generated_Source\PSoC4/tachTimer.c **** }
+ 137:.\Generated_Source\PSoC4/tachTimer.c **** 
+ 138:.\Generated_Source\PSoC4/tachTimer.c **** 
+ 139:.\Generated_Source\PSoC4/tachTimer.c **** /*******************************************************************************
+ 140:.\Generated_Source\PSoC4/tachTimer.c **** * Function Name: tachTimer_Interrupt
+ 141:.\Generated_Source\PSoC4/tachTimer.c **** ********************************************************************************
+ 142:.\Generated_Source\PSoC4/tachTimer.c **** *
+ 143:.\Generated_Source\PSoC4/tachTimer.c **** * Summary:
+ 144:.\Generated_Source\PSoC4/tachTimer.c **** *   The default Interrupt Service Routine for tachTimer.
+ 145:.\Generated_Source\PSoC4/tachTimer.c **** *
+ 146:.\Generated_Source\PSoC4/tachTimer.c **** *   Add custom code between the START and END comments to keep the next version
+ARM GAS  C:\Users\Alan\AppData\Local\Temp\ccKFavBa.s 			page 4
+
+
+ 147:.\Generated_Source\PSoC4/tachTimer.c **** *   of this file from over-writing your code.
+ 148:.\Generated_Source\PSoC4/tachTimer.c **** *
+ 149:.\Generated_Source\PSoC4/tachTimer.c **** *   Note You may use either the default ISR by using this API, or you may define
+ 150:.\Generated_Source\PSoC4/tachTimer.c **** *   your own separate ISR through ISR_StartEx().
+ 151:.\Generated_Source\PSoC4/tachTimer.c **** *
+ 152:.\Generated_Source\PSoC4/tachTimer.c **** * Parameters:  
+ 153:.\Generated_Source\PSoC4/tachTimer.c **** *   None
+ 154:.\Generated_Source\PSoC4/tachTimer.c **** *
+ 155:.\Generated_Source\PSoC4/tachTimer.c **** * Return:
+ 156:.\Generated_Source\PSoC4/tachTimer.c **** *   None
+ 157:.\Generated_Source\PSoC4/tachTimer.c **** *
+ 158:.\Generated_Source\PSoC4/tachTimer.c **** *******************************************************************************/
+ 159:.\Generated_Source\PSoC4/tachTimer.c **** CY_ISR(tachTimer_Interrupt)
+ 160:.\Generated_Source\PSoC4/tachTimer.c **** {
+  26              		.loc 1 160 0
+  27              		.cfi_startproc
+ 161:.\Generated_Source\PSoC4/tachTimer.c ****     #ifdef tachTimer_INTERRUPT_INTERRUPT_CALLBACK
+ 162:.\Generated_Source\PSoC4/tachTimer.c ****         tachTimer_Interrupt_InterruptCallback();
+ 163:.\Generated_Source\PSoC4/tachTimer.c ****     #endif /* tachTimer_INTERRUPT_INTERRUPT_CALLBACK */ 
+ 164:.\Generated_Source\PSoC4/tachTimer.c **** 
+ 165:.\Generated_Source\PSoC4/tachTimer.c ****     /*  Place your Interrupt code here. */
+ 166:.\Generated_Source\PSoC4/tachTimer.c ****     /* `#START tachTimer_Interrupt` */
+ 167:.\Generated_Source\PSoC4/tachTimer.c **** 
+ 168:.\Generated_Source\PSoC4/tachTimer.c ****     /* `#END` */
+ 169:.\Generated_Source\PSoC4/tachTimer.c **** }
+  28              		.loc 1 169 0
+  29              		@ sp needed
+  30 0000 7047     		bx	lr
+  31              		.cfi_endproc
+  32              	.LFE5:
+  33              		.size	tachTimer_Interrupt, .-tachTimer_Interrupt
+  34 0002 C046     		.section	.text.tachTimer_SetVector,"ax",%progbits
+  35              		.align	2
+  36              		.global	tachTimer_SetVector
+  37              		.code	16
+  38              		.thumb_func
+  39              		.type	tachTimer_SetVector, %function
+  40              	tachTimer_SetVector:
+  41              	.LFB6:
+ 170:.\Generated_Source\PSoC4/tachTimer.c **** 
+ 171:.\Generated_Source\PSoC4/tachTimer.c **** 
+ 172:.\Generated_Source\PSoC4/tachTimer.c **** /*******************************************************************************
+ 173:.\Generated_Source\PSoC4/tachTimer.c **** * Function Name: tachTimer_SetVector
+ 174:.\Generated_Source\PSoC4/tachTimer.c **** ********************************************************************************
+ 175:.\Generated_Source\PSoC4/tachTimer.c **** *
+ 176:.\Generated_Source\PSoC4/tachTimer.c **** * Summary:
+ 177:.\Generated_Source\PSoC4/tachTimer.c **** *   Change the ISR vector for the Interrupt. Note calling tachTimer_Start
+ 178:.\Generated_Source\PSoC4/tachTimer.c **** *   will override any effect this method would have had. To set the vector 
+ 179:.\Generated_Source\PSoC4/tachTimer.c **** *   before the component has been started use tachTimer_StartEx instead.
+ 180:.\Generated_Source\PSoC4/tachTimer.c **** * 
+ 181:.\Generated_Source\PSoC4/tachTimer.c **** *   When defining ISR functions, the CY_ISR and CY_ISR_PROTO macros should be 
+ 182:.\Generated_Source\PSoC4/tachTimer.c **** *   used to provide consistent definition across compilers:
+ 183:.\Generated_Source\PSoC4/tachTimer.c **** *
+ 184:.\Generated_Source\PSoC4/tachTimer.c **** *   Function definition example:
+ 185:.\Generated_Source\PSoC4/tachTimer.c **** *   CY_ISR(MyISR)
+ 186:.\Generated_Source\PSoC4/tachTimer.c **** *   {
+ 187:.\Generated_Source\PSoC4/tachTimer.c **** *   }
+ARM GAS  C:\Users\Alan\AppData\Local\Temp\ccKFavBa.s 			page 5
+
+
+ 188:.\Generated_Source\PSoC4/tachTimer.c **** *
+ 189:.\Generated_Source\PSoC4/tachTimer.c **** *   Function prototype example:
+ 190:.\Generated_Source\PSoC4/tachTimer.c **** *     CY_ISR_PROTO(MyISR);
+ 191:.\Generated_Source\PSoC4/tachTimer.c **** *
+ 192:.\Generated_Source\PSoC4/tachTimer.c **** * Parameters:
+ 193:.\Generated_Source\PSoC4/tachTimer.c **** *   address: Address of the ISR to set in the interrupt vector table.
+ 194:.\Generated_Source\PSoC4/tachTimer.c **** *
+ 195:.\Generated_Source\PSoC4/tachTimer.c **** * Return:
+ 196:.\Generated_Source\PSoC4/tachTimer.c **** *   None
+ 197:.\Generated_Source\PSoC4/tachTimer.c **** *
+ 198:.\Generated_Source\PSoC4/tachTimer.c **** *******************************************************************************/
+ 199:.\Generated_Source\PSoC4/tachTimer.c **** void tachTimer_SetVector(cyisraddress address)
+ 200:.\Generated_Source\PSoC4/tachTimer.c **** {
+  42              		.loc 1 200 0
+  43              		.cfi_startproc
+  44              	.LVL0:
+ 201:.\Generated_Source\PSoC4/tachTimer.c ****     CyRamVectors[CYINT_IRQ_BASE + tachTimer__INTC_NUMBER] = address;
+  45              		.loc 1 201 0
+  46 0000 014B     		ldr	r3, .L3
+  47 0002 5864     		str	r0, [r3, #68]
+ 202:.\Generated_Source\PSoC4/tachTimer.c **** }
+  48              		.loc 1 202 0
+  49              		@ sp needed
+  50 0004 7047     		bx	lr
+  51              	.L4:
+  52 0006 C046     		.align	2
+  53              	.L3:
+  54 0008 00000000 		.word	CyRamVectors
+  55              		.cfi_endproc
+  56              	.LFE6:
+  57              		.size	tachTimer_SetVector, .-tachTimer_SetVector
+  58              		.section	.text.tachTimer_GetVector,"ax",%progbits
+  59              		.align	2
+  60              		.global	tachTimer_GetVector
+  61              		.code	16
+  62              		.thumb_func
+  63              		.type	tachTimer_GetVector, %function
+  64              	tachTimer_GetVector:
+  65              	.LFB7:
+ 203:.\Generated_Source\PSoC4/tachTimer.c **** 
+ 204:.\Generated_Source\PSoC4/tachTimer.c **** 
+ 205:.\Generated_Source\PSoC4/tachTimer.c **** /*******************************************************************************
+ 206:.\Generated_Source\PSoC4/tachTimer.c **** * Function Name: tachTimer_GetVector
+ 207:.\Generated_Source\PSoC4/tachTimer.c **** ********************************************************************************
+ 208:.\Generated_Source\PSoC4/tachTimer.c **** *
+ 209:.\Generated_Source\PSoC4/tachTimer.c **** * Summary:
+ 210:.\Generated_Source\PSoC4/tachTimer.c **** *   Gets the "address" of the current ISR vector for the Interrupt.
+ 211:.\Generated_Source\PSoC4/tachTimer.c **** *
+ 212:.\Generated_Source\PSoC4/tachTimer.c **** * Parameters:
+ 213:.\Generated_Source\PSoC4/tachTimer.c **** *   None
+ 214:.\Generated_Source\PSoC4/tachTimer.c **** *
+ 215:.\Generated_Source\PSoC4/tachTimer.c **** * Return:
+ 216:.\Generated_Source\PSoC4/tachTimer.c **** *   Address of the ISR in the interrupt vector table.
+ 217:.\Generated_Source\PSoC4/tachTimer.c **** *
+ 218:.\Generated_Source\PSoC4/tachTimer.c **** *******************************************************************************/
+ 219:.\Generated_Source\PSoC4/tachTimer.c **** cyisraddress tachTimer_GetVector(void)
+ 220:.\Generated_Source\PSoC4/tachTimer.c **** {
+ARM GAS  C:\Users\Alan\AppData\Local\Temp\ccKFavBa.s 			page 6
+
+
+  66              		.loc 1 220 0
+  67              		.cfi_startproc
+ 221:.\Generated_Source\PSoC4/tachTimer.c ****     return CyRamVectors[CYINT_IRQ_BASE + tachTimer__INTC_NUMBER];
+  68              		.loc 1 221 0
+  69 0000 014B     		ldr	r3, .L6
+  70 0002 586C     		ldr	r0, [r3, #68]
+ 222:.\Generated_Source\PSoC4/tachTimer.c **** }
+  71              		.loc 1 222 0
+  72              		@ sp needed
+  73 0004 7047     		bx	lr
+  74              	.L7:
+  75 0006 C046     		.align	2
+  76              	.L6:
+  77 0008 00000000 		.word	CyRamVectors
+  78              		.cfi_endproc
+  79              	.LFE7:
+  80              		.size	tachTimer_GetVector, .-tachTimer_GetVector
+  81              		.section	.text.tachTimer_SetPriority,"ax",%progbits
+  82              		.align	2
+  83              		.global	tachTimer_SetPriority
+  84              		.code	16
+  85              		.thumb_func
+  86              		.type	tachTimer_SetPriority, %function
+  87              	tachTimer_SetPriority:
+  88              	.LFB8:
+ 223:.\Generated_Source\PSoC4/tachTimer.c **** 
+ 224:.\Generated_Source\PSoC4/tachTimer.c **** 
+ 225:.\Generated_Source\PSoC4/tachTimer.c **** /*******************************************************************************
+ 226:.\Generated_Source\PSoC4/tachTimer.c **** * Function Name: tachTimer_SetPriority
+ 227:.\Generated_Source\PSoC4/tachTimer.c **** ********************************************************************************
+ 228:.\Generated_Source\PSoC4/tachTimer.c **** *
+ 229:.\Generated_Source\PSoC4/tachTimer.c **** * Summary:
+ 230:.\Generated_Source\PSoC4/tachTimer.c **** *   Sets the Priority of the Interrupt. 
+ 231:.\Generated_Source\PSoC4/tachTimer.c **** *
+ 232:.\Generated_Source\PSoC4/tachTimer.c **** *   Note calling tachTimer_Start or tachTimer_StartEx will 
+ 233:.\Generated_Source\PSoC4/tachTimer.c **** *   override any effect this API would have had. This API should only be called
+ 234:.\Generated_Source\PSoC4/tachTimer.c **** *   after tachTimer_Start or tachTimer_StartEx has been called. 
+ 235:.\Generated_Source\PSoC4/tachTimer.c **** *   To set the initial priority for the component, use the Design-Wide Resources
+ 236:.\Generated_Source\PSoC4/tachTimer.c **** *   Interrupt Editor.
+ 237:.\Generated_Source\PSoC4/tachTimer.c **** *
+ 238:.\Generated_Source\PSoC4/tachTimer.c **** *   Note This API has no effect on Non-maskable interrupt NMI).
+ 239:.\Generated_Source\PSoC4/tachTimer.c **** *
+ 240:.\Generated_Source\PSoC4/tachTimer.c **** * Parameters:
+ 241:.\Generated_Source\PSoC4/tachTimer.c **** *   priority: Priority of the interrupt, 0 being the highest priority
+ 242:.\Generated_Source\PSoC4/tachTimer.c **** *             PSoC 3 and PSoC 5LP: Priority is from 0 to 7.
+ 243:.\Generated_Source\PSoC4/tachTimer.c **** *             PSoC 4: Priority is from 0 to 3.
+ 244:.\Generated_Source\PSoC4/tachTimer.c **** *
+ 245:.\Generated_Source\PSoC4/tachTimer.c **** * Return:
+ 246:.\Generated_Source\PSoC4/tachTimer.c **** *   None
+ 247:.\Generated_Source\PSoC4/tachTimer.c **** *
+ 248:.\Generated_Source\PSoC4/tachTimer.c **** *******************************************************************************/
+ 249:.\Generated_Source\PSoC4/tachTimer.c **** void tachTimer_SetPriority(uint8 priority)
+ 250:.\Generated_Source\PSoC4/tachTimer.c **** {
+  89              		.loc 1 250 0
+  90              		.cfi_startproc
+  91              	.LVL1:
+  92 0000 10B5     		push	{r4, lr}
+ARM GAS  C:\Users\Alan\AppData\Local\Temp\ccKFavBa.s 			page 7
+
+
+  93              		.cfi_def_cfa_offset 8
+  94              		.cfi_offset 4, -8
+  95              		.cfi_offset 14, -4
+  96 0002 041C     		mov	r4, r0
+  97              	.LVL2:
+ 251:.\Generated_Source\PSoC4/tachTimer.c **** 	uint8 interruptState;
+ 252:.\Generated_Source\PSoC4/tachTimer.c ****     uint32 priorityOffset = ((tachTimer__INTC_NUMBER % 4u) * 8u) + 6u;
+ 253:.\Generated_Source\PSoC4/tachTimer.c ****     
+ 254:.\Generated_Source\PSoC4/tachTimer.c **** 	interruptState = CyEnterCriticalSection();
+  98              		.loc 1 254 0
+  99 0004 FFF7FEFF 		bl	CyEnterCriticalSection
+ 100              	.LVL3:
+ 255:.\Generated_Source\PSoC4/tachTimer.c ****     *tachTimer_INTC_PRIOR = (*tachTimer_INTC_PRIOR & (uint32)(~tachTimer__INTC_PRIOR_MASK)) |
+ 101              		.loc 1 255 0
+ 102 0008 044A     		ldr	r2, .L9
+ 103 000a 1168     		ldr	r1, [r2]
+ 104 000c 044B     		ldr	r3, .L9+4
+ 105 000e 0B40     		and	r3, r1
+ 256:.\Generated_Source\PSoC4/tachTimer.c ****                                     ((uint32)priority << priorityOffset);
+ 106              		.loc 1 256 0
+ 107 0010 A403     		lsl	r4, r4, #14
+ 255:.\Generated_Source\PSoC4/tachTimer.c ****     *tachTimer_INTC_PRIOR = (*tachTimer_INTC_PRIOR & (uint32)(~tachTimer__INTC_PRIOR_MASK)) |
+ 108              		.loc 1 255 0
+ 109 0012 1C43     		orr	r4, r3
+ 110 0014 1460     		str	r4, [r2]
+ 257:.\Generated_Source\PSoC4/tachTimer.c **** 	CyExitCriticalSection(interruptState);
+ 111              		.loc 1 257 0
+ 112 0016 FFF7FEFF 		bl	CyExitCriticalSection
+ 113              	.LVL4:
+ 258:.\Generated_Source\PSoC4/tachTimer.c **** }
+ 114              		.loc 1 258 0
+ 115              		@ sp needed
+ 116 001a 10BD     		pop	{r4, pc}
+ 117              	.L10:
+ 118              		.align	2
+ 119              	.L9:
+ 120 001c 00E400E0 		.word	-536812544
+ 121 0020 FF3FFFFF 		.word	-49153
+ 122              		.cfi_endproc
+ 123              	.LFE8:
+ 124              		.size	tachTimer_SetPriority, .-tachTimer_SetPriority
+ 125              		.section	.text.tachTimer_GetPriority,"ax",%progbits
+ 126              		.align	2
+ 127              		.global	tachTimer_GetPriority
+ 128              		.code	16
+ 129              		.thumb_func
+ 130              		.type	tachTimer_GetPriority, %function
+ 131              	tachTimer_GetPriority:
+ 132              	.LFB9:
+ 259:.\Generated_Source\PSoC4/tachTimer.c **** 
+ 260:.\Generated_Source\PSoC4/tachTimer.c **** 
+ 261:.\Generated_Source\PSoC4/tachTimer.c **** /*******************************************************************************
+ 262:.\Generated_Source\PSoC4/tachTimer.c **** * Function Name: tachTimer_GetPriority
+ 263:.\Generated_Source\PSoC4/tachTimer.c **** ********************************************************************************
+ 264:.\Generated_Source\PSoC4/tachTimer.c **** *
+ 265:.\Generated_Source\PSoC4/tachTimer.c **** * Summary:
+ 266:.\Generated_Source\PSoC4/tachTimer.c **** *   Gets the Priority of the Interrupt.
+ARM GAS  C:\Users\Alan\AppData\Local\Temp\ccKFavBa.s 			page 8
+
+
+ 267:.\Generated_Source\PSoC4/tachTimer.c **** *
+ 268:.\Generated_Source\PSoC4/tachTimer.c **** * Parameters:
+ 269:.\Generated_Source\PSoC4/tachTimer.c **** *   None
+ 270:.\Generated_Source\PSoC4/tachTimer.c **** *
+ 271:.\Generated_Source\PSoC4/tachTimer.c **** * Return:
+ 272:.\Generated_Source\PSoC4/tachTimer.c **** *   Priority of the interrupt, 0 being the highest priority
+ 273:.\Generated_Source\PSoC4/tachTimer.c **** *    PSoC 3 and PSoC 5LP: Priority is from 0 to 7.
+ 274:.\Generated_Source\PSoC4/tachTimer.c **** *    PSoC 4: Priority is from 0 to 3.
+ 275:.\Generated_Source\PSoC4/tachTimer.c **** *
+ 276:.\Generated_Source\PSoC4/tachTimer.c **** *******************************************************************************/
+ 277:.\Generated_Source\PSoC4/tachTimer.c **** uint8 tachTimer_GetPriority(void)
+ 278:.\Generated_Source\PSoC4/tachTimer.c **** {
+ 133              		.loc 1 278 0
+ 134              		.cfi_startproc
+ 135              	.LVL5:
+ 279:.\Generated_Source\PSoC4/tachTimer.c ****     uint32 priority;
+ 280:.\Generated_Source\PSoC4/tachTimer.c **** 	uint32 priorityOffset = ((tachTimer__INTC_NUMBER % 4u) * 8u) + 6u;
+ 281:.\Generated_Source\PSoC4/tachTimer.c **** 
+ 282:.\Generated_Source\PSoC4/tachTimer.c ****     priority = (*tachTimer_INTC_PRIOR & tachTimer__INTC_PRIOR_MASK) >> priorityOffset;
+ 136              		.loc 1 282 0
+ 137 0000 024B     		ldr	r3, .L12
+ 138 0002 1868     		ldr	r0, [r3]
+ 139 0004 0004     		lsl	r0, r0, #16
+ 140              	.LVL6:
+ 283:.\Generated_Source\PSoC4/tachTimer.c **** 
+ 284:.\Generated_Source\PSoC4/tachTimer.c ****     return (uint8)priority;
+ 141              		.loc 1 284 0
+ 142 0006 800F     		lsr	r0, r0, #30
+ 143              	.LVL7:
+ 285:.\Generated_Source\PSoC4/tachTimer.c **** }
+ 144              		.loc 1 285 0
+ 145              		@ sp needed
+ 146 0008 7047     		bx	lr
+ 147              	.L13:
+ 148 000a C046     		.align	2
+ 149              	.L12:
+ 150 000c 00E400E0 		.word	-536812544
+ 151              		.cfi_endproc
+ 152              	.LFE9:
+ 153              		.size	tachTimer_GetPriority, .-tachTimer_GetPriority
+ 154              		.section	.text.tachTimer_Enable,"ax",%progbits
+ 155              		.align	2
+ 156              		.global	tachTimer_Enable
+ 157              		.code	16
+ 158              		.thumb_func
+ 159              		.type	tachTimer_Enable, %function
+ 160              	tachTimer_Enable:
+ 161              	.LFB10:
+ 286:.\Generated_Source\PSoC4/tachTimer.c **** 
+ 287:.\Generated_Source\PSoC4/tachTimer.c **** 
+ 288:.\Generated_Source\PSoC4/tachTimer.c **** /*******************************************************************************
+ 289:.\Generated_Source\PSoC4/tachTimer.c **** * Function Name: tachTimer_Enable
+ 290:.\Generated_Source\PSoC4/tachTimer.c **** ********************************************************************************
+ 291:.\Generated_Source\PSoC4/tachTimer.c **** *
+ 292:.\Generated_Source\PSoC4/tachTimer.c **** * Summary:
+ 293:.\Generated_Source\PSoC4/tachTimer.c **** *   Enables the interrupt to the interrupt controller. Do not call this function
+ 294:.\Generated_Source\PSoC4/tachTimer.c **** *   unless ISR_Start() has been called or the functionality of the ISR_Start() 
+ARM GAS  C:\Users\Alan\AppData\Local\Temp\ccKFavBa.s 			page 9
+
+
+ 295:.\Generated_Source\PSoC4/tachTimer.c **** *   function, which sets the vector and the priority, has been called.
+ 296:.\Generated_Source\PSoC4/tachTimer.c **** *
+ 297:.\Generated_Source\PSoC4/tachTimer.c **** * Parameters:
+ 298:.\Generated_Source\PSoC4/tachTimer.c **** *   None
+ 299:.\Generated_Source\PSoC4/tachTimer.c **** *
+ 300:.\Generated_Source\PSoC4/tachTimer.c **** * Return:
+ 301:.\Generated_Source\PSoC4/tachTimer.c **** *   None
+ 302:.\Generated_Source\PSoC4/tachTimer.c **** *
+ 303:.\Generated_Source\PSoC4/tachTimer.c **** *******************************************************************************/
+ 304:.\Generated_Source\PSoC4/tachTimer.c **** void tachTimer_Enable(void)
+ 305:.\Generated_Source\PSoC4/tachTimer.c **** {
+ 162              		.loc 1 305 0
+ 163              		.cfi_startproc
+ 306:.\Generated_Source\PSoC4/tachTimer.c ****     /* Enable the general interrupt. */
+ 307:.\Generated_Source\PSoC4/tachTimer.c ****     *tachTimer_INTC_SET_EN = tachTimer__INTC_MASK;
+ 164              		.loc 1 307 0
+ 165 0000 0222     		mov	r2, #2
+ 166 0002 014B     		ldr	r3, .L15
+ 167 0004 1A60     		str	r2, [r3]
+ 308:.\Generated_Source\PSoC4/tachTimer.c **** }
+ 168              		.loc 1 308 0
+ 169              		@ sp needed
+ 170 0006 7047     		bx	lr
+ 171              	.L16:
+ 172              		.align	2
+ 173              	.L15:
+ 174 0008 00E100E0 		.word	-536813312
+ 175              		.cfi_endproc
+ 176              	.LFE10:
+ 177              		.size	tachTimer_Enable, .-tachTimer_Enable
+ 178              		.section	.text.tachTimer_GetState,"ax",%progbits
+ 179              		.align	2
+ 180              		.global	tachTimer_GetState
+ 181              		.code	16
+ 182              		.thumb_func
+ 183              		.type	tachTimer_GetState, %function
+ 184              	tachTimer_GetState:
+ 185              	.LFB11:
+ 309:.\Generated_Source\PSoC4/tachTimer.c **** 
+ 310:.\Generated_Source\PSoC4/tachTimer.c **** 
+ 311:.\Generated_Source\PSoC4/tachTimer.c **** /*******************************************************************************
+ 312:.\Generated_Source\PSoC4/tachTimer.c **** * Function Name: tachTimer_GetState
+ 313:.\Generated_Source\PSoC4/tachTimer.c **** ********************************************************************************
+ 314:.\Generated_Source\PSoC4/tachTimer.c **** *
+ 315:.\Generated_Source\PSoC4/tachTimer.c **** * Summary:
+ 316:.\Generated_Source\PSoC4/tachTimer.c **** *   Gets the state (enabled, disabled) of the Interrupt.
+ 317:.\Generated_Source\PSoC4/tachTimer.c **** *
+ 318:.\Generated_Source\PSoC4/tachTimer.c **** * Parameters:
+ 319:.\Generated_Source\PSoC4/tachTimer.c **** *   None
+ 320:.\Generated_Source\PSoC4/tachTimer.c **** *
+ 321:.\Generated_Source\PSoC4/tachTimer.c **** * Return:
+ 322:.\Generated_Source\PSoC4/tachTimer.c **** *   1 if enabled, 0 if disabled.
+ 323:.\Generated_Source\PSoC4/tachTimer.c **** *
+ 324:.\Generated_Source\PSoC4/tachTimer.c **** *******************************************************************************/
+ 325:.\Generated_Source\PSoC4/tachTimer.c **** uint8 tachTimer_GetState(void)
+ 326:.\Generated_Source\PSoC4/tachTimer.c **** {
+ 186              		.loc 1 326 0
+ARM GAS  C:\Users\Alan\AppData\Local\Temp\ccKFavBa.s 			page 10
+
+
+ 187              		.cfi_startproc
+ 327:.\Generated_Source\PSoC4/tachTimer.c ****     /* Get the state of the general interrupt. */
+ 328:.\Generated_Source\PSoC4/tachTimer.c ****     return ((*tachTimer_INTC_SET_EN & (uint32)tachTimer__INTC_MASK) != 0u) ? 1u:0u;
+ 188              		.loc 1 328 0
+ 189 0000 034B     		ldr	r3, .L20
+ 190 0002 1B68     		ldr	r3, [r3]
+ 191 0004 9B07     		lsl	r3, r3, #30
+ 192 0006 01D5     		bpl	.L19
+ 193 0008 0120     		mov	r0, #1
+ 194 000a 00E0     		b	.L18
+ 195              	.L19:
+ 196 000c 0020     		mov	r0, #0
+ 197              	.L18:
+ 329:.\Generated_Source\PSoC4/tachTimer.c **** }
+ 198              		.loc 1 329 0 discriminator 4
+ 199              		@ sp needed
+ 200 000e 7047     		bx	lr
+ 201              	.L21:
+ 202              		.align	2
+ 203              	.L20:
+ 204 0010 00E100E0 		.word	-536813312
+ 205              		.cfi_endproc
+ 206              	.LFE11:
+ 207              		.size	tachTimer_GetState, .-tachTimer_GetState
+ 208              		.section	.text.tachTimer_Disable,"ax",%progbits
+ 209              		.align	2
+ 210              		.global	tachTimer_Disable
+ 211              		.code	16
+ 212              		.thumb_func
+ 213              		.type	tachTimer_Disable, %function
+ 214              	tachTimer_Disable:
+ 215              	.LFB12:
+ 330:.\Generated_Source\PSoC4/tachTimer.c **** 
+ 331:.\Generated_Source\PSoC4/tachTimer.c **** 
+ 332:.\Generated_Source\PSoC4/tachTimer.c **** /*******************************************************************************
+ 333:.\Generated_Source\PSoC4/tachTimer.c **** * Function Name: tachTimer_Disable
+ 334:.\Generated_Source\PSoC4/tachTimer.c **** ********************************************************************************
+ 335:.\Generated_Source\PSoC4/tachTimer.c **** *
+ 336:.\Generated_Source\PSoC4/tachTimer.c **** * Summary:
+ 337:.\Generated_Source\PSoC4/tachTimer.c **** *   Disables the Interrupt in the interrupt controller.
+ 338:.\Generated_Source\PSoC4/tachTimer.c **** *
+ 339:.\Generated_Source\PSoC4/tachTimer.c **** * Parameters:
+ 340:.\Generated_Source\PSoC4/tachTimer.c **** *   None
+ 341:.\Generated_Source\PSoC4/tachTimer.c **** *
+ 342:.\Generated_Source\PSoC4/tachTimer.c **** * Return:
+ 343:.\Generated_Source\PSoC4/tachTimer.c **** *   None
+ 344:.\Generated_Source\PSoC4/tachTimer.c **** *
+ 345:.\Generated_Source\PSoC4/tachTimer.c **** *******************************************************************************/
+ 346:.\Generated_Source\PSoC4/tachTimer.c **** void tachTimer_Disable(void)
+ 347:.\Generated_Source\PSoC4/tachTimer.c **** {
+ 216              		.loc 1 347 0
+ 217              		.cfi_startproc
+ 348:.\Generated_Source\PSoC4/tachTimer.c ****     /* Disable the general interrupt. */
+ 349:.\Generated_Source\PSoC4/tachTimer.c ****     *tachTimer_INTC_CLR_EN = tachTimer__INTC_MASK;
+ 218              		.loc 1 349 0
+ 219 0000 0222     		mov	r2, #2
+ 220 0002 014B     		ldr	r3, .L23
+ARM GAS  C:\Users\Alan\AppData\Local\Temp\ccKFavBa.s 			page 11
+
+
+ 221 0004 1A60     		str	r2, [r3]
+ 350:.\Generated_Source\PSoC4/tachTimer.c **** }
+ 222              		.loc 1 350 0
+ 223              		@ sp needed
+ 224 0006 7047     		bx	lr
+ 225              	.L24:
+ 226              		.align	2
+ 227              	.L23:
+ 228 0008 80E100E0 		.word	-536813184
+ 229              		.cfi_endproc
+ 230              	.LFE12:
+ 231              		.size	tachTimer_Disable, .-tachTimer_Disable
+ 232              		.section	.text.tachTimer_Start,"ax",%progbits
+ 233              		.align	2
+ 234              		.global	tachTimer_Start
+ 235              		.code	16
+ 236              		.thumb_func
+ 237              		.type	tachTimer_Start, %function
+ 238              	tachTimer_Start:
+ 239              	.LFB2:
+  57:.\Generated_Source\PSoC4/tachTimer.c ****     /* For all we know the interrupt is active. */
+ 240              		.loc 1 57 0
+ 241              		.cfi_startproc
+ 242 0000 08B5     		push	{r3, lr}
+ 243              		.cfi_def_cfa_offset 8
+ 244              		.cfi_offset 3, -8
+ 245              		.cfi_offset 14, -4
+  59:.\Generated_Source\PSoC4/tachTimer.c **** 
+ 246              		.loc 1 59 0
+ 247 0002 FFF7FEFF 		bl	tachTimer_Disable
+ 248              	.LVL8:
+  62:.\Generated_Source\PSoC4/tachTimer.c **** 
+ 249              		.loc 1 62 0
+ 250 0006 0448     		ldr	r0, .L26
+ 251 0008 FFF7FEFF 		bl	tachTimer_SetVector
+ 252              	.LVL9:
+  65:.\Generated_Source\PSoC4/tachTimer.c **** 
+ 253              		.loc 1 65 0
+ 254 000c 0320     		mov	r0, #3
+ 255 000e FFF7FEFF 		bl	tachTimer_SetPriority
+ 256              	.LVL10:
+  68:.\Generated_Source\PSoC4/tachTimer.c **** }
+ 257              		.loc 1 68 0
+ 258 0012 FFF7FEFF 		bl	tachTimer_Enable
+ 259              	.LVL11:
+  69:.\Generated_Source\PSoC4/tachTimer.c **** 
+ 260              		.loc 1 69 0
+ 261              		@ sp needed
+ 262 0016 08BD     		pop	{r3, pc}
+ 263              	.L27:
+ 264              		.align	2
+ 265              	.L26:
+ 266 0018 00000000 		.word	tachTimer_Interrupt
+ 267              		.cfi_endproc
+ 268              	.LFE2:
+ 269              		.size	tachTimer_Start, .-tachTimer_Start
+ 270              		.section	.text.tachTimer_StartEx,"ax",%progbits
+ARM GAS  C:\Users\Alan\AppData\Local\Temp\ccKFavBa.s 			page 12
+
+
+ 271              		.align	2
+ 272              		.global	tachTimer_StartEx
+ 273              		.code	16
+ 274              		.thumb_func
+ 275              		.type	tachTimer_StartEx, %function
+ 276              	tachTimer_StartEx:
+ 277              	.LFB3:
+ 100:.\Generated_Source\PSoC4/tachTimer.c ****     /* For all we know the interrupt is active. */
+ 278              		.loc 1 100 0
+ 279              		.cfi_startproc
+ 280              	.LVL12:
+ 281 0000 10B5     		push	{r4, lr}
+ 282              		.cfi_def_cfa_offset 8
+ 283              		.cfi_offset 4, -8
+ 284              		.cfi_offset 14, -4
+ 285 0002 041C     		mov	r4, r0
+ 102:.\Generated_Source\PSoC4/tachTimer.c **** 
+ 286              		.loc 1 102 0
+ 287 0004 FFF7FEFF 		bl	tachTimer_Disable
+ 288              	.LVL13:
+ 105:.\Generated_Source\PSoC4/tachTimer.c **** 
+ 289              		.loc 1 105 0
+ 290 0008 201C     		mov	r0, r4
+ 291 000a FFF7FEFF 		bl	tachTimer_SetVector
+ 292              	.LVL14:
+ 108:.\Generated_Source\PSoC4/tachTimer.c **** 
+ 293              		.loc 1 108 0
+ 294 000e 0320     		mov	r0, #3
+ 295 0010 FFF7FEFF 		bl	tachTimer_SetPriority
+ 296              	.LVL15:
+ 111:.\Generated_Source\PSoC4/tachTimer.c **** }
+ 297              		.loc 1 111 0
+ 298 0014 FFF7FEFF 		bl	tachTimer_Enable
+ 299              	.LVL16:
+ 112:.\Generated_Source\PSoC4/tachTimer.c **** 
+ 300              		.loc 1 112 0
+ 301              		@ sp needed
+ 302              	.LVL17:
+ 303 0018 10BD     		pop	{r4, pc}
+ 304              		.cfi_endproc
+ 305              	.LFE3:
+ 306              		.size	tachTimer_StartEx, .-tachTimer_StartEx
+ 307 001a C046     		.section	.text.tachTimer_Stop,"ax",%progbits
+ 308              		.align	2
+ 309              		.global	tachTimer_Stop
+ 310              		.code	16
+ 311              		.thumb_func
+ 312              		.type	tachTimer_Stop, %function
+ 313              	tachTimer_Stop:
+ 314              	.LFB4:
+ 130:.\Generated_Source\PSoC4/tachTimer.c ****     /* Disable this interrupt. */
+ 315              		.loc 1 130 0
+ 316              		.cfi_startproc
+ 317 0000 08B5     		push	{r3, lr}
+ 318              		.cfi_def_cfa_offset 8
+ 319              		.cfi_offset 3, -8
+ 320              		.cfi_offset 14, -4
+ARM GAS  C:\Users\Alan\AppData\Local\Temp\ccKFavBa.s 			page 13
+
+
+ 132:.\Generated_Source\PSoC4/tachTimer.c **** 
+ 321              		.loc 1 132 0
+ 322 0002 FFF7FEFF 		bl	tachTimer_Disable
+ 323              	.LVL18:
+ 135:.\Generated_Source\PSoC4/tachTimer.c **** }
+ 324              		.loc 1 135 0
+ 325 0006 0248     		ldr	r0, .L30
+ 326 0008 FFF7FEFF 		bl	tachTimer_SetVector
+ 327              	.LVL19:
+ 136:.\Generated_Source\PSoC4/tachTimer.c **** 
+ 328              		.loc 1 136 0
+ 329              		@ sp needed
+ 330 000c 08BD     		pop	{r3, pc}
+ 331              	.L31:
+ 332 000e C046     		.align	2
+ 333              	.L30:
+ 334 0010 00000000 		.word	IntDefaultHandler
+ 335              		.cfi_endproc
+ 336              	.LFE4:
+ 337              		.size	tachTimer_Stop, .-tachTimer_Stop
+ 338              		.section	.text.tachTimer_SetPending,"ax",%progbits
+ 339              		.align	2
+ 340              		.global	tachTimer_SetPending
+ 341              		.code	16
+ 342              		.thumb_func
+ 343              		.type	tachTimer_SetPending, %function
+ 344              	tachTimer_SetPending:
+ 345              	.LFB13:
+ 351:.\Generated_Source\PSoC4/tachTimer.c **** 
+ 352:.\Generated_Source\PSoC4/tachTimer.c **** 
+ 353:.\Generated_Source\PSoC4/tachTimer.c **** /*******************************************************************************
+ 354:.\Generated_Source\PSoC4/tachTimer.c **** * Function Name: tachTimer_SetPending
+ 355:.\Generated_Source\PSoC4/tachTimer.c **** ********************************************************************************
+ 356:.\Generated_Source\PSoC4/tachTimer.c **** *
+ 357:.\Generated_Source\PSoC4/tachTimer.c **** * Summary:
+ 358:.\Generated_Source\PSoC4/tachTimer.c **** *   Causes the Interrupt to enter the pending state, a software method of
+ 359:.\Generated_Source\PSoC4/tachTimer.c **** *   generating the interrupt.
+ 360:.\Generated_Source\PSoC4/tachTimer.c **** *
+ 361:.\Generated_Source\PSoC4/tachTimer.c **** * Parameters:
+ 362:.\Generated_Source\PSoC4/tachTimer.c **** *   None
+ 363:.\Generated_Source\PSoC4/tachTimer.c **** *
+ 364:.\Generated_Source\PSoC4/tachTimer.c **** * Return:
+ 365:.\Generated_Source\PSoC4/tachTimer.c **** *   None
+ 366:.\Generated_Source\PSoC4/tachTimer.c **** *
+ 367:.\Generated_Source\PSoC4/tachTimer.c **** * Side Effects:
+ 368:.\Generated_Source\PSoC4/tachTimer.c **** *   If interrupts are enabled and the interrupt is set up properly, the ISR is
+ 369:.\Generated_Source\PSoC4/tachTimer.c **** *   entered (depending on the priority of this interrupt and other pending 
+ 370:.\Generated_Source\PSoC4/tachTimer.c **** *   interrupts).
+ 371:.\Generated_Source\PSoC4/tachTimer.c **** *
+ 372:.\Generated_Source\PSoC4/tachTimer.c **** *******************************************************************************/
+ 373:.\Generated_Source\PSoC4/tachTimer.c **** void tachTimer_SetPending(void)
+ 374:.\Generated_Source\PSoC4/tachTimer.c **** {
+ 346              		.loc 1 374 0
+ 347              		.cfi_startproc
+ 375:.\Generated_Source\PSoC4/tachTimer.c ****     *tachTimer_INTC_SET_PD = tachTimer__INTC_MASK;
+ 348              		.loc 1 375 0
+ 349 0000 0222     		mov	r2, #2
+ARM GAS  C:\Users\Alan\AppData\Local\Temp\ccKFavBa.s 			page 14
+
+
+ 350 0002 014B     		ldr	r3, .L33
+ 351 0004 1A60     		str	r2, [r3]
+ 376:.\Generated_Source\PSoC4/tachTimer.c **** }
+ 352              		.loc 1 376 0
+ 353              		@ sp needed
+ 354 0006 7047     		bx	lr
+ 355              	.L34:
+ 356              		.align	2
+ 357              	.L33:
+ 358 0008 00E200E0 		.word	-536813056
+ 359              		.cfi_endproc
+ 360              	.LFE13:
+ 361              		.size	tachTimer_SetPending, .-tachTimer_SetPending
+ 362              		.section	.text.tachTimer_ClearPending,"ax",%progbits
+ 363              		.align	2
+ 364              		.global	tachTimer_ClearPending
+ 365              		.code	16
+ 366              		.thumb_func
+ 367              		.type	tachTimer_ClearPending, %function
+ 368              	tachTimer_ClearPending:
+ 369              	.LFB14:
+ 377:.\Generated_Source\PSoC4/tachTimer.c **** 
+ 378:.\Generated_Source\PSoC4/tachTimer.c **** 
+ 379:.\Generated_Source\PSoC4/tachTimer.c **** /*******************************************************************************
+ 380:.\Generated_Source\PSoC4/tachTimer.c **** * Function Name: tachTimer_ClearPending
+ 381:.\Generated_Source\PSoC4/tachTimer.c **** ********************************************************************************
+ 382:.\Generated_Source\PSoC4/tachTimer.c **** *
+ 383:.\Generated_Source\PSoC4/tachTimer.c **** * Summary:
+ 384:.\Generated_Source\PSoC4/tachTimer.c **** *   Clears a pending interrupt in the interrupt controller.
+ 385:.\Generated_Source\PSoC4/tachTimer.c **** *
+ 386:.\Generated_Source\PSoC4/tachTimer.c **** *   Note Some interrupt sources are clear-on-read and require the block 
+ 387:.\Generated_Source\PSoC4/tachTimer.c **** *   interrupt/status register to be read/cleared with the appropriate block API 
+ 388:.\Generated_Source\PSoC4/tachTimer.c **** *   (GPIO, UART, and so on). Otherwise the ISR will continue to remain in 
+ 389:.\Generated_Source\PSoC4/tachTimer.c **** *   pending state even though the interrupt itself is cleared using this API.
+ 390:.\Generated_Source\PSoC4/tachTimer.c **** *
+ 391:.\Generated_Source\PSoC4/tachTimer.c **** * Parameters:
+ 392:.\Generated_Source\PSoC4/tachTimer.c **** *   None
+ 393:.\Generated_Source\PSoC4/tachTimer.c **** *
+ 394:.\Generated_Source\PSoC4/tachTimer.c **** * Return:
+ 395:.\Generated_Source\PSoC4/tachTimer.c **** *   None
+ 396:.\Generated_Source\PSoC4/tachTimer.c **** *
+ 397:.\Generated_Source\PSoC4/tachTimer.c **** *******************************************************************************/
+ 398:.\Generated_Source\PSoC4/tachTimer.c **** void tachTimer_ClearPending(void)
+ 399:.\Generated_Source\PSoC4/tachTimer.c **** {
+ 370              		.loc 1 399 0
+ 371              		.cfi_startproc
+ 400:.\Generated_Source\PSoC4/tachTimer.c ****     *tachTimer_INTC_CLR_PD = tachTimer__INTC_MASK;
+ 372              		.loc 1 400 0
+ 373 0000 0222     		mov	r2, #2
+ 374 0002 014B     		ldr	r3, .L36
+ 375 0004 1A60     		str	r2, [r3]
+ 401:.\Generated_Source\PSoC4/tachTimer.c **** }
+ 376              		.loc 1 401 0
+ 377              		@ sp needed
+ 378 0006 7047     		bx	lr
+ 379              	.L37:
+ 380              		.align	2
+ARM GAS  C:\Users\Alan\AppData\Local\Temp\ccKFavBa.s 			page 15
+
+
+ 381              	.L36:
+ 382 0008 80E200E0 		.word	-536812928
+ 383              		.cfi_endproc
+ 384              	.LFE14:
+ 385              		.size	tachTimer_ClearPending, .-tachTimer_ClearPending
+ 386              		.text
+ 387              	.Letext0:
+ 388              		.file 2 "Generated_Source\\PSoC4/cytypes.h"
+ 389              		.file 3 "Generated_Source\\PSoC4/CyLib.h"
+ 390              		.section	.debug_info,"",%progbits
+ 391              	.Ldebug_info0:
+ 392 0000 FA020000 		.4byte	0x2fa
+ 393 0004 0400     		.2byte	0x4
+ 394 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 395 000a 04       		.byte	0x4
+ 396 000b 01       		.uleb128 0x1
+ 397 000c FF010000 		.4byte	.LASF33
+ 398 0010 01       		.byte	0x1
+ 399 0011 F4020000 		.4byte	.LASF34
+ 400 0015 6D000000 		.4byte	.LASF35
+ 401 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 402 001d 00000000 		.4byte	0
+ 403 0021 00000000 		.4byte	.Ldebug_line0
+ 404 0025 02       		.uleb128 0x2
+ 405 0026 01       		.byte	0x1
+ 406 0027 06       		.byte	0x6
+ 407 0028 D7020000 		.4byte	.LASF0
+ 408 002c 02       		.uleb128 0x2
+ 409 002d 01       		.byte	0x1
+ 410 002e 08       		.byte	0x8
+ 411 002f B0000000 		.4byte	.LASF1
+ 412 0033 02       		.uleb128 0x2
+ 413 0034 02       		.byte	0x2
+ 414 0035 05       		.byte	0x5
+ 415 0036 8D020000 		.4byte	.LASF2
+ 416 003a 02       		.uleb128 0x2
+ 417 003b 02       		.byte	0x2
+ 418 003c 07       		.byte	0x7
+ 419 003d 13000000 		.4byte	.LASF3
+ 420 0041 02       		.uleb128 0x2
+ 421 0042 04       		.byte	0x4
+ 422 0043 05       		.byte	0x5
+ 423 0044 BA020000 		.4byte	.LASF4
+ 424 0048 02       		.uleb128 0x2
+ 425 0049 04       		.byte	0x4
+ 426 004a 07       		.byte	0x7
+ 427 004b E3000000 		.4byte	.LASF5
+ 428 004f 02       		.uleb128 0x2
+ 429 0050 08       		.byte	0x8
+ 430 0051 05       		.byte	0x5
+ 431 0052 D6010000 		.4byte	.LASF6
+ 432 0056 02       		.uleb128 0x2
+ 433 0057 08       		.byte	0x8
+ 434 0058 07       		.byte	0x7
+ 435 0059 56000000 		.4byte	.LASF7
+ 436 005d 03       		.uleb128 0x3
+ 437 005e 04       		.byte	0x4
+ARM GAS  C:\Users\Alan\AppData\Local\Temp\ccKFavBa.s 			page 16
+
+
+ 438 005f 05       		.byte	0x5
+ 439 0060 696E7400 		.ascii	"int\000"
+ 440 0064 02       		.uleb128 0x2
+ 441 0065 04       		.byte	0x4
+ 442 0066 07       		.byte	0x7
+ 443 0067 80010000 		.4byte	.LASF8
+ 444 006b 04       		.uleb128 0x4
+ 445 006c 07010000 		.4byte	.LASF9
+ 446 0070 02       		.byte	0x2
+ 447 0071 C2       		.byte	0xc2
+ 448 0072 2C000000 		.4byte	0x2c
+ 449 0076 04       		.uleb128 0x4
+ 450 0077 62010000 		.4byte	.LASF10
+ 451 007b 02       		.byte	0x2
+ 452 007c C4       		.byte	0xc4
+ 453 007d 48000000 		.4byte	0x48
+ 454 0081 02       		.uleb128 0x2
+ 455 0082 04       		.byte	0x4
+ 456 0083 04       		.byte	0x4
+ 457 0084 50000000 		.4byte	.LASF11
+ 458 0088 02       		.uleb128 0x2
+ 459 0089 08       		.byte	0x8
+ 460 008a 04       		.byte	0x4
+ 461 008b 28010000 		.4byte	.LASF12
+ 462 008f 02       		.uleb128 0x2
+ 463 0090 01       		.byte	0x1
+ 464 0091 08       		.byte	0x8
+ 465 0092 FA010000 		.4byte	.LASF13
+ 466 0096 05       		.uleb128 0x5
+ 467 0097 00000000 		.4byte	.LASF14
+ 468 009b 02       		.byte	0x2
+ 469 009c 6E01     		.2byte	0x16e
+ 470 009e A2000000 		.4byte	0xa2
+ 471 00a2 06       		.uleb128 0x6
+ 472 00a3 76000000 		.4byte	0x76
+ 473 00a7 05       		.uleb128 0x5
+ 474 00a8 AB010000 		.4byte	.LASF15
+ 475 00ac 02       		.byte	0x2
+ 476 00ad 7E01     		.2byte	0x17e
+ 477 00af B3000000 		.4byte	0xb3
+ 478 00b3 07       		.uleb128 0x7
+ 479 00b4 04       		.byte	0x4
+ 480 00b5 B9000000 		.4byte	0xb9
+ 481 00b9 08       		.uleb128 0x8
+ 482 00ba 02       		.uleb128 0x2
+ 483 00bb 04       		.byte	0x4
+ 484 00bc 07       		.byte	0x7
+ 485 00bd CD010000 		.4byte	.LASF16
+ 486 00c1 09       		.uleb128 0x9
+ 487 00c2 C3020000 		.4byte	.LASF23
+ 488 00c6 01       		.byte	0x1
+ 489 00c7 9F       		.byte	0x9f
+ 490 00c8 00000000 		.4byte	.LFB5
+ 491 00cc 02000000 		.4byte	.LFE5-.LFB5
+ 492 00d0 01       		.uleb128 0x1
+ 493 00d1 9C       		.byte	0x9c
+ 494 00d2 0A       		.uleb128 0xa
+ARM GAS  C:\Users\Alan\AppData\Local\Temp\ccKFavBa.s 			page 17
+
+
+ 495 00d3 2F010000 		.4byte	.LASF17
+ 496 00d7 01       		.byte	0x1
+ 497 00d8 C7       		.byte	0xc7
+ 498 00d9 00000000 		.4byte	.LFB6
+ 499 00dd 0C000000 		.4byte	.LFE6-.LFB6
+ 500 00e1 01       		.uleb128 0x1
+ 501 00e2 9C       		.byte	0x9c
+ 502 00e3 F5000000 		.4byte	0xf5
+ 503 00e7 0B       		.uleb128 0xb
+ 504 00e8 8D010000 		.4byte	.LASF19
+ 505 00ec 01       		.byte	0x1
+ 506 00ed C7       		.byte	0xc7
+ 507 00ee A7000000 		.4byte	0xa7
+ 508 00f2 01       		.uleb128 0x1
+ 509 00f3 50       		.byte	0x50
+ 510 00f4 00       		.byte	0
+ 511 00f5 0C       		.uleb128 0xc
+ 512 00f6 A6020000 		.4byte	.LASF25
+ 513 00fa 01       		.byte	0x1
+ 514 00fb DB       		.byte	0xdb
+ 515 00fc A7000000 		.4byte	0xa7
+ 516 0100 00000000 		.4byte	.LFB7
+ 517 0104 0C000000 		.4byte	.LFE7-.LFB7
+ 518 0108 01       		.uleb128 0x1
+ 519 0109 9C       		.byte	0x9c
+ 520 010a 0A       		.uleb128 0xa
+ 521 010b E4010000 		.4byte	.LASF18
+ 522 010f 01       		.byte	0x1
+ 523 0110 F9       		.byte	0xf9
+ 524 0111 00000000 		.4byte	.LFB8
+ 525 0115 24000000 		.4byte	.LFE8-.LFB8
+ 526 0119 01       		.uleb128 0x1
+ 527 011a 9C       		.byte	0x9c
+ 528 011b 5C010000 		.4byte	0x15c
+ 529 011f 0D       		.uleb128 0xd
+ 530 0120 1F010000 		.4byte	.LASF20
+ 531 0124 01       		.byte	0x1
+ 532 0125 F9       		.byte	0xf9
+ 533 0126 6B000000 		.4byte	0x6b
+ 534 012a 00000000 		.4byte	.LLST0
+ 535 012e 0E       		.uleb128 0xe
+ 536 012f D4000000 		.4byte	.LASF21
+ 537 0133 01       		.byte	0x1
+ 538 0134 FB       		.byte	0xfb
+ 539 0135 6B000000 		.4byte	0x6b
+ 540 0139 21000000 		.4byte	.LLST1
+ 541 013d 0F       		.uleb128 0xf
+ 542 013e 97020000 		.4byte	.LASF22
+ 543 0142 01       		.byte	0x1
+ 544 0143 FC       		.byte	0xfc
+ 545 0144 76000000 		.4byte	0x76
+ 546 0148 0E       		.byte	0xe
+ 547 0149 10       		.uleb128 0x10
+ 548 014a 08000000 		.4byte	.LVL3
+ 549 014e E5020000 		.4byte	0x2e5
+ 550 0152 10       		.uleb128 0x10
+ 551 0153 1A000000 		.4byte	.LVL4
+ARM GAS  C:\Users\Alan\AppData\Local\Temp\ccKFavBa.s 			page 18
+
+
+ 552 0157 F0020000 		.4byte	0x2f0
+ 553 015b 00       		.byte	0
+ 554 015c 11       		.uleb128 0x11
+ 555 015d BE000000 		.4byte	.LASF36
+ 556 0161 01       		.byte	0x1
+ 557 0162 1501     		.2byte	0x115
+ 558 0164 6B000000 		.4byte	0x6b
+ 559 0168 00000000 		.4byte	.LFB9
+ 560 016c 10000000 		.4byte	.LFE9-.LFB9
+ 561 0170 01       		.uleb128 0x1
+ 562 0171 9C       		.byte	0x9c
+ 563 0172 94010000 		.4byte	0x194
+ 564 0176 12       		.uleb128 0x12
+ 565 0177 1F010000 		.4byte	.LASF20
+ 566 017b 01       		.byte	0x1
+ 567 017c 1701     		.2byte	0x117
+ 568 017e 76000000 		.4byte	0x76
+ 569 0182 34000000 		.4byte	.LLST2
+ 570 0186 13       		.uleb128 0x13
+ 571 0187 97020000 		.4byte	.LASF22
+ 572 018b 01       		.byte	0x1
+ 573 018c 1801     		.2byte	0x118
+ 574 018e 76000000 		.4byte	0x76
+ 575 0192 0E       		.byte	0xe
+ 576 0193 00       		.byte	0
+ 577 0194 14       		.uleb128 0x14
+ 578 0195 E3020000 		.4byte	.LASF24
+ 579 0199 01       		.byte	0x1
+ 580 019a 3001     		.2byte	0x130
+ 581 019c 00000000 		.4byte	.LFB10
+ 582 01a0 0C000000 		.4byte	.LFE10-.LFB10
+ 583 01a4 01       		.uleb128 0x1
+ 584 01a5 9C       		.byte	0x9c
+ 585 01a6 15       		.uleb128 0x15
+ 586 01a7 26000000 		.4byte	.LASF26
+ 587 01ab 01       		.byte	0x1
+ 588 01ac 4501     		.2byte	0x145
+ 589 01ae 6B000000 		.4byte	0x6b
+ 590 01b2 00000000 		.4byte	.LFB11
+ 591 01b6 14000000 		.4byte	.LFE11-.LFB11
+ 592 01ba 01       		.uleb128 0x1
+ 593 01bb 9C       		.byte	0x9c
+ 594 01bc 14       		.uleb128 0x14
+ 595 01bd F5000000 		.4byte	.LASF27
+ 596 01c1 01       		.byte	0x1
+ 597 01c2 5A01     		.2byte	0x15a
+ 598 01c4 00000000 		.4byte	.LFB12
+ 599 01c8 0C000000 		.4byte	.LFE12-.LFB12
+ 600 01cc 01       		.uleb128 0x1
+ 601 01cd 9C       		.byte	0x9c
+ 602 01ce 0A       		.uleb128 0xa
+ 603 01cf 43010000 		.4byte	.LASF28
+ 604 01d3 01       		.byte	0x1
+ 605 01d4 38       		.byte	0x38
+ 606 01d5 00000000 		.4byte	.LFB2
+ 607 01d9 1C000000 		.4byte	.LFE2-.LFB2
+ 608 01dd 01       		.uleb128 0x1
+ARM GAS  C:\Users\Alan\AppData\Local\Temp\ccKFavBa.s 			page 19
+
+
+ 609 01de 9C       		.byte	0x9c
+ 610 01df 20020000 		.4byte	0x220
+ 611 01e3 10       		.uleb128 0x10
+ 612 01e4 06000000 		.4byte	.LVL8
+ 613 01e8 BC010000 		.4byte	0x1bc
+ 614 01ec 16       		.uleb128 0x16
+ 615 01ed 0C000000 		.4byte	.LVL9
+ 616 01f1 D2000000 		.4byte	0xd2
+ 617 01f5 03020000 		.4byte	0x203
+ 618 01f9 17       		.uleb128 0x17
+ 619 01fa 01       		.uleb128 0x1
+ 620 01fb 50       		.byte	0x50
+ 621 01fc 05       		.uleb128 0x5
+ 622 01fd 03       		.byte	0x3
+ 623 01fe 00000000 		.4byte	tachTimer_Interrupt
+ 624 0202 00       		.byte	0
+ 625 0203 16       		.uleb128 0x16
+ 626 0204 12000000 		.4byte	.LVL10
+ 627 0208 0A010000 		.4byte	0x10a
+ 628 020c 16020000 		.4byte	0x216
+ 629 0210 17       		.uleb128 0x17
+ 630 0211 01       		.uleb128 0x1
+ 631 0212 50       		.byte	0x50
+ 632 0213 01       		.uleb128 0x1
+ 633 0214 33       		.byte	0x33
+ 634 0215 00       		.byte	0
+ 635 0216 10       		.uleb128 0x10
+ 636 0217 16000000 		.4byte	.LVL11
+ 637 021b 94010000 		.4byte	0x194
+ 638 021f 00       		.byte	0
+ 639 0220 0A       		.uleb128 0xa
+ 640 0221 0D010000 		.4byte	.LASF29
+ 641 0225 01       		.byte	0x1
+ 642 0226 63       		.byte	0x63
+ 643 0227 00000000 		.4byte	.LFB3
+ 644 022b 1A000000 		.4byte	.LFE3-.LFB3
+ 645 022f 01       		.uleb128 0x1
+ 646 0230 9C       		.byte	0x9c
+ 647 0231 7E020000 		.4byte	0x27e
+ 648 0235 0D       		.uleb128 0xd
+ 649 0236 8D010000 		.4byte	.LASF19
+ 650 023a 01       		.byte	0x1
+ 651 023b 63       		.byte	0x63
+ 652 023c A7000000 		.4byte	0xa7
+ 653 0240 56000000 		.4byte	.LLST3
+ 654 0244 10       		.uleb128 0x10
+ 655 0245 08000000 		.4byte	.LVL13
+ 656 0249 BC010000 		.4byte	0x1bc
+ 657 024d 16       		.uleb128 0x16
+ 658 024e 0E000000 		.4byte	.LVL14
+ 659 0252 D2000000 		.4byte	0xd2
+ 660 0256 61020000 		.4byte	0x261
+ 661 025a 17       		.uleb128 0x17
+ 662 025b 01       		.uleb128 0x1
+ 663 025c 50       		.byte	0x50
+ 664 025d 02       		.uleb128 0x2
+ 665 025e 74       		.byte	0x74
+ARM GAS  C:\Users\Alan\AppData\Local\Temp\ccKFavBa.s 			page 20
+
+
+ 666 025f 00       		.sleb128 0
+ 667 0260 00       		.byte	0
+ 668 0261 16       		.uleb128 0x16
+ 669 0262 14000000 		.4byte	.LVL15
+ 670 0266 0A010000 		.4byte	0x10a
+ 671 026a 74020000 		.4byte	0x274
+ 672 026e 17       		.uleb128 0x17
+ 673 026f 01       		.uleb128 0x1
+ 674 0270 50       		.byte	0x50
+ 675 0271 01       		.uleb128 0x1
+ 676 0272 33       		.byte	0x33
+ 677 0273 00       		.byte	0
+ 678 0274 10       		.uleb128 0x10
+ 679 0275 18000000 		.4byte	.LVL16
+ 680 0279 94010000 		.4byte	0x194
+ 681 027d 00       		.byte	0
+ 682 027e 0A       		.uleb128 0xa
+ 683 027f 53010000 		.4byte	.LASF30
+ 684 0283 01       		.byte	0x1
+ 685 0284 81       		.byte	0x81
+ 686 0285 00000000 		.4byte	.LFB4
+ 687 0289 14000000 		.4byte	.LFE4-.LFB4
+ 688 028d 01       		.uleb128 0x1
+ 689 028e 9C       		.byte	0x9c
+ 690 028f A6020000 		.4byte	0x2a6
+ 691 0293 10       		.uleb128 0x10
+ 692 0294 06000000 		.4byte	.LVL18
+ 693 0298 BC010000 		.4byte	0x1bc
+ 694 029c 10       		.uleb128 0x10
+ 695 029d 0C000000 		.4byte	.LVL19
+ 696 02a1 D2000000 		.4byte	0xd2
+ 697 02a5 00       		.byte	0
+ 698 02a6 14       		.uleb128 0x14
+ 699 02a7 B8010000 		.4byte	.LASF31
+ 700 02ab 01       		.byte	0x1
+ 701 02ac 7501     		.2byte	0x175
+ 702 02ae 00000000 		.4byte	.LFB13
+ 703 02b2 0C000000 		.4byte	.LFE13-.LFB13
+ 704 02b6 01       		.uleb128 0x1
+ 705 02b7 9C       		.byte	0x9c
+ 706 02b8 14       		.uleb128 0x14
+ 707 02b9 39000000 		.4byte	.LASF32
+ 708 02bd 01       		.byte	0x1
+ 709 02be 8E01     		.2byte	0x18e
+ 710 02c0 00000000 		.4byte	.LFB14
+ 711 02c4 0C000000 		.4byte	.LFE14-.LFB14
+ 712 02c8 01       		.uleb128 0x1
+ 713 02c9 9C       		.byte	0x9c
+ 714 02ca 18       		.uleb128 0x18
+ 715 02cb A7000000 		.4byte	0xa7
+ 716 02cf DA020000 		.4byte	0x2da
+ 717 02d3 19       		.uleb128 0x19
+ 718 02d4 BA000000 		.4byte	0xba
+ 719 02d8 2F       		.byte	0x2f
+ 720 02d9 00       		.byte	0
+ 721 02da 1A       		.uleb128 0x1a
+ 722 02db 06000000 		.4byte	.LASF37
+ARM GAS  C:\Users\Alan\AppData\Local\Temp\ccKFavBa.s 			page 21
+
+
+ 723 02df 01       		.byte	0x1
+ 724 02e0 21       		.byte	0x21
+ 725 02e1 CA020000 		.4byte	0x2ca
+ 726 02e5 1B       		.uleb128 0x1b
+ 727 02e6 69010000 		.4byte	.LASF38
+ 728 02ea 03       		.byte	0x3
+ 729 02eb 5E       		.byte	0x5e
+ 730 02ec 6B000000 		.4byte	0x6b
+ 731 02f0 1C       		.uleb128 0x1c
+ 732 02f1 95010000 		.4byte	.LASF39
+ 733 02f5 03       		.byte	0x3
+ 734 02f6 5F       		.byte	0x5f
+ 735 02f7 1D       		.uleb128 0x1d
+ 736 02f8 6B000000 		.4byte	0x6b
+ 737 02fc 00       		.byte	0
+ 738 02fd 00       		.byte	0
+ 739              		.section	.debug_abbrev,"",%progbits
+ 740              	.Ldebug_abbrev0:
+ 741 0000 01       		.uleb128 0x1
+ 742 0001 11       		.uleb128 0x11
+ 743 0002 01       		.byte	0x1
+ 744 0003 25       		.uleb128 0x25
+ 745 0004 0E       		.uleb128 0xe
+ 746 0005 13       		.uleb128 0x13
+ 747 0006 0B       		.uleb128 0xb
+ 748 0007 03       		.uleb128 0x3
+ 749 0008 0E       		.uleb128 0xe
+ 750 0009 1B       		.uleb128 0x1b
+ 751 000a 0E       		.uleb128 0xe
+ 752 000b 55       		.uleb128 0x55
+ 753 000c 17       		.uleb128 0x17
+ 754 000d 11       		.uleb128 0x11
+ 755 000e 01       		.uleb128 0x1
+ 756 000f 10       		.uleb128 0x10
+ 757 0010 17       		.uleb128 0x17
+ 758 0011 00       		.byte	0
+ 759 0012 00       		.byte	0
+ 760 0013 02       		.uleb128 0x2
+ 761 0014 24       		.uleb128 0x24
+ 762 0015 00       		.byte	0
+ 763 0016 0B       		.uleb128 0xb
+ 764 0017 0B       		.uleb128 0xb
+ 765 0018 3E       		.uleb128 0x3e
+ 766 0019 0B       		.uleb128 0xb
+ 767 001a 03       		.uleb128 0x3
+ 768 001b 0E       		.uleb128 0xe
+ 769 001c 00       		.byte	0
+ 770 001d 00       		.byte	0
+ 771 001e 03       		.uleb128 0x3
+ 772 001f 24       		.uleb128 0x24
+ 773 0020 00       		.byte	0
+ 774 0021 0B       		.uleb128 0xb
+ 775 0022 0B       		.uleb128 0xb
+ 776 0023 3E       		.uleb128 0x3e
+ 777 0024 0B       		.uleb128 0xb
+ 778 0025 03       		.uleb128 0x3
+ 779 0026 08       		.uleb128 0x8
+ARM GAS  C:\Users\Alan\AppData\Local\Temp\ccKFavBa.s 			page 22
+
+
+ 780 0027 00       		.byte	0
+ 781 0028 00       		.byte	0
+ 782 0029 04       		.uleb128 0x4
+ 783 002a 16       		.uleb128 0x16
+ 784 002b 00       		.byte	0
+ 785 002c 03       		.uleb128 0x3
+ 786 002d 0E       		.uleb128 0xe
+ 787 002e 3A       		.uleb128 0x3a
+ 788 002f 0B       		.uleb128 0xb
+ 789 0030 3B       		.uleb128 0x3b
+ 790 0031 0B       		.uleb128 0xb
+ 791 0032 49       		.uleb128 0x49
+ 792 0033 13       		.uleb128 0x13
+ 793 0034 00       		.byte	0
+ 794 0035 00       		.byte	0
+ 795 0036 05       		.uleb128 0x5
+ 796 0037 16       		.uleb128 0x16
+ 797 0038 00       		.byte	0
+ 798 0039 03       		.uleb128 0x3
+ 799 003a 0E       		.uleb128 0xe
+ 800 003b 3A       		.uleb128 0x3a
+ 801 003c 0B       		.uleb128 0xb
+ 802 003d 3B       		.uleb128 0x3b
+ 803 003e 05       		.uleb128 0x5
+ 804 003f 49       		.uleb128 0x49
+ 805 0040 13       		.uleb128 0x13
+ 806 0041 00       		.byte	0
+ 807 0042 00       		.byte	0
+ 808 0043 06       		.uleb128 0x6
+ 809 0044 35       		.uleb128 0x35
+ 810 0045 00       		.byte	0
+ 811 0046 49       		.uleb128 0x49
+ 812 0047 13       		.uleb128 0x13
+ 813 0048 00       		.byte	0
+ 814 0049 00       		.byte	0
+ 815 004a 07       		.uleb128 0x7
+ 816 004b 0F       		.uleb128 0xf
+ 817 004c 00       		.byte	0
+ 818 004d 0B       		.uleb128 0xb
+ 819 004e 0B       		.uleb128 0xb
+ 820 004f 49       		.uleb128 0x49
+ 821 0050 13       		.uleb128 0x13
+ 822 0051 00       		.byte	0
+ 823 0052 00       		.byte	0
+ 824 0053 08       		.uleb128 0x8
+ 825 0054 15       		.uleb128 0x15
+ 826 0055 00       		.byte	0
+ 827 0056 27       		.uleb128 0x27
+ 828 0057 19       		.uleb128 0x19
+ 829 0058 00       		.byte	0
+ 830 0059 00       		.byte	0
+ 831 005a 09       		.uleb128 0x9
+ 832 005b 2E       		.uleb128 0x2e
+ 833 005c 00       		.byte	0
+ 834 005d 3F       		.uleb128 0x3f
+ 835 005e 19       		.uleb128 0x19
+ 836 005f 03       		.uleb128 0x3
+ARM GAS  C:\Users\Alan\AppData\Local\Temp\ccKFavBa.s 			page 23
+
+
+ 837 0060 0E       		.uleb128 0xe
+ 838 0061 3A       		.uleb128 0x3a
+ 839 0062 0B       		.uleb128 0xb
+ 840 0063 3B       		.uleb128 0x3b
+ 841 0064 0B       		.uleb128 0xb
+ 842 0065 27       		.uleb128 0x27
+ 843 0066 19       		.uleb128 0x19
+ 844 0067 11       		.uleb128 0x11
+ 845 0068 01       		.uleb128 0x1
+ 846 0069 12       		.uleb128 0x12
+ 847 006a 06       		.uleb128 0x6
+ 848 006b 40       		.uleb128 0x40
+ 849 006c 18       		.uleb128 0x18
+ 850 006d 9742     		.uleb128 0x2117
+ 851 006f 19       		.uleb128 0x19
+ 852 0070 00       		.byte	0
+ 853 0071 00       		.byte	0
+ 854 0072 0A       		.uleb128 0xa
+ 855 0073 2E       		.uleb128 0x2e
+ 856 0074 01       		.byte	0x1
+ 857 0075 3F       		.uleb128 0x3f
+ 858 0076 19       		.uleb128 0x19
+ 859 0077 03       		.uleb128 0x3
+ 860 0078 0E       		.uleb128 0xe
+ 861 0079 3A       		.uleb128 0x3a
+ 862 007a 0B       		.uleb128 0xb
+ 863 007b 3B       		.uleb128 0x3b
+ 864 007c 0B       		.uleb128 0xb
+ 865 007d 27       		.uleb128 0x27
+ 866 007e 19       		.uleb128 0x19
+ 867 007f 11       		.uleb128 0x11
+ 868 0080 01       		.uleb128 0x1
+ 869 0081 12       		.uleb128 0x12
+ 870 0082 06       		.uleb128 0x6
+ 871 0083 40       		.uleb128 0x40
+ 872 0084 18       		.uleb128 0x18
+ 873 0085 9742     		.uleb128 0x2117
+ 874 0087 19       		.uleb128 0x19
+ 875 0088 01       		.uleb128 0x1
+ 876 0089 13       		.uleb128 0x13
+ 877 008a 00       		.byte	0
+ 878 008b 00       		.byte	0
+ 879 008c 0B       		.uleb128 0xb
+ 880 008d 05       		.uleb128 0x5
+ 881 008e 00       		.byte	0
+ 882 008f 03       		.uleb128 0x3
+ 883 0090 0E       		.uleb128 0xe
+ 884 0091 3A       		.uleb128 0x3a
+ 885 0092 0B       		.uleb128 0xb
+ 886 0093 3B       		.uleb128 0x3b
+ 887 0094 0B       		.uleb128 0xb
+ 888 0095 49       		.uleb128 0x49
+ 889 0096 13       		.uleb128 0x13
+ 890 0097 02       		.uleb128 0x2
+ 891 0098 18       		.uleb128 0x18
+ 892 0099 00       		.byte	0
+ 893 009a 00       		.byte	0
+ARM GAS  C:\Users\Alan\AppData\Local\Temp\ccKFavBa.s 			page 24
+
+
+ 894 009b 0C       		.uleb128 0xc
+ 895 009c 2E       		.uleb128 0x2e
+ 896 009d 00       		.byte	0
+ 897 009e 3F       		.uleb128 0x3f
+ 898 009f 19       		.uleb128 0x19
+ 899 00a0 03       		.uleb128 0x3
+ 900 00a1 0E       		.uleb128 0xe
+ 901 00a2 3A       		.uleb128 0x3a
+ 902 00a3 0B       		.uleb128 0xb
+ 903 00a4 3B       		.uleb128 0x3b
+ 904 00a5 0B       		.uleb128 0xb
+ 905 00a6 27       		.uleb128 0x27
+ 906 00a7 19       		.uleb128 0x19
+ 907 00a8 49       		.uleb128 0x49
+ 908 00a9 13       		.uleb128 0x13
+ 909 00aa 11       		.uleb128 0x11
+ 910 00ab 01       		.uleb128 0x1
+ 911 00ac 12       		.uleb128 0x12
+ 912 00ad 06       		.uleb128 0x6
+ 913 00ae 40       		.uleb128 0x40
+ 914 00af 18       		.uleb128 0x18
+ 915 00b0 9742     		.uleb128 0x2117
+ 916 00b2 19       		.uleb128 0x19
+ 917 00b3 00       		.byte	0
+ 918 00b4 00       		.byte	0
+ 919 00b5 0D       		.uleb128 0xd
+ 920 00b6 05       		.uleb128 0x5
+ 921 00b7 00       		.byte	0
+ 922 00b8 03       		.uleb128 0x3
+ 923 00b9 0E       		.uleb128 0xe
+ 924 00ba 3A       		.uleb128 0x3a
+ 925 00bb 0B       		.uleb128 0xb
+ 926 00bc 3B       		.uleb128 0x3b
+ 927 00bd 0B       		.uleb128 0xb
+ 928 00be 49       		.uleb128 0x49
+ 929 00bf 13       		.uleb128 0x13
+ 930 00c0 02       		.uleb128 0x2
+ 931 00c1 17       		.uleb128 0x17
+ 932 00c2 00       		.byte	0
+ 933 00c3 00       		.byte	0
+ 934 00c4 0E       		.uleb128 0xe
+ 935 00c5 34       		.uleb128 0x34
+ 936 00c6 00       		.byte	0
+ 937 00c7 03       		.uleb128 0x3
+ 938 00c8 0E       		.uleb128 0xe
+ 939 00c9 3A       		.uleb128 0x3a
+ 940 00ca 0B       		.uleb128 0xb
+ 941 00cb 3B       		.uleb128 0x3b
+ 942 00cc 0B       		.uleb128 0xb
+ 943 00cd 49       		.uleb128 0x49
+ 944 00ce 13       		.uleb128 0x13
+ 945 00cf 02       		.uleb128 0x2
+ 946 00d0 17       		.uleb128 0x17
+ 947 00d1 00       		.byte	0
+ 948 00d2 00       		.byte	0
+ 949 00d3 0F       		.uleb128 0xf
+ 950 00d4 34       		.uleb128 0x34
+ARM GAS  C:\Users\Alan\AppData\Local\Temp\ccKFavBa.s 			page 25
+
+
+ 951 00d5 00       		.byte	0
+ 952 00d6 03       		.uleb128 0x3
+ 953 00d7 0E       		.uleb128 0xe
+ 954 00d8 3A       		.uleb128 0x3a
+ 955 00d9 0B       		.uleb128 0xb
+ 956 00da 3B       		.uleb128 0x3b
+ 957 00db 0B       		.uleb128 0xb
+ 958 00dc 49       		.uleb128 0x49
+ 959 00dd 13       		.uleb128 0x13
+ 960 00de 1C       		.uleb128 0x1c
+ 961 00df 0B       		.uleb128 0xb
+ 962 00e0 00       		.byte	0
+ 963 00e1 00       		.byte	0
+ 964 00e2 10       		.uleb128 0x10
+ 965 00e3 898201   		.uleb128 0x4109
+ 966 00e6 00       		.byte	0
+ 967 00e7 11       		.uleb128 0x11
+ 968 00e8 01       		.uleb128 0x1
+ 969 00e9 31       		.uleb128 0x31
+ 970 00ea 13       		.uleb128 0x13
+ 971 00eb 00       		.byte	0
+ 972 00ec 00       		.byte	0
+ 973 00ed 11       		.uleb128 0x11
+ 974 00ee 2E       		.uleb128 0x2e
+ 975 00ef 01       		.byte	0x1
+ 976 00f0 3F       		.uleb128 0x3f
+ 977 00f1 19       		.uleb128 0x19
+ 978 00f2 03       		.uleb128 0x3
+ 979 00f3 0E       		.uleb128 0xe
+ 980 00f4 3A       		.uleb128 0x3a
+ 981 00f5 0B       		.uleb128 0xb
+ 982 00f6 3B       		.uleb128 0x3b
+ 983 00f7 05       		.uleb128 0x5
+ 984 00f8 27       		.uleb128 0x27
+ 985 00f9 19       		.uleb128 0x19
+ 986 00fa 49       		.uleb128 0x49
+ 987 00fb 13       		.uleb128 0x13
+ 988 00fc 11       		.uleb128 0x11
+ 989 00fd 01       		.uleb128 0x1
+ 990 00fe 12       		.uleb128 0x12
+ 991 00ff 06       		.uleb128 0x6
+ 992 0100 40       		.uleb128 0x40
+ 993 0101 18       		.uleb128 0x18
+ 994 0102 9742     		.uleb128 0x2117
+ 995 0104 19       		.uleb128 0x19
+ 996 0105 01       		.uleb128 0x1
+ 997 0106 13       		.uleb128 0x13
+ 998 0107 00       		.byte	0
+ 999 0108 00       		.byte	0
+ 1000 0109 12       		.uleb128 0x12
+ 1001 010a 34       		.uleb128 0x34
+ 1002 010b 00       		.byte	0
+ 1003 010c 03       		.uleb128 0x3
+ 1004 010d 0E       		.uleb128 0xe
+ 1005 010e 3A       		.uleb128 0x3a
+ 1006 010f 0B       		.uleb128 0xb
+ 1007 0110 3B       		.uleb128 0x3b
+ARM GAS  C:\Users\Alan\AppData\Local\Temp\ccKFavBa.s 			page 26
+
+
+ 1008 0111 05       		.uleb128 0x5
+ 1009 0112 49       		.uleb128 0x49
+ 1010 0113 13       		.uleb128 0x13
+ 1011 0114 02       		.uleb128 0x2
+ 1012 0115 17       		.uleb128 0x17
+ 1013 0116 00       		.byte	0
+ 1014 0117 00       		.byte	0
+ 1015 0118 13       		.uleb128 0x13
+ 1016 0119 34       		.uleb128 0x34
+ 1017 011a 00       		.byte	0
+ 1018 011b 03       		.uleb128 0x3
+ 1019 011c 0E       		.uleb128 0xe
+ 1020 011d 3A       		.uleb128 0x3a
+ 1021 011e 0B       		.uleb128 0xb
+ 1022 011f 3B       		.uleb128 0x3b
+ 1023 0120 05       		.uleb128 0x5
+ 1024 0121 49       		.uleb128 0x49
+ 1025 0122 13       		.uleb128 0x13
+ 1026 0123 1C       		.uleb128 0x1c
+ 1027 0124 0B       		.uleb128 0xb
+ 1028 0125 00       		.byte	0
+ 1029 0126 00       		.byte	0
+ 1030 0127 14       		.uleb128 0x14
+ 1031 0128 2E       		.uleb128 0x2e
+ 1032 0129 00       		.byte	0
+ 1033 012a 3F       		.uleb128 0x3f
+ 1034 012b 19       		.uleb128 0x19
+ 1035 012c 03       		.uleb128 0x3
+ 1036 012d 0E       		.uleb128 0xe
+ 1037 012e 3A       		.uleb128 0x3a
+ 1038 012f 0B       		.uleb128 0xb
+ 1039 0130 3B       		.uleb128 0x3b
+ 1040 0131 05       		.uleb128 0x5
+ 1041 0132 27       		.uleb128 0x27
+ 1042 0133 19       		.uleb128 0x19
+ 1043 0134 11       		.uleb128 0x11
+ 1044 0135 01       		.uleb128 0x1
+ 1045 0136 12       		.uleb128 0x12
+ 1046 0137 06       		.uleb128 0x6
+ 1047 0138 40       		.uleb128 0x40
+ 1048 0139 18       		.uleb128 0x18
+ 1049 013a 9742     		.uleb128 0x2117
+ 1050 013c 19       		.uleb128 0x19
+ 1051 013d 00       		.byte	0
+ 1052 013e 00       		.byte	0
+ 1053 013f 15       		.uleb128 0x15
+ 1054 0140 2E       		.uleb128 0x2e
+ 1055 0141 00       		.byte	0
+ 1056 0142 3F       		.uleb128 0x3f
+ 1057 0143 19       		.uleb128 0x19
+ 1058 0144 03       		.uleb128 0x3
+ 1059 0145 0E       		.uleb128 0xe
+ 1060 0146 3A       		.uleb128 0x3a
+ 1061 0147 0B       		.uleb128 0xb
+ 1062 0148 3B       		.uleb128 0x3b
+ 1063 0149 05       		.uleb128 0x5
+ 1064 014a 27       		.uleb128 0x27
+ARM GAS  C:\Users\Alan\AppData\Local\Temp\ccKFavBa.s 			page 27
+
+
+ 1065 014b 19       		.uleb128 0x19
+ 1066 014c 49       		.uleb128 0x49
+ 1067 014d 13       		.uleb128 0x13
+ 1068 014e 11       		.uleb128 0x11
+ 1069 014f 01       		.uleb128 0x1
+ 1070 0150 12       		.uleb128 0x12
+ 1071 0151 06       		.uleb128 0x6
+ 1072 0152 40       		.uleb128 0x40
+ 1073 0153 18       		.uleb128 0x18
+ 1074 0154 9742     		.uleb128 0x2117
+ 1075 0156 19       		.uleb128 0x19
+ 1076 0157 00       		.byte	0
+ 1077 0158 00       		.byte	0
+ 1078 0159 16       		.uleb128 0x16
+ 1079 015a 898201   		.uleb128 0x4109
+ 1080 015d 01       		.byte	0x1
+ 1081 015e 11       		.uleb128 0x11
+ 1082 015f 01       		.uleb128 0x1
+ 1083 0160 31       		.uleb128 0x31
+ 1084 0161 13       		.uleb128 0x13
+ 1085 0162 01       		.uleb128 0x1
+ 1086 0163 13       		.uleb128 0x13
+ 1087 0164 00       		.byte	0
+ 1088 0165 00       		.byte	0
+ 1089 0166 17       		.uleb128 0x17
+ 1090 0167 8A8201   		.uleb128 0x410a
+ 1091 016a 00       		.byte	0
+ 1092 016b 02       		.uleb128 0x2
+ 1093 016c 18       		.uleb128 0x18
+ 1094 016d 9142     		.uleb128 0x2111
+ 1095 016f 18       		.uleb128 0x18
+ 1096 0170 00       		.byte	0
+ 1097 0171 00       		.byte	0
+ 1098 0172 18       		.uleb128 0x18
+ 1099 0173 01       		.uleb128 0x1
+ 1100 0174 01       		.byte	0x1
+ 1101 0175 49       		.uleb128 0x49
+ 1102 0176 13       		.uleb128 0x13
+ 1103 0177 01       		.uleb128 0x1
+ 1104 0178 13       		.uleb128 0x13
+ 1105 0179 00       		.byte	0
+ 1106 017a 00       		.byte	0
+ 1107 017b 19       		.uleb128 0x19
+ 1108 017c 21       		.uleb128 0x21
+ 1109 017d 00       		.byte	0
+ 1110 017e 49       		.uleb128 0x49
+ 1111 017f 13       		.uleb128 0x13
+ 1112 0180 2F       		.uleb128 0x2f
+ 1113 0181 0B       		.uleb128 0xb
+ 1114 0182 00       		.byte	0
+ 1115 0183 00       		.byte	0
+ 1116 0184 1A       		.uleb128 0x1a
+ 1117 0185 34       		.uleb128 0x34
+ 1118 0186 00       		.byte	0
+ 1119 0187 03       		.uleb128 0x3
+ 1120 0188 0E       		.uleb128 0xe
+ 1121 0189 3A       		.uleb128 0x3a
+ARM GAS  C:\Users\Alan\AppData\Local\Temp\ccKFavBa.s 			page 28
+
+
+ 1122 018a 0B       		.uleb128 0xb
+ 1123 018b 3B       		.uleb128 0x3b
+ 1124 018c 0B       		.uleb128 0xb
+ 1125 018d 49       		.uleb128 0x49
+ 1126 018e 13       		.uleb128 0x13
+ 1127 018f 3F       		.uleb128 0x3f
+ 1128 0190 19       		.uleb128 0x19
+ 1129 0191 3C       		.uleb128 0x3c
+ 1130 0192 19       		.uleb128 0x19
+ 1131 0193 00       		.byte	0
+ 1132 0194 00       		.byte	0
+ 1133 0195 1B       		.uleb128 0x1b
+ 1134 0196 2E       		.uleb128 0x2e
+ 1135 0197 00       		.byte	0
+ 1136 0198 3F       		.uleb128 0x3f
+ 1137 0199 19       		.uleb128 0x19
+ 1138 019a 03       		.uleb128 0x3
+ 1139 019b 0E       		.uleb128 0xe
+ 1140 019c 3A       		.uleb128 0x3a
+ 1141 019d 0B       		.uleb128 0xb
+ 1142 019e 3B       		.uleb128 0x3b
+ 1143 019f 0B       		.uleb128 0xb
+ 1144 01a0 27       		.uleb128 0x27
+ 1145 01a1 19       		.uleb128 0x19
+ 1146 01a2 49       		.uleb128 0x49
+ 1147 01a3 13       		.uleb128 0x13
+ 1148 01a4 3C       		.uleb128 0x3c
+ 1149 01a5 19       		.uleb128 0x19
+ 1150 01a6 00       		.byte	0
+ 1151 01a7 00       		.byte	0
+ 1152 01a8 1C       		.uleb128 0x1c
+ 1153 01a9 2E       		.uleb128 0x2e
+ 1154 01aa 01       		.byte	0x1
+ 1155 01ab 3F       		.uleb128 0x3f
+ 1156 01ac 19       		.uleb128 0x19
+ 1157 01ad 03       		.uleb128 0x3
+ 1158 01ae 0E       		.uleb128 0xe
+ 1159 01af 3A       		.uleb128 0x3a
+ 1160 01b0 0B       		.uleb128 0xb
+ 1161 01b1 3B       		.uleb128 0x3b
+ 1162 01b2 0B       		.uleb128 0xb
+ 1163 01b3 27       		.uleb128 0x27
+ 1164 01b4 19       		.uleb128 0x19
+ 1165 01b5 3C       		.uleb128 0x3c
+ 1166 01b6 19       		.uleb128 0x19
+ 1167 01b7 00       		.byte	0
+ 1168 01b8 00       		.byte	0
+ 1169 01b9 1D       		.uleb128 0x1d
+ 1170 01ba 05       		.uleb128 0x5
+ 1171 01bb 00       		.byte	0
+ 1172 01bc 49       		.uleb128 0x49
+ 1173 01bd 13       		.uleb128 0x13
+ 1174 01be 00       		.byte	0
+ 1175 01bf 00       		.byte	0
+ 1176 01c0 00       		.byte	0
+ 1177              		.section	.debug_loc,"",%progbits
+ 1178              	.Ldebug_loc0:
+ARM GAS  C:\Users\Alan\AppData\Local\Temp\ccKFavBa.s 			page 29
+
+
+ 1179              	.LLST0:
+ 1180 0000 00000000 		.4byte	.LVL1
+ 1181 0004 07000000 		.4byte	.LVL3-1
+ 1182 0008 0100     		.2byte	0x1
+ 1183 000a 50       		.byte	0x50
+ 1184 000b 07000000 		.4byte	.LVL3-1
+ 1185 000f 24000000 		.4byte	.LFE8
+ 1186 0013 0400     		.2byte	0x4
+ 1187 0015 F3       		.byte	0xf3
+ 1188 0016 01       		.uleb128 0x1
+ 1189 0017 50       		.byte	0x50
+ 1190 0018 9F       		.byte	0x9f
+ 1191 0019 00000000 		.4byte	0
+ 1192 001d 00000000 		.4byte	0
+ 1193              	.LLST1:
+ 1194 0021 08000000 		.4byte	.LVL3
+ 1195 0025 19000000 		.4byte	.LVL4-1
+ 1196 0029 0100     		.2byte	0x1
+ 1197 002b 50       		.byte	0x50
+ 1198 002c 00000000 		.4byte	0
+ 1199 0030 00000000 		.4byte	0
+ 1200              	.LLST2:
+ 1201 0034 06000000 		.4byte	.LVL6
+ 1202 0038 08000000 		.4byte	.LVL7
+ 1203 003c 0500     		.2byte	0x5
+ 1204 003e 70       		.byte	0x70
+ 1205 003f 00       		.sleb128 0
+ 1206 0040 4E       		.byte	0x4e
+ 1207 0041 25       		.byte	0x25
+ 1208 0042 9F       		.byte	0x9f
+ 1209 0043 08000000 		.4byte	.LVL7
+ 1210 0047 10000000 		.4byte	.LFE9
+ 1211 004b 0100     		.2byte	0x1
+ 1212 004d 50       		.byte	0x50
+ 1213 004e 00000000 		.4byte	0
+ 1214 0052 00000000 		.4byte	0
+ 1215              	.LLST3:
+ 1216 0056 00000000 		.4byte	.LVL12
+ 1217 005a 07000000 		.4byte	.LVL13-1
+ 1218 005e 0100     		.2byte	0x1
+ 1219 0060 50       		.byte	0x50
+ 1220 0061 07000000 		.4byte	.LVL13-1
+ 1221 0065 18000000 		.4byte	.LVL17
+ 1222 0069 0100     		.2byte	0x1
+ 1223 006b 54       		.byte	0x54
+ 1224 006c 18000000 		.4byte	.LVL17
+ 1225 0070 1A000000 		.4byte	.LFE3
+ 1226 0074 0400     		.2byte	0x4
+ 1227 0076 F3       		.byte	0xf3
+ 1228 0077 01       		.uleb128 0x1
+ 1229 0078 50       		.byte	0x50
+ 1230 0079 9F       		.byte	0x9f
+ 1231 007a 00000000 		.4byte	0
+ 1232 007e 00000000 		.4byte	0
+ 1233              		.section	.debug_aranges,"",%progbits
+ 1234 0000 7C000000 		.4byte	0x7c
+ 1235 0004 0200     		.2byte	0x2
+ARM GAS  C:\Users\Alan\AppData\Local\Temp\ccKFavBa.s 			page 30
+
+
+ 1236 0006 00000000 		.4byte	.Ldebug_info0
+ 1237 000a 04       		.byte	0x4
+ 1238 000b 00       		.byte	0
+ 1239 000c 0000     		.2byte	0
+ 1240 000e 0000     		.2byte	0
+ 1241 0010 00000000 		.4byte	.LFB5
+ 1242 0014 02000000 		.4byte	.LFE5-.LFB5
+ 1243 0018 00000000 		.4byte	.LFB6
+ 1244 001c 0C000000 		.4byte	.LFE6-.LFB6
+ 1245 0020 00000000 		.4byte	.LFB7
+ 1246 0024 0C000000 		.4byte	.LFE7-.LFB7
+ 1247 0028 00000000 		.4byte	.LFB8
+ 1248 002c 24000000 		.4byte	.LFE8-.LFB8
+ 1249 0030 00000000 		.4byte	.LFB9
+ 1250 0034 10000000 		.4byte	.LFE9-.LFB9
+ 1251 0038 00000000 		.4byte	.LFB10
+ 1252 003c 0C000000 		.4byte	.LFE10-.LFB10
+ 1253 0040 00000000 		.4byte	.LFB11
+ 1254 0044 14000000 		.4byte	.LFE11-.LFB11
+ 1255 0048 00000000 		.4byte	.LFB12
+ 1256 004c 0C000000 		.4byte	.LFE12-.LFB12
+ 1257 0050 00000000 		.4byte	.LFB2
+ 1258 0054 1C000000 		.4byte	.LFE2-.LFB2
+ 1259 0058 00000000 		.4byte	.LFB3
+ 1260 005c 1A000000 		.4byte	.LFE3-.LFB3
+ 1261 0060 00000000 		.4byte	.LFB4
+ 1262 0064 14000000 		.4byte	.LFE4-.LFB4
+ 1263 0068 00000000 		.4byte	.LFB13
+ 1264 006c 0C000000 		.4byte	.LFE13-.LFB13
+ 1265 0070 00000000 		.4byte	.LFB14
+ 1266 0074 0C000000 		.4byte	.LFE14-.LFB14
+ 1267 0078 00000000 		.4byte	0
+ 1268 007c 00000000 		.4byte	0
+ 1269              		.section	.debug_ranges,"",%progbits
+ 1270              	.Ldebug_ranges0:
+ 1271 0000 00000000 		.4byte	.LFB5
+ 1272 0004 02000000 		.4byte	.LFE5
+ 1273 0008 00000000 		.4byte	.LFB6
+ 1274 000c 0C000000 		.4byte	.LFE6
+ 1275 0010 00000000 		.4byte	.LFB7
+ 1276 0014 0C000000 		.4byte	.LFE7
+ 1277 0018 00000000 		.4byte	.LFB8
+ 1278 001c 24000000 		.4byte	.LFE8
+ 1279 0020 00000000 		.4byte	.LFB9
+ 1280 0024 10000000 		.4byte	.LFE9
+ 1281 0028 00000000 		.4byte	.LFB10
+ 1282 002c 0C000000 		.4byte	.LFE10
+ 1283 0030 00000000 		.4byte	.LFB11
+ 1284 0034 14000000 		.4byte	.LFE11
+ 1285 0038 00000000 		.4byte	.LFB12
+ 1286 003c 0C000000 		.4byte	.LFE12
+ 1287 0040 00000000 		.4byte	.LFB2
+ 1288 0044 1C000000 		.4byte	.LFE2
+ 1289 0048 00000000 		.4byte	.LFB3
+ 1290 004c 1A000000 		.4byte	.LFE3
+ 1291 0050 00000000 		.4byte	.LFB4
+ 1292 0054 14000000 		.4byte	.LFE4
+ARM GAS  C:\Users\Alan\AppData\Local\Temp\ccKFavBa.s 			page 31
+
+
+ 1293 0058 00000000 		.4byte	.LFB13
+ 1294 005c 0C000000 		.4byte	.LFE13
+ 1295 0060 00000000 		.4byte	.LFB14
+ 1296 0064 0C000000 		.4byte	.LFE14
+ 1297 0068 00000000 		.4byte	0
+ 1298 006c 00000000 		.4byte	0
+ 1299              		.section	.debug_line,"",%progbits
+ 1300              	.Ldebug_line0:
+ 1301 0000 6A010000 		.section	.debug_str,"MS",%progbits,1
+ 1301      02006A00 
+ 1301      00000201 
+ 1301      FB0E0D00 
+ 1301      01010101 
+ 1302              	.LASF14:
+ 1303 0000 72656733 		.ascii	"reg32\000"
+ 1303      3200
+ 1304              	.LASF37:
+ 1305 0006 43795261 		.ascii	"CyRamVectors\000"
+ 1305      6D566563 
+ 1305      746F7273 
+ 1305      00
+ 1306              	.LASF3:
+ 1307 0013 73686F72 		.ascii	"short unsigned int\000"
+ 1307      7420756E 
+ 1307      7369676E 
+ 1307      65642069 
+ 1307      6E7400
+ 1308              	.LASF26:
+ 1309 0026 74616368 		.ascii	"tachTimer_GetState\000"
+ 1309      54696D65 
+ 1309      725F4765 
+ 1309      74537461 
+ 1309      746500
+ 1310              	.LASF32:
+ 1311 0039 74616368 		.ascii	"tachTimer_ClearPending\000"
+ 1311      54696D65 
+ 1311      725F436C 
+ 1311      65617250 
+ 1311      656E6469 
+ 1312              	.LASF11:
+ 1313 0050 666C6F61 		.ascii	"float\000"
+ 1313      7400
+ 1314              	.LASF7:
+ 1315 0056 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 1315      206C6F6E 
+ 1315      6720756E 
+ 1315      7369676E 
+ 1315      65642069 
+ 1316              	.LASF35:
+ 1317 006d 5C5C766D 		.ascii	"\\\\vmware-host\\Shared Folders\\Documents\\BLEIOSA"
+ 1317      77617265 
+ 1317      2D686F73 
+ 1317      745C5368 
+ 1317      61726564 
+ 1318 009b 50505C72 		.ascii	"PP\\robot\\robot.cydsn\000"
+ 1318      6F626F74 
+ 1318      5C726F62 
+ARM GAS  C:\Users\Alan\AppData\Local\Temp\ccKFavBa.s 			page 32
+
+
+ 1318      6F742E63 
+ 1318      7964736E 
+ 1319              	.LASF1:
+ 1320 00b0 756E7369 		.ascii	"unsigned char\000"
+ 1320      676E6564 
+ 1320      20636861 
+ 1320      7200
+ 1321              	.LASF36:
+ 1322 00be 74616368 		.ascii	"tachTimer_GetPriority\000"
+ 1322      54696D65 
+ 1322      725F4765 
+ 1322      74507269 
+ 1322      6F726974 
+ 1323              	.LASF21:
+ 1324 00d4 696E7465 		.ascii	"interruptState\000"
+ 1324      72727570 
+ 1324      74537461 
+ 1324      746500
+ 1325              	.LASF5:
+ 1326 00e3 6C6F6E67 		.ascii	"long unsigned int\000"
+ 1326      20756E73 
+ 1326      69676E65 
+ 1326      6420696E 
+ 1326      7400
+ 1327              	.LASF27:
+ 1328 00f5 74616368 		.ascii	"tachTimer_Disable\000"
+ 1328      54696D65 
+ 1328      725F4469 
+ 1328      7361626C 
+ 1328      6500
+ 1329              	.LASF9:
+ 1330 0107 75696E74 		.ascii	"uint8\000"
+ 1330      3800
+ 1331              	.LASF29:
+ 1332 010d 74616368 		.ascii	"tachTimer_StartEx\000"
+ 1332      54696D65 
+ 1332      725F5374 
+ 1332      61727445 
+ 1332      7800
+ 1333              	.LASF20:
+ 1334 011f 7072696F 		.ascii	"priority\000"
+ 1334      72697479 
+ 1334      00
+ 1335              	.LASF12:
+ 1336 0128 646F7562 		.ascii	"double\000"
+ 1336      6C6500
+ 1337              	.LASF17:
+ 1338 012f 74616368 		.ascii	"tachTimer_SetVector\000"
+ 1338      54696D65 
+ 1338      725F5365 
+ 1338      74566563 
+ 1338      746F7200 
+ 1339              	.LASF28:
+ 1340 0143 74616368 		.ascii	"tachTimer_Start\000"
+ 1340      54696D65 
+ 1340      725F5374 
+ 1340      61727400 
+ARM GAS  C:\Users\Alan\AppData\Local\Temp\ccKFavBa.s 			page 33
+
+
+ 1341              	.LASF30:
+ 1342 0153 74616368 		.ascii	"tachTimer_Stop\000"
+ 1342      54696D65 
+ 1342      725F5374 
+ 1342      6F7000
+ 1343              	.LASF10:
+ 1344 0162 75696E74 		.ascii	"uint32\000"
+ 1344      333200
+ 1345              	.LASF38:
+ 1346 0169 4379456E 		.ascii	"CyEnterCriticalSection\000"
+ 1346      74657243 
+ 1346      72697469 
+ 1346      63616C53 
+ 1346      65637469 
+ 1347              	.LASF8:
+ 1348 0180 756E7369 		.ascii	"unsigned int\000"
+ 1348      676E6564 
+ 1348      20696E74 
+ 1348      00
+ 1349              	.LASF19:
+ 1350 018d 61646472 		.ascii	"address\000"
+ 1350      65737300 
+ 1351              	.LASF39:
+ 1352 0195 43794578 		.ascii	"CyExitCriticalSection\000"
+ 1352      69744372 
+ 1352      69746963 
+ 1352      616C5365 
+ 1352      6374696F 
+ 1353              	.LASF15:
+ 1354 01ab 63796973 		.ascii	"cyisraddress\000"
+ 1354      72616464 
+ 1354      72657373 
+ 1354      00
+ 1355              	.LASF31:
+ 1356 01b8 74616368 		.ascii	"tachTimer_SetPending\000"
+ 1356      54696D65 
+ 1356      725F5365 
+ 1356      7450656E 
+ 1356      64696E67 
+ 1357              	.LASF16:
+ 1358 01cd 73697A65 		.ascii	"sizetype\000"
+ 1358      74797065 
+ 1358      00
+ 1359              	.LASF6:
+ 1360 01d6 6C6F6E67 		.ascii	"long long int\000"
+ 1360      206C6F6E 
+ 1360      6720696E 
+ 1360      7400
+ 1361              	.LASF18:
+ 1362 01e4 74616368 		.ascii	"tachTimer_SetPriority\000"
+ 1362      54696D65 
+ 1362      725F5365 
+ 1362      74507269 
+ 1362      6F726974 
+ 1363              	.LASF13:
+ 1364 01fa 63686172 		.ascii	"char\000"
+ 1364      00
+ARM GAS  C:\Users\Alan\AppData\Local\Temp\ccKFavBa.s 			page 34
+
+
+ 1365              	.LASF33:
+ 1366 01ff 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
+ 1366      4320342E 
+ 1366      392E3320 
+ 1366      32303135 
+ 1366      30333033 
+ 1367 0232 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m0 -mthumb -g -O"
+ 1367      20726576 
+ 1367      6973696F 
+ 1367      6E203232 
+ 1367      31323230 
+ 1368 0265 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 1368      66756E63 
+ 1368      74696F6E 
+ 1368      2D736563 
+ 1368      74696F6E 
+ 1369              	.LASF2:
+ 1370 028d 73686F72 		.ascii	"short int\000"
+ 1370      7420696E 
+ 1370      7400
+ 1371              	.LASF22:
+ 1372 0297 7072696F 		.ascii	"priorityOffset\000"
+ 1372      72697479 
+ 1372      4F666673 
+ 1372      657400
+ 1373              	.LASF25:
+ 1374 02a6 74616368 		.ascii	"tachTimer_GetVector\000"
+ 1374      54696D65 
+ 1374      725F4765 
+ 1374      74566563 
+ 1374      746F7200 
+ 1375              	.LASF4:
+ 1376 02ba 6C6F6E67 		.ascii	"long int\000"
+ 1376      20696E74 
+ 1376      00
+ 1377              	.LASF23:
+ 1378 02c3 74616368 		.ascii	"tachTimer_Interrupt\000"
+ 1378      54696D65 
+ 1378      725F496E 
+ 1378      74657272 
+ 1378      75707400 
+ 1379              	.LASF0:
+ 1380 02d7 7369676E 		.ascii	"signed char\000"
+ 1380      65642063 
+ 1380      68617200 
+ 1381              	.LASF24:
+ 1382 02e3 74616368 		.ascii	"tachTimer_Enable\000"
+ 1382      54696D65 
+ 1382      725F456E 
+ 1382      61626C65 
+ 1382      00
+ 1383              	.LASF34:
+ 1384 02f4 2E5C4765 		.ascii	".\\Generated_Source\\PSoC4\\tachTimer.c\000"
+ 1384      6E657261 
+ 1384      7465645F 
+ 1384      536F7572 
+ 1384      63655C50 
+ARM GAS  C:\Users\Alan\AppData\Local\Temp\ccKFavBa.s 			page 35
+
+
+ 1385              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20150303 (release) [ARM/embedded-4_9-br
