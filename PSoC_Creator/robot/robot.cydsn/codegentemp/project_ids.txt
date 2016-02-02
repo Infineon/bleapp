@@ -1,6 +1,0 @@
-C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\default\CyAnnotationLibrary\CyAnnotationLibrary.cylib\CyAnnotationLibrary.cyprj|9f893b6c-d2a9-40a3-adbe-6270bd6d1ff8
-C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\cycomponentlibraryupdates\CyComponentLibraryUpdates.cylib\CyComponentLibraryUpdates.cyprj|39bd13cb-48c2-4041-890c-f3b0552a5513
-C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CyComponentLibrary.cyprj|16a6d7e9-8c7a-4b62-9a9c-5070e45396ec
-C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\CyPrimitives.cyprj|38190daf-baa7-4600-83f9-f91c338cd29f
-C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\default\CyReferenceLibrary\CyReferenceLibrary.cylib\CyReferenceLibrary.cyprj|26cfc71a-1dd3-4dc3-9e84-0838b9ed2de8
-\\vmware-host\Shared Folders\Documents\BLEIOSAPP\robot\robot.cydsn\robot.cyprj|2f01c3ad-3517-4369-aa4f-5c4b858ea9b6
