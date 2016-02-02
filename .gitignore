@@ -6,3 +6,5 @@ PSoC_Creator/capsenseled/Backup
 PSoC_Creator/*/Backup
 PSoC_Creator/*/*/codegentemp
 PSoC_Creator/*/*/CortexM0
+PSoC_Creator/*/*.cywrk.*
+PSoC_Creator/*/*.cydsn/*.cyprj.*
