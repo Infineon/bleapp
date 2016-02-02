@@ -1,0 +1,1149 @@
+ARM GAS  C:\Users\Alan\AppData\Local\Temp\cchniY18.s 			page 1
+
+
+   1              		.cpu cortex-m0
+   2              		.fpu softvfp
+   3              		.eabi_attribute 20, 1
+   4              		.eabi_attribute 21, 1
+   5              		.eabi_attribute 23, 3
+   6              		.eabi_attribute 24, 1
+   7              		.eabi_attribute 25, 1
+   8              		.eabi_attribute 26, 1
+   9              		.eabi_attribute 30, 1
+  10              		.eabi_attribute 34, 0
+  11              		.eabi_attribute 18, 4
+  12              		.code	16
+  13              		.file	"tachPwm_PM.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.section	.text.tachPwm_SaveConfig,"ax",%progbits
+  18              		.align	2
+  19              		.global	tachPwm_SaveConfig
+  20              		.code	16
+  21              		.thumb_func
+  22              		.type	tachPwm_SaveConfig, %function
+  23              	tachPwm_SaveConfig:
+  24              	.LFB2:
+  25              		.file 1 ".\\Generated_Source\\PSoC4\\tachPwm_PM.c"
+   1:.\Generated_Source\PSoC4/tachPwm_PM.c **** /*******************************************************************************
+   2:.\Generated_Source\PSoC4/tachPwm_PM.c **** * File Name: tachPwm_PM.c
+   3:.\Generated_Source\PSoC4/tachPwm_PM.c **** * Version 3.30
+   4:.\Generated_Source\PSoC4/tachPwm_PM.c **** *
+   5:.\Generated_Source\PSoC4/tachPwm_PM.c **** * Description:
+   6:.\Generated_Source\PSoC4/tachPwm_PM.c **** *  This file provides the power management source code to API for the
+   7:.\Generated_Source\PSoC4/tachPwm_PM.c **** *  PWM.
+   8:.\Generated_Source\PSoC4/tachPwm_PM.c **** *
+   9:.\Generated_Source\PSoC4/tachPwm_PM.c **** * Note:
+  10:.\Generated_Source\PSoC4/tachPwm_PM.c **** *
+  11:.\Generated_Source\PSoC4/tachPwm_PM.c **** ********************************************************************************
+  12:.\Generated_Source\PSoC4/tachPwm_PM.c **** * Copyright 2008-2014, Cypress Semiconductor Corporation.  All rights reserved.
+  13:.\Generated_Source\PSoC4/tachPwm_PM.c **** * You may use this file only in accordance with the license, terms, conditions,
+  14:.\Generated_Source\PSoC4/tachPwm_PM.c **** * disclaimers, and limitations in the end user license agreement accompanying
+  15:.\Generated_Source\PSoC4/tachPwm_PM.c **** * the software package with which this file was provided.
+  16:.\Generated_Source\PSoC4/tachPwm_PM.c **** *******************************************************************************/
+  17:.\Generated_Source\PSoC4/tachPwm_PM.c **** 
+  18:.\Generated_Source\PSoC4/tachPwm_PM.c **** #include "tachPwm.h"
+  19:.\Generated_Source\PSoC4/tachPwm_PM.c **** 
+  20:.\Generated_Source\PSoC4/tachPwm_PM.c **** static tachPwm_backupStruct tachPwm_backup;
+  21:.\Generated_Source\PSoC4/tachPwm_PM.c **** 
+  22:.\Generated_Source\PSoC4/tachPwm_PM.c **** 
+  23:.\Generated_Source\PSoC4/tachPwm_PM.c **** /*******************************************************************************
+  24:.\Generated_Source\PSoC4/tachPwm_PM.c **** * Function Name: tachPwm_SaveConfig
+  25:.\Generated_Source\PSoC4/tachPwm_PM.c **** ********************************************************************************
+  26:.\Generated_Source\PSoC4/tachPwm_PM.c **** *
+  27:.\Generated_Source\PSoC4/tachPwm_PM.c **** * Summary:
+  28:.\Generated_Source\PSoC4/tachPwm_PM.c **** *  Saves the current user configuration of the component.
+  29:.\Generated_Source\PSoC4/tachPwm_PM.c **** *
+  30:.\Generated_Source\PSoC4/tachPwm_PM.c **** * Parameters:
+  31:.\Generated_Source\PSoC4/tachPwm_PM.c **** *  None
+  32:.\Generated_Source\PSoC4/tachPwm_PM.c **** *
+ARM GAS  C:\Users\Alan\AppData\Local\Temp\cchniY18.s 			page 2
+
+
+  33:.\Generated_Source\PSoC4/tachPwm_PM.c **** * Return:
+  34:.\Generated_Source\PSoC4/tachPwm_PM.c **** *  None
+  35:.\Generated_Source\PSoC4/tachPwm_PM.c **** *
+  36:.\Generated_Source\PSoC4/tachPwm_PM.c **** * Global variables:
+  37:.\Generated_Source\PSoC4/tachPwm_PM.c **** *  tachPwm_backup:  Variables of this global structure are modified to
+  38:.\Generated_Source\PSoC4/tachPwm_PM.c **** *  store the values of non retention configuration registers when Sleep() API is
+  39:.\Generated_Source\PSoC4/tachPwm_PM.c **** *  called.
+  40:.\Generated_Source\PSoC4/tachPwm_PM.c **** *
+  41:.\Generated_Source\PSoC4/tachPwm_PM.c **** *******************************************************************************/
+  42:.\Generated_Source\PSoC4/tachPwm_PM.c **** void tachPwm_SaveConfig(void) 
+  43:.\Generated_Source\PSoC4/tachPwm_PM.c **** {
+  26              		.loc 1 43 0
+  27              		.cfi_startproc
+  28 0000 10B5     		push	{r4, lr}
+  29              		.cfi_def_cfa_offset 8
+  30              		.cfi_offset 4, -8
+  31              		.cfi_offset 14, -4
+  44:.\Generated_Source\PSoC4/tachPwm_PM.c **** 
+  45:.\Generated_Source\PSoC4/tachPwm_PM.c ****     #if(!tachPwm_UsingFixedFunction)
+  46:.\Generated_Source\PSoC4/tachPwm_PM.c ****         #if(!tachPwm_PWMModeIsCenterAligned)
+  47:.\Generated_Source\PSoC4/tachPwm_PM.c ****             tachPwm_backup.PWMPeriod = tachPwm_ReadPeriod();
+  32              		.loc 1 47 0
+  33 0002 FFF7FEFF 		bl	tachPwm_ReadPeriod
+  34              	.LVL0:
+  35 0006 064C     		ldr	r4, .L2
+  36 0008 A070     		strb	r0, [r4, #2]
+  48:.\Generated_Source\PSoC4/tachPwm_PM.c ****         #endif /* (!tachPwm_PWMModeIsCenterAligned) */
+  49:.\Generated_Source\PSoC4/tachPwm_PM.c ****         tachPwm_backup.PWMUdb = tachPwm_ReadCounter();
+  37              		.loc 1 49 0
+  38 000a FFF7FEFF 		bl	tachPwm_ReadCounter
+  39              	.LVL1:
+  40 000e 6070     		strb	r0, [r4, #1]
+  50:.\Generated_Source\PSoC4/tachPwm_PM.c ****         #if (tachPwm_UseStatus)
+  51:.\Generated_Source\PSoC4/tachPwm_PM.c ****             tachPwm_backup.InterruptMaskValue = tachPwm_STATUS_MASK;
+  41              		.loc 1 51 0
+  42 0010 044B     		ldr	r3, .L2+4
+  43 0012 1B78     		ldrb	r3, [r3]
+  44 0014 E370     		strb	r3, [r4, #3]
+  52:.\Generated_Source\PSoC4/tachPwm_PM.c ****         #endif /* (tachPwm_UseStatus) */
+  53:.\Generated_Source\PSoC4/tachPwm_PM.c **** 
+  54:.\Generated_Source\PSoC4/tachPwm_PM.c ****         #if(tachPwm_DeadBandMode == tachPwm__B_PWM__DBM_256_CLOCKS || \
+  55:.\Generated_Source\PSoC4/tachPwm_PM.c ****             tachPwm_DeadBandMode == tachPwm__B_PWM__DBM_2_4_CLOCKS)
+  56:.\Generated_Source\PSoC4/tachPwm_PM.c ****             tachPwm_backup.PWMdeadBandValue = tachPwm_ReadDeadTime();
+  57:.\Generated_Source\PSoC4/tachPwm_PM.c ****         #endif /*  deadband count is either 2-4 clocks or 256 clocks */
+  58:.\Generated_Source\PSoC4/tachPwm_PM.c **** 
+  59:.\Generated_Source\PSoC4/tachPwm_PM.c ****         #if(tachPwm_KillModeMinTime)
+  60:.\Generated_Source\PSoC4/tachPwm_PM.c ****              tachPwm_backup.PWMKillCounterPeriod = tachPwm_ReadKillTime();
+  61:.\Generated_Source\PSoC4/tachPwm_PM.c ****         #endif /* (tachPwm_KillModeMinTime) */
+  62:.\Generated_Source\PSoC4/tachPwm_PM.c **** 
+  63:.\Generated_Source\PSoC4/tachPwm_PM.c ****         #if(tachPwm_UseControl)
+  64:.\Generated_Source\PSoC4/tachPwm_PM.c ****             tachPwm_backup.PWMControlRegister = tachPwm_ReadControlRegister();
+  45              		.loc 1 64 0
+  46 0016 FFF7FEFF 		bl	tachPwm_ReadControlRegister
+  47              	.LVL2:
+  48 001a 2071     		strb	r0, [r4, #4]
+  65:.\Generated_Source\PSoC4/tachPwm_PM.c ****         #endif /* (tachPwm_UseControl) */
+  66:.\Generated_Source\PSoC4/tachPwm_PM.c ****     #endif  /* (!tachPwm_UsingFixedFunction) */
+ARM GAS  C:\Users\Alan\AppData\Local\Temp\cchniY18.s 			page 3
+
+
+  67:.\Generated_Source\PSoC4/tachPwm_PM.c **** }
+  49              		.loc 1 67 0
+  50              		@ sp needed
+  51 001c 10BD     		pop	{r4, pc}
+  52              	.L3:
+  53 001e C046     		.align	2
+  54              	.L2:
+  55 0020 00000000 		.word	.LANCHOR0
+  56 0024 81000F40 		.word	1074724993
+  57              		.cfi_endproc
+  58              	.LFE2:
+  59              		.size	tachPwm_SaveConfig, .-tachPwm_SaveConfig
+  60              		.section	.text.tachPwm_RestoreConfig,"ax",%progbits
+  61              		.align	2
+  62              		.global	tachPwm_RestoreConfig
+  63              		.code	16
+  64              		.thumb_func
+  65              		.type	tachPwm_RestoreConfig, %function
+  66              	tachPwm_RestoreConfig:
+  67              	.LFB3:
+  68:.\Generated_Source\PSoC4/tachPwm_PM.c **** 
+  69:.\Generated_Source\PSoC4/tachPwm_PM.c **** 
+  70:.\Generated_Source\PSoC4/tachPwm_PM.c **** /*******************************************************************************
+  71:.\Generated_Source\PSoC4/tachPwm_PM.c **** * Function Name: tachPwm_RestoreConfig
+  72:.\Generated_Source\PSoC4/tachPwm_PM.c **** ********************************************************************************
+  73:.\Generated_Source\PSoC4/tachPwm_PM.c **** *
+  74:.\Generated_Source\PSoC4/tachPwm_PM.c **** * Summary:
+  75:.\Generated_Source\PSoC4/tachPwm_PM.c **** *  Restores the current user configuration of the component.
+  76:.\Generated_Source\PSoC4/tachPwm_PM.c **** *
+  77:.\Generated_Source\PSoC4/tachPwm_PM.c **** * Parameters:
+  78:.\Generated_Source\PSoC4/tachPwm_PM.c **** *  None
+  79:.\Generated_Source\PSoC4/tachPwm_PM.c **** *
+  80:.\Generated_Source\PSoC4/tachPwm_PM.c **** * Return:
+  81:.\Generated_Source\PSoC4/tachPwm_PM.c **** *  None
+  82:.\Generated_Source\PSoC4/tachPwm_PM.c **** *
+  83:.\Generated_Source\PSoC4/tachPwm_PM.c **** * Global variables:
+  84:.\Generated_Source\PSoC4/tachPwm_PM.c **** *  tachPwm_backup:  Variables of this global structure are used to
+  85:.\Generated_Source\PSoC4/tachPwm_PM.c **** *  restore the values of non retention registers on wakeup from sleep mode.
+  86:.\Generated_Source\PSoC4/tachPwm_PM.c **** *
+  87:.\Generated_Source\PSoC4/tachPwm_PM.c **** *******************************************************************************/
+  88:.\Generated_Source\PSoC4/tachPwm_PM.c **** void tachPwm_RestoreConfig(void) 
+  89:.\Generated_Source\PSoC4/tachPwm_PM.c **** {
+  68              		.loc 1 89 0
+  69              		.cfi_startproc
+  70 0000 10B5     		push	{r4, lr}
+  71              		.cfi_def_cfa_offset 8
+  72              		.cfi_offset 4, -8
+  73              		.cfi_offset 14, -4
+  90:.\Generated_Source\PSoC4/tachPwm_PM.c ****         #if(!tachPwm_UsingFixedFunction)
+  91:.\Generated_Source\PSoC4/tachPwm_PM.c ****             #if(!tachPwm_PWMModeIsCenterAligned)
+  92:.\Generated_Source\PSoC4/tachPwm_PM.c ****                 tachPwm_WritePeriod(tachPwm_backup.PWMPeriod);
+  74              		.loc 1 92 0
+  75 0002 074C     		ldr	r4, .L5
+  76 0004 A078     		ldrb	r0, [r4, #2]
+  77 0006 FFF7FEFF 		bl	tachPwm_WritePeriod
+  78              	.LVL3:
+  93:.\Generated_Source\PSoC4/tachPwm_PM.c ****             #endif /* (!tachPwm_PWMModeIsCenterAligned) */
+ARM GAS  C:\Users\Alan\AppData\Local\Temp\cchniY18.s 			page 4
+
+
+  94:.\Generated_Source\PSoC4/tachPwm_PM.c **** 
+  95:.\Generated_Source\PSoC4/tachPwm_PM.c ****             tachPwm_WriteCounter(tachPwm_backup.PWMUdb);
+  79              		.loc 1 95 0
+  80 000a 6078     		ldrb	r0, [r4, #1]
+  81 000c FFF7FEFF 		bl	tachPwm_WriteCounter
+  82              	.LVL4:
+  96:.\Generated_Source\PSoC4/tachPwm_PM.c **** 
+  97:.\Generated_Source\PSoC4/tachPwm_PM.c ****             #if (tachPwm_UseStatus)
+  98:.\Generated_Source\PSoC4/tachPwm_PM.c ****                 tachPwm_STATUS_MASK = tachPwm_backup.InterruptMaskValue;
+  83              		.loc 1 98 0
+  84 0010 E278     		ldrb	r2, [r4, #3]
+  85 0012 044B     		ldr	r3, .L5+4
+  86 0014 1A70     		strb	r2, [r3]
+  99:.\Generated_Source\PSoC4/tachPwm_PM.c ****             #endif /* (tachPwm_UseStatus) */
+ 100:.\Generated_Source\PSoC4/tachPwm_PM.c **** 
+ 101:.\Generated_Source\PSoC4/tachPwm_PM.c ****             #if(tachPwm_DeadBandMode == tachPwm__B_PWM__DBM_256_CLOCKS || \
+ 102:.\Generated_Source\PSoC4/tachPwm_PM.c ****                 tachPwm_DeadBandMode == tachPwm__B_PWM__DBM_2_4_CLOCKS)
+ 103:.\Generated_Source\PSoC4/tachPwm_PM.c ****                 tachPwm_WriteDeadTime(tachPwm_backup.PWMdeadBandValue);
+ 104:.\Generated_Source\PSoC4/tachPwm_PM.c ****             #endif /* deadband count is either 2-4 clocks or 256 clocks */
+ 105:.\Generated_Source\PSoC4/tachPwm_PM.c **** 
+ 106:.\Generated_Source\PSoC4/tachPwm_PM.c ****             #if(tachPwm_KillModeMinTime)
+ 107:.\Generated_Source\PSoC4/tachPwm_PM.c ****                 tachPwm_WriteKillTime(tachPwm_backup.PWMKillCounterPeriod);
+ 108:.\Generated_Source\PSoC4/tachPwm_PM.c ****             #endif /* (tachPwm_KillModeMinTime) */
+ 109:.\Generated_Source\PSoC4/tachPwm_PM.c **** 
+ 110:.\Generated_Source\PSoC4/tachPwm_PM.c ****             #if(tachPwm_UseControl)
+ 111:.\Generated_Source\PSoC4/tachPwm_PM.c ****                 tachPwm_WriteControlRegister(tachPwm_backup.PWMControlRegister);
+  87              		.loc 1 111 0
+  88 0016 2079     		ldrb	r0, [r4, #4]
+  89 0018 FFF7FEFF 		bl	tachPwm_WriteControlRegister
+  90              	.LVL5:
+ 112:.\Generated_Source\PSoC4/tachPwm_PM.c ****             #endif /* (tachPwm_UseControl) */
+ 113:.\Generated_Source\PSoC4/tachPwm_PM.c ****         #endif  /* (!tachPwm_UsingFixedFunction) */
+ 114:.\Generated_Source\PSoC4/tachPwm_PM.c ****     }
+  91              		.loc 1 114 0
+  92              		@ sp needed
+  93 001c 10BD     		pop	{r4, pc}
+  94              	.L6:
+  95 001e C046     		.align	2
+  96              	.L5:
+  97 0020 00000000 		.word	.LANCHOR0
+  98 0024 81000F40 		.word	1074724993
+  99              		.cfi_endproc
+ 100              	.LFE3:
+ 101              		.size	tachPwm_RestoreConfig, .-tachPwm_RestoreConfig
+ 102              		.section	.text.tachPwm_Sleep,"ax",%progbits
+ 103              		.align	2
+ 104              		.global	tachPwm_Sleep
+ 105              		.code	16
+ 106              		.thumb_func
+ 107              		.type	tachPwm_Sleep, %function
+ 108              	tachPwm_Sleep:
+ 109              	.LFB4:
+ 115:.\Generated_Source\PSoC4/tachPwm_PM.c **** 
+ 116:.\Generated_Source\PSoC4/tachPwm_PM.c **** 
+ 117:.\Generated_Source\PSoC4/tachPwm_PM.c **** /*******************************************************************************
+ 118:.\Generated_Source\PSoC4/tachPwm_PM.c **** * Function Name: tachPwm_Sleep
+ 119:.\Generated_Source\PSoC4/tachPwm_PM.c **** ********************************************************************************
+ARM GAS  C:\Users\Alan\AppData\Local\Temp\cchniY18.s 			page 5
+
+
+ 120:.\Generated_Source\PSoC4/tachPwm_PM.c **** *
+ 121:.\Generated_Source\PSoC4/tachPwm_PM.c **** * Summary:
+ 122:.\Generated_Source\PSoC4/tachPwm_PM.c **** *  Disables block's operation and saves the user configuration. Should be called
+ 123:.\Generated_Source\PSoC4/tachPwm_PM.c **** *  just prior to entering sleep.
+ 124:.\Generated_Source\PSoC4/tachPwm_PM.c **** *
+ 125:.\Generated_Source\PSoC4/tachPwm_PM.c **** * Parameters:
+ 126:.\Generated_Source\PSoC4/tachPwm_PM.c **** *  None
+ 127:.\Generated_Source\PSoC4/tachPwm_PM.c **** *
+ 128:.\Generated_Source\PSoC4/tachPwm_PM.c **** * Return:
+ 129:.\Generated_Source\PSoC4/tachPwm_PM.c **** *  None
+ 130:.\Generated_Source\PSoC4/tachPwm_PM.c **** *
+ 131:.\Generated_Source\PSoC4/tachPwm_PM.c **** * Global variables:
+ 132:.\Generated_Source\PSoC4/tachPwm_PM.c **** *  tachPwm_backup.PWMEnableState:  Is modified depending on the enable
+ 133:.\Generated_Source\PSoC4/tachPwm_PM.c **** *  state of the block before entering sleep mode.
+ 134:.\Generated_Source\PSoC4/tachPwm_PM.c **** *
+ 135:.\Generated_Source\PSoC4/tachPwm_PM.c **** *******************************************************************************/
+ 136:.\Generated_Source\PSoC4/tachPwm_PM.c **** void tachPwm_Sleep(void) 
+ 137:.\Generated_Source\PSoC4/tachPwm_PM.c **** {
+ 110              		.loc 1 137 0
+ 111              		.cfi_startproc
+ 112 0000 08B5     		push	{r3, lr}
+ 113              		.cfi_def_cfa_offset 8
+ 114              		.cfi_offset 3, -8
+ 115              		.cfi_offset 14, -4
+ 138:.\Generated_Source\PSoC4/tachPwm_PM.c ****     #if(tachPwm_UseControl)
+ 139:.\Generated_Source\PSoC4/tachPwm_PM.c ****         if(tachPwm_CTRL_ENABLE == (tachPwm_CONTROL & tachPwm_CTRL_ENABLE))
+ 116              		.loc 1 139 0
+ 117 0002 084B     		ldr	r3, .L10
+ 118 0004 1B78     		ldrb	r3, [r3]
+ 119 0006 5BB2     		sxtb	r3, r3
+ 120 0008 002B     		cmp	r3, #0
+ 121 000a 03DA     		bge	.L8
+ 140:.\Generated_Source\PSoC4/tachPwm_PM.c ****         {
+ 141:.\Generated_Source\PSoC4/tachPwm_PM.c ****             /*Component is enabled */
+ 142:.\Generated_Source\PSoC4/tachPwm_PM.c ****             tachPwm_backup.PWMEnableState = 1u;
+ 122              		.loc 1 142 0
+ 123 000c 0122     		mov	r2, #1
+ 124 000e 064B     		ldr	r3, .L10+4
+ 125 0010 1A70     		strb	r2, [r3]
+ 126 0012 02E0     		b	.L9
+ 127              	.L8:
+ 143:.\Generated_Source\PSoC4/tachPwm_PM.c ****         }
+ 144:.\Generated_Source\PSoC4/tachPwm_PM.c ****         else
+ 145:.\Generated_Source\PSoC4/tachPwm_PM.c ****         {
+ 146:.\Generated_Source\PSoC4/tachPwm_PM.c ****             /* Component is disabled */
+ 147:.\Generated_Source\PSoC4/tachPwm_PM.c ****             tachPwm_backup.PWMEnableState = 0u;
+ 128              		.loc 1 147 0
+ 129 0014 0022     		mov	r2, #0
+ 130 0016 044B     		ldr	r3, .L10+4
+ 131 0018 1A70     		strb	r2, [r3]
+ 132              	.L9:
+ 148:.\Generated_Source\PSoC4/tachPwm_PM.c ****         }
+ 149:.\Generated_Source\PSoC4/tachPwm_PM.c ****     #endif /* (tachPwm_UseControl) */
+ 150:.\Generated_Source\PSoC4/tachPwm_PM.c **** 
+ 151:.\Generated_Source\PSoC4/tachPwm_PM.c ****     /* Stop component */
+ 152:.\Generated_Source\PSoC4/tachPwm_PM.c ****     tachPwm_Stop();
+ 133              		.loc 1 152 0
+ARM GAS  C:\Users\Alan\AppData\Local\Temp\cchniY18.s 			page 6
+
+
+ 134 001a FFF7FEFF 		bl	tachPwm_Stop
+ 135              	.LVL6:
+ 153:.\Generated_Source\PSoC4/tachPwm_PM.c **** 
+ 154:.\Generated_Source\PSoC4/tachPwm_PM.c ****     /* Save registers configuration */
+ 155:.\Generated_Source\PSoC4/tachPwm_PM.c ****     tachPwm_SaveConfig();
+ 136              		.loc 1 155 0
+ 137 001e FFF7FEFF 		bl	tachPwm_SaveConfig
+ 138              	.LVL7:
+ 156:.\Generated_Source\PSoC4/tachPwm_PM.c **** }
+ 139              		.loc 1 156 0
+ 140              		@ sp needed
+ 141 0022 08BD     		pop	{r3, pc}
+ 142              	.L11:
+ 143              		.align	2
+ 144              	.L10:
+ 145 0024 71000F40 		.word	1074724977
+ 146 0028 00000000 		.word	.LANCHOR0
+ 147              		.cfi_endproc
+ 148              	.LFE4:
+ 149              		.size	tachPwm_Sleep, .-tachPwm_Sleep
+ 150              		.section	.text.tachPwm_Wakeup,"ax",%progbits
+ 151              		.align	2
+ 152              		.global	tachPwm_Wakeup
+ 153              		.code	16
+ 154              		.thumb_func
+ 155              		.type	tachPwm_Wakeup, %function
+ 156              	tachPwm_Wakeup:
+ 157              	.LFB5:
+ 157:.\Generated_Source\PSoC4/tachPwm_PM.c **** 
+ 158:.\Generated_Source\PSoC4/tachPwm_PM.c **** 
+ 159:.\Generated_Source\PSoC4/tachPwm_PM.c **** /*******************************************************************************
+ 160:.\Generated_Source\PSoC4/tachPwm_PM.c **** * Function Name: tachPwm_Wakeup
+ 161:.\Generated_Source\PSoC4/tachPwm_PM.c **** ********************************************************************************
+ 162:.\Generated_Source\PSoC4/tachPwm_PM.c **** *
+ 163:.\Generated_Source\PSoC4/tachPwm_PM.c **** * Summary:
+ 164:.\Generated_Source\PSoC4/tachPwm_PM.c **** *  Restores and enables the user configuration. Should be called just after
+ 165:.\Generated_Source\PSoC4/tachPwm_PM.c **** *  awaking from sleep.
+ 166:.\Generated_Source\PSoC4/tachPwm_PM.c **** *
+ 167:.\Generated_Source\PSoC4/tachPwm_PM.c **** * Parameters:
+ 168:.\Generated_Source\PSoC4/tachPwm_PM.c **** *  None
+ 169:.\Generated_Source\PSoC4/tachPwm_PM.c **** *
+ 170:.\Generated_Source\PSoC4/tachPwm_PM.c **** * Return:
+ 171:.\Generated_Source\PSoC4/tachPwm_PM.c **** *  None
+ 172:.\Generated_Source\PSoC4/tachPwm_PM.c **** *
+ 173:.\Generated_Source\PSoC4/tachPwm_PM.c **** * Global variables:
+ 174:.\Generated_Source\PSoC4/tachPwm_PM.c **** *  tachPwm_backup.pwmEnable:  Is used to restore the enable state of
+ 175:.\Generated_Source\PSoC4/tachPwm_PM.c **** *  block on wakeup from sleep mode.
+ 176:.\Generated_Source\PSoC4/tachPwm_PM.c **** *
+ 177:.\Generated_Source\PSoC4/tachPwm_PM.c **** *******************************************************************************/
+ 178:.\Generated_Source\PSoC4/tachPwm_PM.c **** void tachPwm_Wakeup(void) 
+ 179:.\Generated_Source\PSoC4/tachPwm_PM.c **** {
+ 158              		.loc 1 179 0
+ 159              		.cfi_startproc
+ 160 0000 08B5     		push	{r3, lr}
+ 161              		.cfi_def_cfa_offset 8
+ 162              		.cfi_offset 3, -8
+ 163              		.cfi_offset 14, -4
+ARM GAS  C:\Users\Alan\AppData\Local\Temp\cchniY18.s 			page 7
+
+
+ 180:.\Generated_Source\PSoC4/tachPwm_PM.c ****      /* Restore registers values */
+ 181:.\Generated_Source\PSoC4/tachPwm_PM.c ****     tachPwm_RestoreConfig();
+ 164              		.loc 1 181 0
+ 165 0002 FFF7FEFF 		bl	tachPwm_RestoreConfig
+ 166              	.LVL8:
+ 182:.\Generated_Source\PSoC4/tachPwm_PM.c **** 
+ 183:.\Generated_Source\PSoC4/tachPwm_PM.c ****     if(tachPwm_backup.PWMEnableState != 0u)
+ 167              		.loc 1 183 0
+ 168 0006 034B     		ldr	r3, .L14
+ 169 0008 1B78     		ldrb	r3, [r3]
+ 170 000a 002B     		cmp	r3, #0
+ 171 000c 01D0     		beq	.L12
+ 184:.\Generated_Source\PSoC4/tachPwm_PM.c ****     {
+ 185:.\Generated_Source\PSoC4/tachPwm_PM.c ****         /* Enable component's operation */
+ 186:.\Generated_Source\PSoC4/tachPwm_PM.c ****         tachPwm_Enable();
+ 172              		.loc 1 186 0
+ 173 000e FFF7FEFF 		bl	tachPwm_Enable
+ 174              	.LVL9:
+ 175              	.L12:
+ 187:.\Generated_Source\PSoC4/tachPwm_PM.c ****     } /* Do nothing if component's block was disabled before */
+ 188:.\Generated_Source\PSoC4/tachPwm_PM.c **** 
+ 189:.\Generated_Source\PSoC4/tachPwm_PM.c **** }
+ 176              		.loc 1 189 0
+ 177              		@ sp needed
+ 178 0012 08BD     		pop	{r3, pc}
+ 179              	.L15:
+ 180              		.align	2
+ 181              	.L14:
+ 182 0014 00000000 		.word	.LANCHOR0
+ 183              		.cfi_endproc
+ 184              	.LFE5:
+ 185              		.size	tachPwm_Wakeup, .-tachPwm_Wakeup
+ 186              		.bss
+ 187              		.align	2
+ 188              		.set	.LANCHOR0,. + 0
+ 189              		.type	tachPwm_backup, %object
+ 190              		.size	tachPwm_backup, 5
+ 191              	tachPwm_backup:
+ 192 0000 00000000 		.space	5
+ 192      00
+ 193 0005 000000   		.text
+ 194              	.Letext0:
+ 195              		.file 2 ".\\Generated_Source\\PSoC4\\cytypes.h"
+ 196              		.file 3 ".\\Generated_Source\\PSoC4\\tachPwm.h"
+ 197              		.section	.debug_info,"",%progbits
+ 198              	.Ldebug_info0:
+ 199 0000 15020000 		.4byte	0x215
+ 200 0004 0400     		.2byte	0x4
+ 201 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 202 000a 04       		.byte	0x4
+ 203 000b 01       		.uleb128 0x1
+ 204 000c D1010000 		.4byte	.LASF33
+ 205 0010 01       		.byte	0x1
+ 206 0011 15010000 		.4byte	.LASF34
+ 207 0015 3E000000 		.4byte	.LASF35
+ 208 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 209 001d 00000000 		.4byte	0
+ARM GAS  C:\Users\Alan\AppData\Local\Temp\cchniY18.s 			page 8
+
+
+ 210 0021 00000000 		.4byte	.Ldebug_line0
+ 211 0025 02       		.uleb128 0x2
+ 212 0026 01       		.byte	0x1
+ 213 0027 06       		.byte	0x6
+ 214 0028 BA020000 		.4byte	.LASF0
+ 215 002c 02       		.uleb128 0x2
+ 216 002d 01       		.byte	0x1
+ 217 002e 08       		.byte	0x8
+ 218 002f 81000000 		.4byte	.LASF1
+ 219 0033 02       		.uleb128 0x2
+ 220 0034 02       		.byte	0x2
+ 221 0035 05       		.byte	0x5
+ 222 0036 5F020000 		.4byte	.LASF2
+ 223 003a 02       		.uleb128 0x2
+ 224 003b 02       		.byte	0x2
+ 225 003c 07       		.byte	0x7
+ 226 003d 25000000 		.4byte	.LASF3
+ 227 0041 02       		.uleb128 0x2
+ 228 0042 04       		.byte	0x4
+ 229 0043 05       		.byte	0x5
+ 230 0044 B1020000 		.4byte	.LASF4
+ 231 0048 02       		.uleb128 0x2
+ 232 0049 04       		.byte	0x4
+ 233 004a 07       		.byte	0x7
+ 234 004b 9E000000 		.4byte	.LASF5
+ 235 004f 02       		.uleb128 0x2
+ 236 0050 08       		.byte	0x8
+ 237 0051 05       		.byte	0x5
+ 238 0052 BE010000 		.4byte	.LASF6
+ 239 0056 02       		.uleb128 0x2
+ 240 0057 08       		.byte	0x8
+ 241 0058 07       		.byte	0x7
+ 242 0059 48010000 		.4byte	.LASF7
+ 243 005d 03       		.uleb128 0x3
+ 244 005e 04       		.byte	0x4
+ 245 005f 05       		.byte	0x5
+ 246 0060 696E7400 		.ascii	"int\000"
+ 247 0064 02       		.uleb128 0x2
+ 248 0065 04       		.byte	0x4
+ 249 0066 07       		.byte	0x7
+ 250 0067 3B010000 		.4byte	.LASF8
+ 251 006b 04       		.uleb128 0x4
+ 252 006c B0000000 		.4byte	.LASF12
+ 253 0070 02       		.byte	0x2
+ 254 0071 C2       		.byte	0xc2
+ 255 0072 2C000000 		.4byte	0x2c
+ 256 0076 02       		.uleb128 0x2
+ 257 0077 04       		.byte	0x4
+ 258 0078 04       		.byte	0x4
+ 259 0079 38000000 		.4byte	.LASF9
+ 260 007d 02       		.uleb128 0x2
+ 261 007e 08       		.byte	0x8
+ 262 007f 04       		.byte	0x4
+ 263 0080 DE000000 		.4byte	.LASF10
+ 264 0084 02       		.uleb128 0x2
+ 265 0085 01       		.byte	0x1
+ 266 0086 08       		.byte	0x8
+ARM GAS  C:\Users\Alan\AppData\Local\Temp\cchniY18.s 			page 9
+
+
+ 267 0087 CC010000 		.4byte	.LASF11
+ 268 008b 05       		.uleb128 0x5
+ 269 008c 07000000 		.4byte	.LASF13
+ 270 0090 02       		.byte	0x2
+ 271 0091 6C01     		.2byte	0x16c
+ 272 0093 97000000 		.4byte	0x97
+ 273 0097 06       		.uleb128 0x6
+ 274 0098 6B000000 		.4byte	0x6b
+ 275 009c 02       		.uleb128 0x2
+ 276 009d 04       		.byte	0x4
+ 277 009e 07       		.byte	0x7
+ 278 009f A1010000 		.4byte	.LASF14
+ 279 00a3 07       		.uleb128 0x7
+ 280 00a4 05       		.byte	0x5
+ 281 00a5 03       		.byte	0x3
+ 282 00a6 6B       		.byte	0x6b
+ 283 00a7 E8000000 		.4byte	0xe8
+ 284 00ab 08       		.uleb128 0x8
+ 285 00ac 8F000000 		.4byte	.LASF15
+ 286 00b0 03       		.byte	0x3
+ 287 00b1 6E       		.byte	0x6e
+ 288 00b2 6B000000 		.4byte	0x6b
+ 289 00b6 00       		.byte	0
+ 290 00b7 08       		.uleb128 0x8
+ 291 00b8 00000000 		.4byte	.LASF16
+ 292 00bc 03       		.byte	0x3
+ 293 00bd 71       		.byte	0x71
+ 294 00be 6B000000 		.4byte	0x6b
+ 295 00c2 01       		.byte	0x1
+ 296 00c3 08       		.uleb128 0x8
+ 297 00c4 0C000000 		.4byte	.LASF17
+ 298 00c8 03       		.byte	0x3
+ 299 00c9 73       		.byte	0x73
+ 300 00ca 6B000000 		.4byte	0x6b
+ 301 00ce 02       		.byte	0x2
+ 302 00cf 08       		.uleb128 0x8
+ 303 00d0 E3020000 		.4byte	.LASF18
+ 304 00d4 03       		.byte	0x3
+ 305 00d5 76       		.byte	0x76
+ 306 00d6 6B000000 		.4byte	0x6b
+ 307 00da 03       		.byte	0x3
+ 308 00db 08       		.uleb128 0x8
+ 309 00dc B6000000 		.4byte	.LASF19
+ 310 00e0 03       		.byte	0x3
+ 311 00e1 86       		.byte	0x86
+ 312 00e2 6B000000 		.4byte	0x6b
+ 313 00e6 04       		.byte	0x4
+ 314 00e7 00       		.byte	0
+ 315 00e8 04       		.uleb128 0x4
+ 316 00e9 9C020000 		.4byte	.LASF20
+ 317 00ed 03       		.byte	0x3
+ 318 00ee 8B       		.byte	0x8b
+ 319 00ef A3000000 		.4byte	0xa3
+ 320 00f3 09       		.uleb128 0x9
+ 321 00f4 5F010000 		.4byte	.LASF21
+ 322 00f8 01       		.byte	0x1
+ 323 00f9 2A       		.byte	0x2a
+ARM GAS  C:\Users\Alan\AppData\Local\Temp\cchniY18.s 			page 10
+
+
+ 324 00fa 00000000 		.4byte	.LFB2
+ 325 00fe 28000000 		.4byte	.LFE2-.LFB2
+ 326 0102 01       		.uleb128 0x1
+ 327 0103 9C       		.byte	0x9c
+ 328 0104 24010000 		.4byte	0x124
+ 329 0108 0A       		.uleb128 0xa
+ 330 0109 06000000 		.4byte	.LVL0
+ 331 010d B6010000 		.4byte	0x1b6
+ 332 0111 0A       		.uleb128 0xa
+ 333 0112 0E000000 		.4byte	.LVL1
+ 334 0116 C1010000 		.4byte	0x1c1
+ 335 011a 0A       		.uleb128 0xa
+ 336 011b 1A000000 		.4byte	.LVL2
+ 337 011f CC010000 		.4byte	0x1cc
+ 338 0123 00       		.byte	0
+ 339 0124 09       		.uleb128 0x9
+ 340 0125 77020000 		.4byte	.LASF22
+ 341 0129 01       		.byte	0x1
+ 342 012a 58       		.byte	0x58
+ 343 012b 00000000 		.4byte	.LFB3
+ 344 012f 28000000 		.4byte	.LFE3-.LFB3
+ 345 0133 01       		.uleb128 0x1
+ 346 0134 9C       		.byte	0x9c
+ 347 0135 55010000 		.4byte	0x155
+ 348 0139 0A       		.uleb128 0xa
+ 349 013a 0A000000 		.4byte	.LVL3
+ 350 013e D7010000 		.4byte	0x1d7
+ 351 0142 0A       		.uleb128 0xa
+ 352 0143 10000000 		.4byte	.LVL4
+ 353 0147 E8010000 		.4byte	0x1e8
+ 354 014b 0A       		.uleb128 0xa
+ 355 014c 1C000000 		.4byte	.LVL5
+ 356 0150 F9010000 		.4byte	0x1f9
+ 357 0154 00       		.byte	0
+ 358 0155 09       		.uleb128 0x9
+ 359 0156 69020000 		.4byte	.LASF23
+ 360 015a 01       		.byte	0x1
+ 361 015b 88       		.byte	0x88
+ 362 015c 00000000 		.4byte	.LFB4
+ 363 0160 2C000000 		.4byte	.LFE4-.LFB4
+ 364 0164 01       		.uleb128 0x1
+ 365 0165 9C       		.byte	0x9c
+ 366 0166 7D010000 		.4byte	0x17d
+ 367 016a 0A       		.uleb128 0xa
+ 368 016b 1E000000 		.4byte	.LVL6
+ 369 016f 0A020000 		.4byte	0x20a
+ 370 0173 0A       		.uleb128 0xa
+ 371 0174 22000000 		.4byte	.LVL7
+ 372 0178 F3000000 		.4byte	0xf3
+ 373 017c 00       		.byte	0
+ 374 017d 09       		.uleb128 0x9
+ 375 017e 16000000 		.4byte	.LASF24
+ 376 0182 01       		.byte	0x1
+ 377 0183 B2       		.byte	0xb2
+ 378 0184 00000000 		.4byte	.LFB5
+ 379 0188 18000000 		.4byte	.LFE5-.LFB5
+ 380 018c 01       		.uleb128 0x1
+ARM GAS  C:\Users\Alan\AppData\Local\Temp\cchniY18.s 			page 11
+
+
+ 381 018d 9C       		.byte	0x9c
+ 382 018e A5010000 		.4byte	0x1a5
+ 383 0192 0A       		.uleb128 0xa
+ 384 0193 06000000 		.4byte	.LVL8
+ 385 0197 24010000 		.4byte	0x124
+ 386 019b 0A       		.uleb128 0xa
+ 387 019c 12000000 		.4byte	.LVL9
+ 388 01a0 11020000 		.4byte	0x211
+ 389 01a4 00       		.byte	0
+ 390 01a5 0B       		.uleb128 0xb
+ 391 01a6 8D020000 		.4byte	.LASF36
+ 392 01aa 01       		.byte	0x1
+ 393 01ab 14       		.byte	0x14
+ 394 01ac E8000000 		.4byte	0xe8
+ 395 01b0 05       		.uleb128 0x5
+ 396 01b1 03       		.byte	0x3
+ 397 01b2 00000000 		.4byte	tachPwm_backup
+ 398 01b6 0C       		.uleb128 0xc
+ 399 01b7 72010000 		.4byte	.LASF25
+ 400 01bb 03       		.byte	0x3
+ 401 01bc C0       		.byte	0xc0
+ 402 01bd 6B000000 		.4byte	0x6b
+ 403 01c1 0C       		.uleb128 0xc
+ 404 01c2 01010000 		.4byte	.LASF26
+ 405 01c6 03       		.byte	0x3
+ 406 01c7 B3       		.byte	0xb3
+ 407 01c8 6B000000 		.4byte	0x6b
+ 408 01cc 0C       		.uleb128 0xc
+ 409 01cd 85010000 		.4byte	.LASF27
+ 410 01d1 03       		.byte	0x3
+ 411 01d2 9D       		.byte	0x9d
+ 412 01d3 6B000000 		.4byte	0x6b
+ 413 01d7 0D       		.uleb128 0xd
+ 414 01d8 AA010000 		.4byte	.LASF28
+ 415 01dc 03       		.byte	0x3
+ 416 01dd BE       		.byte	0xbe
+ 417 01de E8010000 		.4byte	0x1e8
+ 418 01e2 0E       		.uleb128 0xe
+ 419 01e3 6B000000 		.4byte	0x6b
+ 420 01e7 00       		.byte	0
+ 421 01e8 0D       		.uleb128 0xd
+ 422 01e9 C9000000 		.4byte	.LASF29
+ 423 01ed 03       		.byte	0x3
+ 424 01ee BA       		.byte	0xba
+ 425 01ef F9010000 		.4byte	0x1f9
+ 426 01f3 0E       		.uleb128 0xe
+ 427 01f4 6B000000 		.4byte	0x6b
+ 428 01f8 00       		.byte	0
+ 429 01f9 0D       		.uleb128 0xd
+ 430 01fa C6020000 		.4byte	.LASF30
+ 431 01fe 03       		.byte	0x3
+ 432 01ff 9E       		.byte	0x9e
+ 433 0200 0A020000 		.4byte	0x20a
+ 434 0204 0E       		.uleb128 0xe
+ 435 0205 6B000000 		.4byte	0x6b
+ 436 0209 00       		.byte	0
+ 437 020a 0F       		.uleb128 0xf
+ARM GAS  C:\Users\Alan\AppData\Local\Temp\cchniY18.s 			page 12
+
+
+ 438 020b E5000000 		.4byte	.LASF31
+ 439 020f 03       		.byte	0x3
+ 440 0210 93       		.byte	0x93
+ 441 0211 0F       		.uleb128 0xf
+ 442 0212 F2000000 		.4byte	.LASF32
+ 443 0216 03       		.byte	0x3
+ 444 0217 DB       		.byte	0xdb
+ 445 0218 00       		.byte	0
+ 446              		.section	.debug_abbrev,"",%progbits
+ 447              	.Ldebug_abbrev0:
+ 448 0000 01       		.uleb128 0x1
+ 449 0001 11       		.uleb128 0x11
+ 450 0002 01       		.byte	0x1
+ 451 0003 25       		.uleb128 0x25
+ 452 0004 0E       		.uleb128 0xe
+ 453 0005 13       		.uleb128 0x13
+ 454 0006 0B       		.uleb128 0xb
+ 455 0007 03       		.uleb128 0x3
+ 456 0008 0E       		.uleb128 0xe
+ 457 0009 1B       		.uleb128 0x1b
+ 458 000a 0E       		.uleb128 0xe
+ 459 000b 55       		.uleb128 0x55
+ 460 000c 17       		.uleb128 0x17
+ 461 000d 11       		.uleb128 0x11
+ 462 000e 01       		.uleb128 0x1
+ 463 000f 10       		.uleb128 0x10
+ 464 0010 17       		.uleb128 0x17
+ 465 0011 00       		.byte	0
+ 466 0012 00       		.byte	0
+ 467 0013 02       		.uleb128 0x2
+ 468 0014 24       		.uleb128 0x24
+ 469 0015 00       		.byte	0
+ 470 0016 0B       		.uleb128 0xb
+ 471 0017 0B       		.uleb128 0xb
+ 472 0018 3E       		.uleb128 0x3e
+ 473 0019 0B       		.uleb128 0xb
+ 474 001a 03       		.uleb128 0x3
+ 475 001b 0E       		.uleb128 0xe
+ 476 001c 00       		.byte	0
+ 477 001d 00       		.byte	0
+ 478 001e 03       		.uleb128 0x3
+ 479 001f 24       		.uleb128 0x24
+ 480 0020 00       		.byte	0
+ 481 0021 0B       		.uleb128 0xb
+ 482 0022 0B       		.uleb128 0xb
+ 483 0023 3E       		.uleb128 0x3e
+ 484 0024 0B       		.uleb128 0xb
+ 485 0025 03       		.uleb128 0x3
+ 486 0026 08       		.uleb128 0x8
+ 487 0027 00       		.byte	0
+ 488 0028 00       		.byte	0
+ 489 0029 04       		.uleb128 0x4
+ 490 002a 16       		.uleb128 0x16
+ 491 002b 00       		.byte	0
+ 492 002c 03       		.uleb128 0x3
+ 493 002d 0E       		.uleb128 0xe
+ 494 002e 3A       		.uleb128 0x3a
+ARM GAS  C:\Users\Alan\AppData\Local\Temp\cchniY18.s 			page 13
+
+
+ 495 002f 0B       		.uleb128 0xb
+ 496 0030 3B       		.uleb128 0x3b
+ 497 0031 0B       		.uleb128 0xb
+ 498 0032 49       		.uleb128 0x49
+ 499 0033 13       		.uleb128 0x13
+ 500 0034 00       		.byte	0
+ 501 0035 00       		.byte	0
+ 502 0036 05       		.uleb128 0x5
+ 503 0037 16       		.uleb128 0x16
+ 504 0038 00       		.byte	0
+ 505 0039 03       		.uleb128 0x3
+ 506 003a 0E       		.uleb128 0xe
+ 507 003b 3A       		.uleb128 0x3a
+ 508 003c 0B       		.uleb128 0xb
+ 509 003d 3B       		.uleb128 0x3b
+ 510 003e 05       		.uleb128 0x5
+ 511 003f 49       		.uleb128 0x49
+ 512 0040 13       		.uleb128 0x13
+ 513 0041 00       		.byte	0
+ 514 0042 00       		.byte	0
+ 515 0043 06       		.uleb128 0x6
+ 516 0044 35       		.uleb128 0x35
+ 517 0045 00       		.byte	0
+ 518 0046 49       		.uleb128 0x49
+ 519 0047 13       		.uleb128 0x13
+ 520 0048 00       		.byte	0
+ 521 0049 00       		.byte	0
+ 522 004a 07       		.uleb128 0x7
+ 523 004b 13       		.uleb128 0x13
+ 524 004c 01       		.byte	0x1
+ 525 004d 0B       		.uleb128 0xb
+ 526 004e 0B       		.uleb128 0xb
+ 527 004f 3A       		.uleb128 0x3a
+ 528 0050 0B       		.uleb128 0xb
+ 529 0051 3B       		.uleb128 0x3b
+ 530 0052 0B       		.uleb128 0xb
+ 531 0053 01       		.uleb128 0x1
+ 532 0054 13       		.uleb128 0x13
+ 533 0055 00       		.byte	0
+ 534 0056 00       		.byte	0
+ 535 0057 08       		.uleb128 0x8
+ 536 0058 0D       		.uleb128 0xd
+ 537 0059 00       		.byte	0
+ 538 005a 03       		.uleb128 0x3
+ 539 005b 0E       		.uleb128 0xe
+ 540 005c 3A       		.uleb128 0x3a
+ 541 005d 0B       		.uleb128 0xb
+ 542 005e 3B       		.uleb128 0x3b
+ 543 005f 0B       		.uleb128 0xb
+ 544 0060 49       		.uleb128 0x49
+ 545 0061 13       		.uleb128 0x13
+ 546 0062 38       		.uleb128 0x38
+ 547 0063 0B       		.uleb128 0xb
+ 548 0064 00       		.byte	0
+ 549 0065 00       		.byte	0
+ 550 0066 09       		.uleb128 0x9
+ 551 0067 2E       		.uleb128 0x2e
+ARM GAS  C:\Users\Alan\AppData\Local\Temp\cchniY18.s 			page 14
+
+
+ 552 0068 01       		.byte	0x1
+ 553 0069 3F       		.uleb128 0x3f
+ 554 006a 19       		.uleb128 0x19
+ 555 006b 03       		.uleb128 0x3
+ 556 006c 0E       		.uleb128 0xe
+ 557 006d 3A       		.uleb128 0x3a
+ 558 006e 0B       		.uleb128 0xb
+ 559 006f 3B       		.uleb128 0x3b
+ 560 0070 0B       		.uleb128 0xb
+ 561 0071 27       		.uleb128 0x27
+ 562 0072 19       		.uleb128 0x19
+ 563 0073 11       		.uleb128 0x11
+ 564 0074 01       		.uleb128 0x1
+ 565 0075 12       		.uleb128 0x12
+ 566 0076 06       		.uleb128 0x6
+ 567 0077 40       		.uleb128 0x40
+ 568 0078 18       		.uleb128 0x18
+ 569 0079 9742     		.uleb128 0x2117
+ 570 007b 19       		.uleb128 0x19
+ 571 007c 01       		.uleb128 0x1
+ 572 007d 13       		.uleb128 0x13
+ 573 007e 00       		.byte	0
+ 574 007f 00       		.byte	0
+ 575 0080 0A       		.uleb128 0xa
+ 576 0081 898201   		.uleb128 0x4109
+ 577 0084 00       		.byte	0
+ 578 0085 11       		.uleb128 0x11
+ 579 0086 01       		.uleb128 0x1
+ 580 0087 31       		.uleb128 0x31
+ 581 0088 13       		.uleb128 0x13
+ 582 0089 00       		.byte	0
+ 583 008a 00       		.byte	0
+ 584 008b 0B       		.uleb128 0xb
+ 585 008c 34       		.uleb128 0x34
+ 586 008d 00       		.byte	0
+ 587 008e 03       		.uleb128 0x3
+ 588 008f 0E       		.uleb128 0xe
+ 589 0090 3A       		.uleb128 0x3a
+ 590 0091 0B       		.uleb128 0xb
+ 591 0092 3B       		.uleb128 0x3b
+ 592 0093 0B       		.uleb128 0xb
+ 593 0094 49       		.uleb128 0x49
+ 594 0095 13       		.uleb128 0x13
+ 595 0096 02       		.uleb128 0x2
+ 596 0097 18       		.uleb128 0x18
+ 597 0098 00       		.byte	0
+ 598 0099 00       		.byte	0
+ 599 009a 0C       		.uleb128 0xc
+ 600 009b 2E       		.uleb128 0x2e
+ 601 009c 00       		.byte	0
+ 602 009d 3F       		.uleb128 0x3f
+ 603 009e 19       		.uleb128 0x19
+ 604 009f 03       		.uleb128 0x3
+ 605 00a0 0E       		.uleb128 0xe
+ 606 00a1 3A       		.uleb128 0x3a
+ 607 00a2 0B       		.uleb128 0xb
+ 608 00a3 3B       		.uleb128 0x3b
+ARM GAS  C:\Users\Alan\AppData\Local\Temp\cchniY18.s 			page 15
+
+
+ 609 00a4 0B       		.uleb128 0xb
+ 610 00a5 27       		.uleb128 0x27
+ 611 00a6 19       		.uleb128 0x19
+ 612 00a7 49       		.uleb128 0x49
+ 613 00a8 13       		.uleb128 0x13
+ 614 00a9 3C       		.uleb128 0x3c
+ 615 00aa 19       		.uleb128 0x19
+ 616 00ab 00       		.byte	0
+ 617 00ac 00       		.byte	0
+ 618 00ad 0D       		.uleb128 0xd
+ 619 00ae 2E       		.uleb128 0x2e
+ 620 00af 01       		.byte	0x1
+ 621 00b0 3F       		.uleb128 0x3f
+ 622 00b1 19       		.uleb128 0x19
+ 623 00b2 03       		.uleb128 0x3
+ 624 00b3 0E       		.uleb128 0xe
+ 625 00b4 3A       		.uleb128 0x3a
+ 626 00b5 0B       		.uleb128 0xb
+ 627 00b6 3B       		.uleb128 0x3b
+ 628 00b7 0B       		.uleb128 0xb
+ 629 00b8 27       		.uleb128 0x27
+ 630 00b9 19       		.uleb128 0x19
+ 631 00ba 3C       		.uleb128 0x3c
+ 632 00bb 19       		.uleb128 0x19
+ 633 00bc 01       		.uleb128 0x1
+ 634 00bd 13       		.uleb128 0x13
+ 635 00be 00       		.byte	0
+ 636 00bf 00       		.byte	0
+ 637 00c0 0E       		.uleb128 0xe
+ 638 00c1 05       		.uleb128 0x5
+ 639 00c2 00       		.byte	0
+ 640 00c3 49       		.uleb128 0x49
+ 641 00c4 13       		.uleb128 0x13
+ 642 00c5 00       		.byte	0
+ 643 00c6 00       		.byte	0
+ 644 00c7 0F       		.uleb128 0xf
+ 645 00c8 2E       		.uleb128 0x2e
+ 646 00c9 00       		.byte	0
+ 647 00ca 3F       		.uleb128 0x3f
+ 648 00cb 19       		.uleb128 0x19
+ 649 00cc 03       		.uleb128 0x3
+ 650 00cd 0E       		.uleb128 0xe
+ 651 00ce 3A       		.uleb128 0x3a
+ 652 00cf 0B       		.uleb128 0xb
+ 653 00d0 3B       		.uleb128 0x3b
+ 654 00d1 0B       		.uleb128 0xb
+ 655 00d2 27       		.uleb128 0x27
+ 656 00d3 19       		.uleb128 0x19
+ 657 00d4 3C       		.uleb128 0x3c
+ 658 00d5 19       		.uleb128 0x19
+ 659 00d6 00       		.byte	0
+ 660 00d7 00       		.byte	0
+ 661 00d8 00       		.byte	0
+ 662              		.section	.debug_aranges,"",%progbits
+ 663 0000 34000000 		.4byte	0x34
+ 664 0004 0200     		.2byte	0x2
+ 665 0006 00000000 		.4byte	.Ldebug_info0
+ARM GAS  C:\Users\Alan\AppData\Local\Temp\cchniY18.s 			page 16
+
+
+ 666 000a 04       		.byte	0x4
+ 667 000b 00       		.byte	0
+ 668 000c 0000     		.2byte	0
+ 669 000e 0000     		.2byte	0
+ 670 0010 00000000 		.4byte	.LFB2
+ 671 0014 28000000 		.4byte	.LFE2-.LFB2
+ 672 0018 00000000 		.4byte	.LFB3
+ 673 001c 28000000 		.4byte	.LFE3-.LFB3
+ 674 0020 00000000 		.4byte	.LFB4
+ 675 0024 2C000000 		.4byte	.LFE4-.LFB4
+ 676 0028 00000000 		.4byte	.LFB5
+ 677 002c 18000000 		.4byte	.LFE5-.LFB5
+ 678 0030 00000000 		.4byte	0
+ 679 0034 00000000 		.4byte	0
+ 680              		.section	.debug_ranges,"",%progbits
+ 681              	.Ldebug_ranges0:
+ 682 0000 00000000 		.4byte	.LFB2
+ 683 0004 28000000 		.4byte	.LFE2
+ 684 0008 00000000 		.4byte	.LFB3
+ 685 000c 28000000 		.4byte	.LFE3
+ 686 0010 00000000 		.4byte	.LFB4
+ 687 0014 2C000000 		.4byte	.LFE4
+ 688 0018 00000000 		.4byte	.LFB5
+ 689 001c 18000000 		.4byte	.LFE5
+ 690 0020 00000000 		.4byte	0
+ 691 0024 00000000 		.4byte	0
+ 692              		.section	.debug_line,"",%progbits
+ 693              	.Ldebug_line0:
+ 694 0000 B3000000 		.section	.debug_str,"MS",%progbits,1
+ 694      02005600 
+ 694      00000201 
+ 694      FB0E0D00 
+ 694      01010101 
+ 695              	.LASF16:
+ 696 0000 50574D55 		.ascii	"PWMUdb\000"
+ 696      646200
+ 697              	.LASF13:
+ 698 0007 72656738 		.ascii	"reg8\000"
+ 698      00
+ 699              	.LASF17:
+ 700 000c 50574D50 		.ascii	"PWMPeriod\000"
+ 700      6572696F 
+ 700      6400
+ 701              	.LASF24:
+ 702 0016 74616368 		.ascii	"tachPwm_Wakeup\000"
+ 702      50776D5F 
+ 702      57616B65 
+ 702      757000
+ 703              	.LASF3:
+ 704 0025 73686F72 		.ascii	"short unsigned int\000"
+ 704      7420756E 
+ 704      7369676E 
+ 704      65642069 
+ 704      6E7400
+ 705              	.LASF9:
+ 706 0038 666C6F61 		.ascii	"float\000"
+ 706      7400
+ARM GAS  C:\Users\Alan\AppData\Local\Temp\cchniY18.s 			page 17
+
+
+ 707              	.LASF35:
+ 708 003e 5C5C766D 		.ascii	"\\\\vmware-host\\Shared Folders\\Documents\\BLEIOSA"
+ 708      77617265 
+ 708      2D686F73 
+ 708      745C5368 
+ 708      61726564 
+ 709 006c 50505C72 		.ascii	"PP\\robot\\robot.cydsn\000"
+ 709      6F626F74 
+ 709      5C726F62 
+ 709      6F742E63 
+ 709      7964736E 
+ 710              	.LASF1:
+ 711 0081 756E7369 		.ascii	"unsigned char\000"
+ 711      676E6564 
+ 711      20636861 
+ 711      7200
+ 712              	.LASF15:
+ 713 008f 50574D45 		.ascii	"PWMEnableState\000"
+ 713      6E61626C 
+ 713      65537461 
+ 713      746500
+ 714              	.LASF5:
+ 715 009e 6C6F6E67 		.ascii	"long unsigned int\000"
+ 715      20756E73 
+ 715      69676E65 
+ 715      6420696E 
+ 715      7400
+ 716              	.LASF12:
+ 717 00b0 75696E74 		.ascii	"uint8\000"
+ 717      3800
+ 718              	.LASF19:
+ 719 00b6 50574D43 		.ascii	"PWMControlRegister\000"
+ 719      6F6E7472 
+ 719      6F6C5265 
+ 719      67697374 
+ 719      657200
+ 720              	.LASF29:
+ 721 00c9 74616368 		.ascii	"tachPwm_WriteCounter\000"
+ 721      50776D5F 
+ 721      57726974 
+ 721      65436F75 
+ 721      6E746572 
+ 722              	.LASF10:
+ 723 00de 646F7562 		.ascii	"double\000"
+ 723      6C6500
+ 724              	.LASF31:
+ 725 00e5 74616368 		.ascii	"tachPwm_Stop\000"
+ 725      50776D5F 
+ 725      53746F70 
+ 725      00
+ 726              	.LASF32:
+ 727 00f2 74616368 		.ascii	"tachPwm_Enable\000"
+ 727      50776D5F 
+ 727      456E6162 
+ 727      6C6500
+ 728              	.LASF26:
+ 729 0101 74616368 		.ascii	"tachPwm_ReadCounter\000"
+ARM GAS  C:\Users\Alan\AppData\Local\Temp\cchniY18.s 			page 18
+
+
+ 729      50776D5F 
+ 729      52656164 
+ 729      436F756E 
+ 729      74657200 
+ 730              	.LASF34:
+ 731 0115 2E5C4765 		.ascii	".\\Generated_Source\\PSoC4\\tachPwm_PM.c\000"
+ 731      6E657261 
+ 731      7465645F 
+ 731      536F7572 
+ 731      63655C50 
+ 732              	.LASF8:
+ 733 013b 756E7369 		.ascii	"unsigned int\000"
+ 733      676E6564 
+ 733      20696E74 
+ 733      00
+ 734              	.LASF7:
+ 735 0148 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 735      206C6F6E 
+ 735      6720756E 
+ 735      7369676E 
+ 735      65642069 
+ 736              	.LASF21:
+ 737 015f 74616368 		.ascii	"tachPwm_SaveConfig\000"
+ 737      50776D5F 
+ 737      53617665 
+ 737      436F6E66 
+ 737      696700
+ 738              	.LASF25:
+ 739 0172 74616368 		.ascii	"tachPwm_ReadPeriod\000"
+ 739      50776D5F 
+ 739      52656164 
+ 739      50657269 
+ 739      6F6400
+ 740              	.LASF27:
+ 741 0185 74616368 		.ascii	"tachPwm_ReadControlRegister\000"
+ 741      50776D5F 
+ 741      52656164 
+ 741      436F6E74 
+ 741      726F6C52 
+ 742              	.LASF14:
+ 743 01a1 73697A65 		.ascii	"sizetype\000"
+ 743      74797065 
+ 743      00
+ 744              	.LASF28:
+ 745 01aa 74616368 		.ascii	"tachPwm_WritePeriod\000"
+ 745      50776D5F 
+ 745      57726974 
+ 745      65506572 
+ 745      696F6400 
+ 746              	.LASF6:
+ 747 01be 6C6F6E67 		.ascii	"long long int\000"
+ 747      206C6F6E 
+ 747      6720696E 
+ 747      7400
+ 748              	.LASF11:
+ 749 01cc 63686172 		.ascii	"char\000"
+ 749      00
+ARM GAS  C:\Users\Alan\AppData\Local\Temp\cchniY18.s 			page 19
+
+
+ 750              	.LASF33:
+ 751 01d1 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
+ 751      4320342E 
+ 751      392E3320 
+ 751      32303135 
+ 751      30333033 
+ 752 0204 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m0 -mthumb -g -O"
+ 752      20726576 
+ 752      6973696F 
+ 752      6E203232 
+ 752      31323230 
+ 753 0237 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 753      66756E63 
+ 753      74696F6E 
+ 753      2D736563 
+ 753      74696F6E 
+ 754              	.LASF2:
+ 755 025f 73686F72 		.ascii	"short int\000"
+ 755      7420696E 
+ 755      7400
+ 756              	.LASF23:
+ 757 0269 74616368 		.ascii	"tachPwm_Sleep\000"
+ 757      50776D5F 
+ 757      536C6565 
+ 757      7000
+ 758              	.LASF22:
+ 759 0277 74616368 		.ascii	"tachPwm_RestoreConfig\000"
+ 759      50776D5F 
+ 759      52657374 
+ 759      6F726543 
+ 759      6F6E6669 
+ 760              	.LASF36:
+ 761 028d 74616368 		.ascii	"tachPwm_backup\000"
+ 761      50776D5F 
+ 761      6261636B 
+ 761      757000
+ 762              	.LASF20:
+ 763 029c 74616368 		.ascii	"tachPwm_backupStruct\000"
+ 763      50776D5F 
+ 763      6261636B 
+ 763      75705374 
+ 763      72756374 
+ 764              	.LASF4:
+ 765 02b1 6C6F6E67 		.ascii	"long int\000"
+ 765      20696E74 
+ 765      00
+ 766              	.LASF0:
+ 767 02ba 7369676E 		.ascii	"signed char\000"
+ 767      65642063 
+ 767      68617200 
+ 768              	.LASF30:
+ 769 02c6 74616368 		.ascii	"tachPwm_WriteControlRegister\000"
+ 769      50776D5F 
+ 769      57726974 
+ 769      65436F6E 
+ 769      74726F6C 
+ 770              	.LASF18:
+ARM GAS  C:\Users\Alan\AppData\Local\Temp\cchniY18.s 			page 20
+
+
+ 771 02e3 496E7465 		.ascii	"InterruptMaskValue\000"
+ 771      72727570 
+ 771      744D6173 
+ 771      6B56616C 
+ 771      756500
+ 772              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20150303 (release) [ARM/embedded-4_9-br

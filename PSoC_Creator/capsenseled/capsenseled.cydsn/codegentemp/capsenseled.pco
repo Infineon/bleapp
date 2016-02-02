@@ -1,0 +1,37 @@
+# capsenseled
+# 2016-02-01 21:54:09Z
+
+# IO_6@[IOP=(0)][IoId=(6)] is reserved: SWDDebugEnabled
+dont_use_io iocell 0 6
+# IO_7@[IOP=(0)][IoId=(7)] is reserved: SWDDebugEnabled
+dont_use_io iocell 0 7
+# IO_0@[IOP=(6)][IoId=(0)] is reserved: KhzXtalEnabled
+dont_use_io iocell 6 0
+# IO_1@[IOP=(6)][IoId=(1)] is reserved: KhzXtalEnabled
+dont_use_io iocell 6 1
+set_location "ClockGenBlock" m0s8clockgenblockcell -1 -1 0
+set_location "ClockBlock" m0s8clockblockcell -1 -1 0
+set_io "blue(0)" iocell 3 7
+set_io "red(0)" iocell 2 6
+set_io "\capsense:Cmod(0)\" iocell 4 0
+set_io "\capsense:Sns(0)\" iocell 2 1
+set_io "\capsense:Sns(1)\" iocell 2 2
+set_io "\capsense:Sns(2)\" iocell 2 3
+set_io "\capsense:Sns(3)\" iocell 2 4
+set_io "\capsense:Sns(4)\" iocell 2 5
+set_location "\pwm:PWMUDB:status_2\" 1 0 0 0
+set_location "Net_135" 1 0 0 3
+set_location "\capsense:CSD_FFB\" p4csdcell -1 -1 0
+set_location "\capsense:ISR\" interrupt -1 -1 16
+set_location "\capsense:IDAC2:cy_psoc4_idac\" p4csidac7cell -1 -1 0
+set_location "__ONE__" 0 0 0 0
+set_location "\capsense:IDAC1:cy_psoc4_idac\" p4csidac8cell -1 -1 0
+set_location "\ble:cy_m0s8_ble\" p4blecell -1 -1 0
+set_location "\ble:bless_isr\" interrupt -1 -1 12
+set_location "\pwm:PWMUDB:genblk1:ctrlreg\" 1 0 6
+set_location "\pwm:PWMUDB:genblk8:stsreg\" 1 0 4
+set_location "\pwm:PWMUDB:sP8:pwmdp:u0\" 1 0 2
+set_location "\pwm:PWMUDB:runmode_enable\" 1 0 0 1
+set_location "\pwm:PWMUDB:prevCompare1\" 1 0 1 0
+set_location "\pwm:PWMUDB:status_0\" 1 0 1 1
+set_location "Net_124" 1 0 0 2

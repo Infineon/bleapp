@@ -1,0 +1,26 @@
+# robot
+# 2016-02-01 22:00:54Z
+
+# IO_6@[IOP=(0)][IoId=(6)] is reserved: SWDDebugEnabled
+dont_use_io iocell 0 6
+# IO_7@[IOP=(0)][IoId=(7)] is reserved: SWDDebugEnabled
+dont_use_io iocell 0 7
+# IO_0@[IOP=(6)][IoId=(0)] is reserved: KhzXtalEnabled
+dont_use_io iocell 6 0
+# IO_1@[IOP=(6)][IoId=(1)] is reserved: KhzXtalEnabled
+dont_use_io iocell 6 1
+set_location "ClockGenBlock" m0s8clockgenblockcell -1 -1 0
+set_io "Control(0)" iocell 2 7
+set_io "red(0)" iocell 2 6
+set_io "M1(0)" iocell 3 0
+set_io "M2(0)" iocell 1 4
+set_io "POWERLEFT(0)" iocell 3 5
+set_io "GNDLEFT(0)" iocell 3 4
+set_io "DIRLEFT(0)" iocell 3 1
+set_io "POWERRIGHT(0)" iocell 1 2
+set_io "GNDRIGHT(0)" iocell 1 3
+set_io "DIRRIGHT(0)" iocell 1 5
+set_io "qd1a(0)" iocell 3 2
+set_io "qd1b(0)" iocell 3 3
+set_io "qd2a(0)" iocell 1 7
+set_io "qd2b(0)" iocell 1 6

@@ -1,0 +1,837 @@
+ARM GAS  C:\Users\Alan\AppData\Local\Temp\cc3Kodbv.s 			page 1
+
+
+   1              		.cpu cortex-m0
+   2              		.fpu softvfp
+   3              		.eabi_attribute 20, 1
+   4              		.eabi_attribute 21, 1
+   5              		.eabi_attribute 23, 3
+   6              		.eabi_attribute 24, 1
+   7              		.eabi_attribute 25, 1
+   8              		.eabi_attribute 26, 1
+   9              		.eabi_attribute 30, 1
+  10              		.eabi_attribute 34, 0
+  11              		.eabi_attribute 18, 4
+  12              		.code	16
+  13              		.file	"PWMRIGHT_PM.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.section	.text.PWMRIGHT_SaveConfig,"ax",%progbits
+  18              		.align	2
+  19              		.global	PWMRIGHT_SaveConfig
+  20              		.code	16
+  21              		.thumb_func
+  22              		.type	PWMRIGHT_SaveConfig, %function
+  23              	PWMRIGHT_SaveConfig:
+  24              	.LFB2:
+  25              		.file 1 ".\\Generated_Source\\PSoC4\\PWMRIGHT_PM.c"
+   1:.\Generated_Source\PSoC4/PWMRIGHT_PM.c **** /*******************************************************************************
+   2:.\Generated_Source\PSoC4/PWMRIGHT_PM.c **** * File Name: PWMRIGHT_PM.c
+   3:.\Generated_Source\PSoC4/PWMRIGHT_PM.c **** * Version 2.0
+   4:.\Generated_Source\PSoC4/PWMRIGHT_PM.c **** *
+   5:.\Generated_Source\PSoC4/PWMRIGHT_PM.c **** * Description:
+   6:.\Generated_Source\PSoC4/PWMRIGHT_PM.c **** *  This file contains the setup, control, and status commands to support
+   7:.\Generated_Source\PSoC4/PWMRIGHT_PM.c **** *  the component operations in the low power mode.
+   8:.\Generated_Source\PSoC4/PWMRIGHT_PM.c **** *
+   9:.\Generated_Source\PSoC4/PWMRIGHT_PM.c **** * Note:
+  10:.\Generated_Source\PSoC4/PWMRIGHT_PM.c **** *  None
+  11:.\Generated_Source\PSoC4/PWMRIGHT_PM.c **** *
+  12:.\Generated_Source\PSoC4/PWMRIGHT_PM.c **** ********************************************************************************
+  13:.\Generated_Source\PSoC4/PWMRIGHT_PM.c **** * Copyright 2013-2014, Cypress Semiconductor Corporation.  All rights reserved.
+  14:.\Generated_Source\PSoC4/PWMRIGHT_PM.c **** * You may use this file only in accordance with the license, terms, conditions,
+  15:.\Generated_Source\PSoC4/PWMRIGHT_PM.c **** * disclaimers, and limitations in the end user license agreement accompanying
+  16:.\Generated_Source\PSoC4/PWMRIGHT_PM.c **** * the software package with which this file was provided.
+  17:.\Generated_Source\PSoC4/PWMRIGHT_PM.c **** *******************************************************************************/
+  18:.\Generated_Source\PSoC4/PWMRIGHT_PM.c **** 
+  19:.\Generated_Source\PSoC4/PWMRIGHT_PM.c **** #include "PWMRIGHT.h"
+  20:.\Generated_Source\PSoC4/PWMRIGHT_PM.c **** 
+  21:.\Generated_Source\PSoC4/PWMRIGHT_PM.c **** static PWMRIGHT_BACKUP_STRUCT PWMRIGHT_backup;
+  22:.\Generated_Source\PSoC4/PWMRIGHT_PM.c **** 
+  23:.\Generated_Source\PSoC4/PWMRIGHT_PM.c **** 
+  24:.\Generated_Source\PSoC4/PWMRIGHT_PM.c **** /*******************************************************************************
+  25:.\Generated_Source\PSoC4/PWMRIGHT_PM.c **** * Function Name: PWMRIGHT_SaveConfig
+  26:.\Generated_Source\PSoC4/PWMRIGHT_PM.c **** ********************************************************************************
+  27:.\Generated_Source\PSoC4/PWMRIGHT_PM.c **** *
+  28:.\Generated_Source\PSoC4/PWMRIGHT_PM.c **** * Summary:
+  29:.\Generated_Source\PSoC4/PWMRIGHT_PM.c **** *  All configuration registers are retention. Nothing to save here.
+  30:.\Generated_Source\PSoC4/PWMRIGHT_PM.c **** *
+  31:.\Generated_Source\PSoC4/PWMRIGHT_PM.c **** * Parameters:
+  32:.\Generated_Source\PSoC4/PWMRIGHT_PM.c **** *  None
+ARM GAS  C:\Users\Alan\AppData\Local\Temp\cc3Kodbv.s 			page 2
+
+
+  33:.\Generated_Source\PSoC4/PWMRIGHT_PM.c **** *
+  34:.\Generated_Source\PSoC4/PWMRIGHT_PM.c **** * Return:
+  35:.\Generated_Source\PSoC4/PWMRIGHT_PM.c **** *  None
+  36:.\Generated_Source\PSoC4/PWMRIGHT_PM.c **** *
+  37:.\Generated_Source\PSoC4/PWMRIGHT_PM.c **** *******************************************************************************/
+  38:.\Generated_Source\PSoC4/PWMRIGHT_PM.c **** void PWMRIGHT_SaveConfig(void)
+  39:.\Generated_Source\PSoC4/PWMRIGHT_PM.c **** {
+  26              		.loc 1 39 0
+  27              		.cfi_startproc
+  40:.\Generated_Source\PSoC4/PWMRIGHT_PM.c **** 
+  41:.\Generated_Source\PSoC4/PWMRIGHT_PM.c **** }
+  28              		.loc 1 41 0
+  29              		@ sp needed
+  30 0000 7047     		bx	lr
+  31              		.cfi_endproc
+  32              	.LFE2:
+  33              		.size	PWMRIGHT_SaveConfig, .-PWMRIGHT_SaveConfig
+  34 0002 C046     		.section	.text.PWMRIGHT_Sleep,"ax",%progbits
+  35              		.align	2
+  36              		.global	PWMRIGHT_Sleep
+  37              		.code	16
+  38              		.thumb_func
+  39              		.type	PWMRIGHT_Sleep, %function
+  40              	PWMRIGHT_Sleep:
+  41              	.LFB3:
+  42:.\Generated_Source\PSoC4/PWMRIGHT_PM.c **** 
+  43:.\Generated_Source\PSoC4/PWMRIGHT_PM.c **** 
+  44:.\Generated_Source\PSoC4/PWMRIGHT_PM.c **** /*******************************************************************************
+  45:.\Generated_Source\PSoC4/PWMRIGHT_PM.c **** * Function Name: PWMRIGHT_Sleep
+  46:.\Generated_Source\PSoC4/PWMRIGHT_PM.c **** ********************************************************************************
+  47:.\Generated_Source\PSoC4/PWMRIGHT_PM.c **** *
+  48:.\Generated_Source\PSoC4/PWMRIGHT_PM.c **** * Summary:
+  49:.\Generated_Source\PSoC4/PWMRIGHT_PM.c **** *  Stops the component operation and saves the user configuration.
+  50:.\Generated_Source\PSoC4/PWMRIGHT_PM.c **** *
+  51:.\Generated_Source\PSoC4/PWMRIGHT_PM.c **** * Parameters:
+  52:.\Generated_Source\PSoC4/PWMRIGHT_PM.c **** *  None
+  53:.\Generated_Source\PSoC4/PWMRIGHT_PM.c **** *
+  54:.\Generated_Source\PSoC4/PWMRIGHT_PM.c **** * Return:
+  55:.\Generated_Source\PSoC4/PWMRIGHT_PM.c **** *  None
+  56:.\Generated_Source\PSoC4/PWMRIGHT_PM.c **** *
+  57:.\Generated_Source\PSoC4/PWMRIGHT_PM.c **** *******************************************************************************/
+  58:.\Generated_Source\PSoC4/PWMRIGHT_PM.c **** void PWMRIGHT_Sleep(void)
+  59:.\Generated_Source\PSoC4/PWMRIGHT_PM.c **** {
+  42              		.loc 1 59 0
+  43              		.cfi_startproc
+  44 0000 08B5     		push	{r3, lr}
+  45              		.cfi_def_cfa_offset 8
+  46              		.cfi_offset 3, -8
+  47              		.cfi_offset 14, -4
+  60:.\Generated_Source\PSoC4/PWMRIGHT_PM.c ****     if(0u != (PWMRIGHT_BLOCK_CONTROL_REG & PWMRIGHT_MASK))
+  48              		.loc 1 60 0
+  49 0002 074B     		ldr	r3, .L5
+  50 0004 1B68     		ldr	r3, [r3]
+  51 0006 9B07     		lsl	r3, r3, #30
+  52 0008 03D5     		bpl	.L3
+  61:.\Generated_Source\PSoC4/PWMRIGHT_PM.c ****     {
+  62:.\Generated_Source\PSoC4/PWMRIGHT_PM.c ****         PWMRIGHT_backup.enableState = 1u;
+ARM GAS  C:\Users\Alan\AppData\Local\Temp\cc3Kodbv.s 			page 3
+
+
+  53              		.loc 1 62 0
+  54 000a 0122     		mov	r2, #1
+  55 000c 054B     		ldr	r3, .L5+4
+  56 000e 1A70     		strb	r2, [r3]
+  57 0010 02E0     		b	.L4
+  58              	.L3:
+  63:.\Generated_Source\PSoC4/PWMRIGHT_PM.c ****     }
+  64:.\Generated_Source\PSoC4/PWMRIGHT_PM.c ****     else
+  65:.\Generated_Source\PSoC4/PWMRIGHT_PM.c ****     {
+  66:.\Generated_Source\PSoC4/PWMRIGHT_PM.c ****         PWMRIGHT_backup.enableState = 0u;
+  59              		.loc 1 66 0
+  60 0012 0022     		mov	r2, #0
+  61 0014 034B     		ldr	r3, .L5+4
+  62 0016 1A70     		strb	r2, [r3]
+  63              	.L4:
+  67:.\Generated_Source\PSoC4/PWMRIGHT_PM.c ****     }
+  68:.\Generated_Source\PSoC4/PWMRIGHT_PM.c **** 
+  69:.\Generated_Source\PSoC4/PWMRIGHT_PM.c ****     PWMRIGHT_Stop();
+  64              		.loc 1 69 0
+  65 0018 FFF7FEFF 		bl	PWMRIGHT_Stop
+  66              	.LVL0:
+  70:.\Generated_Source\PSoC4/PWMRIGHT_PM.c ****     PWMRIGHT_SaveConfig();
+  71:.\Generated_Source\PSoC4/PWMRIGHT_PM.c **** }
+  67              		.loc 1 71 0
+  68              		@ sp needed
+  69 001c 08BD     		pop	{r3, pc}
+  70              	.L6:
+  71 001e C046     		.align	2
+  72              	.L5:
+  73 0020 00002040 		.word	1075838976
+  74 0024 00000000 		.word	.LANCHOR0
+  75              		.cfi_endproc
+  76              	.LFE3:
+  77              		.size	PWMRIGHT_Sleep, .-PWMRIGHT_Sleep
+  78              		.section	.text.PWMRIGHT_RestoreConfig,"ax",%progbits
+  79              		.align	2
+  80              		.global	PWMRIGHT_RestoreConfig
+  81              		.code	16
+  82              		.thumb_func
+  83              		.type	PWMRIGHT_RestoreConfig, %function
+  84              	PWMRIGHT_RestoreConfig:
+  85              	.LFB4:
+  72:.\Generated_Source\PSoC4/PWMRIGHT_PM.c **** 
+  73:.\Generated_Source\PSoC4/PWMRIGHT_PM.c **** 
+  74:.\Generated_Source\PSoC4/PWMRIGHT_PM.c **** /*******************************************************************************
+  75:.\Generated_Source\PSoC4/PWMRIGHT_PM.c **** * Function Name: PWMRIGHT_RestoreConfig
+  76:.\Generated_Source\PSoC4/PWMRIGHT_PM.c **** ********************************************************************************
+  77:.\Generated_Source\PSoC4/PWMRIGHT_PM.c **** *
+  78:.\Generated_Source\PSoC4/PWMRIGHT_PM.c **** * Summary:
+  79:.\Generated_Source\PSoC4/PWMRIGHT_PM.c **** *  All configuration registers are retention. Nothing to restore here.
+  80:.\Generated_Source\PSoC4/PWMRIGHT_PM.c **** *
+  81:.\Generated_Source\PSoC4/PWMRIGHT_PM.c **** * Parameters:
+  82:.\Generated_Source\PSoC4/PWMRIGHT_PM.c **** *  None
+  83:.\Generated_Source\PSoC4/PWMRIGHT_PM.c **** *
+  84:.\Generated_Source\PSoC4/PWMRIGHT_PM.c **** * Return:
+  85:.\Generated_Source\PSoC4/PWMRIGHT_PM.c **** *  None
+  86:.\Generated_Source\PSoC4/PWMRIGHT_PM.c **** *
+ARM GAS  C:\Users\Alan\AppData\Local\Temp\cc3Kodbv.s 			page 4
+
+
+  87:.\Generated_Source\PSoC4/PWMRIGHT_PM.c **** *******************************************************************************/
+  88:.\Generated_Source\PSoC4/PWMRIGHT_PM.c **** void PWMRIGHT_RestoreConfig(void)
+  89:.\Generated_Source\PSoC4/PWMRIGHT_PM.c **** {
+  86              		.loc 1 89 0
+  87              		.cfi_startproc
+  90:.\Generated_Source\PSoC4/PWMRIGHT_PM.c **** 
+  91:.\Generated_Source\PSoC4/PWMRIGHT_PM.c **** }
+  88              		.loc 1 91 0
+  89              		@ sp needed
+  90 0000 7047     		bx	lr
+  91              		.cfi_endproc
+  92              	.LFE4:
+  93              		.size	PWMRIGHT_RestoreConfig, .-PWMRIGHT_RestoreConfig
+  94 0002 C046     		.section	.text.PWMRIGHT_Wakeup,"ax",%progbits
+  95              		.align	2
+  96              		.global	PWMRIGHT_Wakeup
+  97              		.code	16
+  98              		.thumb_func
+  99              		.type	PWMRIGHT_Wakeup, %function
+ 100              	PWMRIGHT_Wakeup:
+ 101              	.LFB5:
+  92:.\Generated_Source\PSoC4/PWMRIGHT_PM.c **** 
+  93:.\Generated_Source\PSoC4/PWMRIGHT_PM.c **** 
+  94:.\Generated_Source\PSoC4/PWMRIGHT_PM.c **** /*******************************************************************************
+  95:.\Generated_Source\PSoC4/PWMRIGHT_PM.c **** * Function Name: PWMRIGHT_Wakeup
+  96:.\Generated_Source\PSoC4/PWMRIGHT_PM.c **** ********************************************************************************
+  97:.\Generated_Source\PSoC4/PWMRIGHT_PM.c **** *
+  98:.\Generated_Source\PSoC4/PWMRIGHT_PM.c **** * Summary:
+  99:.\Generated_Source\PSoC4/PWMRIGHT_PM.c **** *  Restores the user configuration and restores the enable state.
+ 100:.\Generated_Source\PSoC4/PWMRIGHT_PM.c **** *
+ 101:.\Generated_Source\PSoC4/PWMRIGHT_PM.c **** * Parameters:
+ 102:.\Generated_Source\PSoC4/PWMRIGHT_PM.c **** *  None
+ 103:.\Generated_Source\PSoC4/PWMRIGHT_PM.c **** *
+ 104:.\Generated_Source\PSoC4/PWMRIGHT_PM.c **** * Return:
+ 105:.\Generated_Source\PSoC4/PWMRIGHT_PM.c **** *  None
+ 106:.\Generated_Source\PSoC4/PWMRIGHT_PM.c **** *
+ 107:.\Generated_Source\PSoC4/PWMRIGHT_PM.c **** *******************************************************************************/
+ 108:.\Generated_Source\PSoC4/PWMRIGHT_PM.c **** void PWMRIGHT_Wakeup(void)
+ 109:.\Generated_Source\PSoC4/PWMRIGHT_PM.c **** {
+ 102              		.loc 1 109 0
+ 103              		.cfi_startproc
+ 104 0000 08B5     		push	{r3, lr}
+ 105              		.cfi_def_cfa_offset 8
+ 106              		.cfi_offset 3, -8
+ 107              		.cfi_offset 14, -4
+ 110:.\Generated_Source\PSoC4/PWMRIGHT_PM.c ****     PWMRIGHT_RestoreConfig();
+ 111:.\Generated_Source\PSoC4/PWMRIGHT_PM.c **** 
+ 112:.\Generated_Source\PSoC4/PWMRIGHT_PM.c ****     if(0u != PWMRIGHT_backup.enableState)
+ 108              		.loc 1 112 0
+ 109 0002 034B     		ldr	r3, .L10
+ 110 0004 1B78     		ldrb	r3, [r3]
+ 111 0006 002B     		cmp	r3, #0
+ 112 0008 01D0     		beq	.L8
+ 113:.\Generated_Source\PSoC4/PWMRIGHT_PM.c ****     {
+ 114:.\Generated_Source\PSoC4/PWMRIGHT_PM.c ****         PWMRIGHT_Enable();
+ 113              		.loc 1 114 0
+ 114 000a FFF7FEFF 		bl	PWMRIGHT_Enable
+ARM GAS  C:\Users\Alan\AppData\Local\Temp\cc3Kodbv.s 			page 5
+
+
+ 115              	.LVL1:
+ 116              	.L8:
+ 115:.\Generated_Source\PSoC4/PWMRIGHT_PM.c ****     }
+ 116:.\Generated_Source\PSoC4/PWMRIGHT_PM.c **** }
+ 117              		.loc 1 116 0
+ 118              		@ sp needed
+ 119 000e 08BD     		pop	{r3, pc}
+ 120              	.L11:
+ 121              		.align	2
+ 122              	.L10:
+ 123 0010 00000000 		.word	.LANCHOR0
+ 124              		.cfi_endproc
+ 125              	.LFE5:
+ 126              		.size	PWMRIGHT_Wakeup, .-PWMRIGHT_Wakeup
+ 127              		.bss
+ 128              		.align	2
+ 129              		.set	.LANCHOR0,. + 0
+ 130              		.type	PWMRIGHT_backup, %object
+ 131              		.size	PWMRIGHT_backup, 1
+ 132              	PWMRIGHT_backup:
+ 133 0000 00       		.space	1
+ 134 0001 000000   		.text
+ 135              	.Letext0:
+ 136              		.file 2 ".\\Generated_Source\\PSoC4\\cytypes.h"
+ 137              		.file 3 ".\\Generated_Source\\PSoC4\\PWMRIGHT.h"
+ 138              		.section	.debug_info,"",%progbits
+ 139              	.Ldebug_info0:
+ 140 0000 4C010000 		.4byte	0x14c
+ 141 0004 0400     		.2byte	0x4
+ 142 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 143 000a 04       		.byte	0x4
+ 144 000b 01       		.uleb128 0x1
+ 145 000c A4010000 		.4byte	.LASF23
+ 146 0010 01       		.byte	0x1
+ 147 0011 1E010000 		.4byte	.LASF24
+ 148 0015 3D000000 		.4byte	.LASF25
+ 149 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 150 001d 00000000 		.4byte	0
+ 151 0021 00000000 		.4byte	.Ldebug_line0
+ 152 0025 02       		.uleb128 0x2
+ 153 0026 01       		.byte	0x1
+ 154 0027 06       		.byte	0x6
+ 155 0028 88010000 		.4byte	.LASF0
+ 156 002c 02       		.uleb128 0x2
+ 157 002d 01       		.byte	0x1
+ 158 002e 08       		.byte	0x8
+ 159 002f 02010000 		.4byte	.LASF1
+ 160 0033 02       		.uleb128 0x2
+ 161 0034 02       		.byte	0x2
+ 162 0035 05       		.byte	0x5
+ 163 0036 32020000 		.4byte	.LASF2
+ 164 003a 02       		.uleb128 0x2
+ 165 003b 02       		.byte	0x2
+ 166 003c 07       		.byte	0x7
+ 167 003d E9000000 		.4byte	.LASF3
+ 168 0041 02       		.uleb128 0x2
+ 169 0042 04       		.byte	0x4
+ARM GAS  C:\Users\Alan\AppData\Local\Temp\cc3Kodbv.s 			page 6
+
+
+ 170 0043 05       		.byte	0x5
+ 171 0044 15010000 		.4byte	.LASF4
+ 172 0048 02       		.uleb128 0x2
+ 173 0049 04       		.byte	0x4
+ 174 004a 07       		.byte	0x7
+ 175 004b 45010000 		.4byte	.LASF5
+ 176 004f 02       		.uleb128 0x2
+ 177 0050 08       		.byte	0x8
+ 178 0051 05       		.byte	0x5
+ 179 0052 00000000 		.4byte	.LASF6
+ 180 0056 02       		.uleb128 0x2
+ 181 0057 08       		.byte	0x8
+ 182 0058 07       		.byte	0x7
+ 183 0059 D2000000 		.4byte	.LASF7
+ 184 005d 03       		.uleb128 0x3
+ 185 005e 04       		.byte	0x4
+ 186 005f 05       		.byte	0x5
+ 187 0060 696E7400 		.ascii	"int\000"
+ 188 0064 02       		.uleb128 0x2
+ 189 0065 04       		.byte	0x4
+ 190 0066 07       		.byte	0x7
+ 191 0067 21000000 		.4byte	.LASF8
+ 192 006b 04       		.uleb128 0x4
+ 193 006c 82010000 		.4byte	.LASF9
+ 194 0070 02       		.byte	0x2
+ 195 0071 C2       		.byte	0xc2
+ 196 0072 2C000000 		.4byte	0x2c
+ 197 0076 04       		.uleb128 0x4
+ 198 0077 0E000000 		.4byte	.LASF10
+ 199 007b 02       		.byte	0x2
+ 200 007c C4       		.byte	0xc4
+ 201 007d 48000000 		.4byte	0x48
+ 202 0081 02       		.uleb128 0x2
+ 203 0082 04       		.byte	0x4
+ 204 0083 04       		.byte	0x4
+ 205 0084 FC000000 		.4byte	.LASF11
+ 206 0088 02       		.uleb128 0x2
+ 207 0089 08       		.byte	0x8
+ 208 008a 04       		.byte	0x4
+ 209 008b 57010000 		.4byte	.LASF12
+ 210 008f 02       		.uleb128 0x2
+ 211 0090 01       		.byte	0x1
+ 212 0091 08       		.byte	0x8
+ 213 0092 10010000 		.4byte	.LASF13
+ 214 0096 05       		.uleb128 0x5
+ 215 0097 7C010000 		.4byte	.LASF14
+ 216 009b 02       		.byte	0x2
+ 217 009c 6E01     		.2byte	0x16e
+ 218 009e A2000000 		.4byte	0xa2
+ 219 00a2 06       		.uleb128 0x6
+ 220 00a3 76000000 		.4byte	0x76
+ 221 00a7 02       		.uleb128 0x2
+ 222 00a8 04       		.byte	0x4
+ 223 00a9 07       		.byte	0x7
+ 224 00aa 3C020000 		.4byte	.LASF15
+ 225 00ae 07       		.uleb128 0x7
+ 226 00af 01       		.byte	0x1
+ARM GAS  C:\Users\Alan\AppData\Local\Temp\cc3Kodbv.s 			page 7
+
+
+ 227 00b0 03       		.byte	0x3
+ 228 00b1 21       		.byte	0x21
+ 229 00b2 C3000000 		.4byte	0xc3
+ 230 00b6 08       		.uleb128 0x8
+ 231 00b7 15000000 		.4byte	.LASF26
+ 232 00bb 03       		.byte	0x3
+ 233 00bc 23       		.byte	0x23
+ 234 00bd 6B000000 		.4byte	0x6b
+ 235 00c1 00       		.byte	0
+ 236 00c2 00       		.byte	0
+ 237 00c3 04       		.uleb128 0x4
+ 238 00c4 BB000000 		.4byte	.LASF16
+ 239 00c8 03       		.byte	0x3
+ 240 00c9 24       		.byte	0x24
+ 241 00ca AE000000 		.4byte	0xae
+ 242 00ce 09       		.uleb128 0x9
+ 243 00cf A7000000 		.4byte	.LASF17
+ 244 00d3 01       		.byte	0x1
+ 245 00d4 26       		.byte	0x26
+ 246 00d5 00000000 		.4byte	.LFB2
+ 247 00d9 02000000 		.4byte	.LFE2-.LFB2
+ 248 00dd 01       		.uleb128 0x1
+ 249 00de 9C       		.byte	0x9c
+ 250 00df 0A       		.uleb128 0xa
+ 251 00e0 2E000000 		.4byte	.LASF19
+ 252 00e4 01       		.byte	0x1
+ 253 00e5 3A       		.byte	0x3a
+ 254 00e6 00000000 		.4byte	.LFB3
+ 255 00ea 28000000 		.4byte	.LFE3-.LFB3
+ 256 00ee 01       		.uleb128 0x1
+ 257 00ef 9C       		.byte	0x9c
+ 258 00f0 FE000000 		.4byte	0xfe
+ 259 00f4 0B       		.uleb128 0xb
+ 260 00f5 1C000000 		.4byte	.LVL0
+ 261 00f9 3F010000 		.4byte	0x13f
+ 262 00fd 00       		.byte	0
+ 263 00fe 09       		.uleb128 0x9
+ 264 00ff 90000000 		.4byte	.LASF18
+ 265 0103 01       		.byte	0x1
+ 266 0104 58       		.byte	0x58
+ 267 0105 00000000 		.4byte	.LFB4
+ 268 0109 02000000 		.4byte	.LFE4-.LFB4
+ 269 010d 01       		.uleb128 0x1
+ 270 010e 9C       		.byte	0x9c
+ 271 010f 0A       		.uleb128 0xa
+ 272 0110 80000000 		.4byte	.LASF20
+ 273 0114 01       		.byte	0x1
+ 274 0115 6C       		.byte	0x6c
+ 275 0116 00000000 		.4byte	.LFB5
+ 276 011a 14000000 		.4byte	.LFE5-.LFB5
+ 277 011e 01       		.uleb128 0x1
+ 278 011f 9C       		.byte	0x9c
+ 279 0120 2E010000 		.4byte	0x12e
+ 280 0124 0B       		.uleb128 0xb
+ 281 0125 0E000000 		.4byte	.LVL1
+ 282 0129 47010000 		.4byte	0x147
+ 283 012d 00       		.byte	0
+ARM GAS  C:\Users\Alan\AppData\Local\Temp\cc3Kodbv.s 			page 8
+
+
+ 284 012e 0C       		.uleb128 0xc
+ 285 012f 94010000 		.4byte	.LASF27
+ 286 0133 01       		.byte	0x1
+ 287 0134 15       		.byte	0x15
+ 288 0135 C3000000 		.4byte	0xc3
+ 289 0139 05       		.uleb128 0x5
+ 290 013a 03       		.byte	0x3
+ 291 013b 00000000 		.4byte	PWMRIGHT_backup
+ 292 013f 0D       		.uleb128 0xd
+ 293 0140 6E010000 		.4byte	.LASF21
+ 294 0144 03       		.byte	0x3
+ 295 0145 3201     		.2byte	0x132
+ 296 0147 0D       		.uleb128 0xd
+ 297 0148 5E010000 		.4byte	.LASF22
+ 298 014c 03       		.byte	0x3
+ 299 014d 3001     		.2byte	0x130
+ 300 014f 00       		.byte	0
+ 301              		.section	.debug_abbrev,"",%progbits
+ 302              	.Ldebug_abbrev0:
+ 303 0000 01       		.uleb128 0x1
+ 304 0001 11       		.uleb128 0x11
+ 305 0002 01       		.byte	0x1
+ 306 0003 25       		.uleb128 0x25
+ 307 0004 0E       		.uleb128 0xe
+ 308 0005 13       		.uleb128 0x13
+ 309 0006 0B       		.uleb128 0xb
+ 310 0007 03       		.uleb128 0x3
+ 311 0008 0E       		.uleb128 0xe
+ 312 0009 1B       		.uleb128 0x1b
+ 313 000a 0E       		.uleb128 0xe
+ 314 000b 55       		.uleb128 0x55
+ 315 000c 17       		.uleb128 0x17
+ 316 000d 11       		.uleb128 0x11
+ 317 000e 01       		.uleb128 0x1
+ 318 000f 10       		.uleb128 0x10
+ 319 0010 17       		.uleb128 0x17
+ 320 0011 00       		.byte	0
+ 321 0012 00       		.byte	0
+ 322 0013 02       		.uleb128 0x2
+ 323 0014 24       		.uleb128 0x24
+ 324 0015 00       		.byte	0
+ 325 0016 0B       		.uleb128 0xb
+ 326 0017 0B       		.uleb128 0xb
+ 327 0018 3E       		.uleb128 0x3e
+ 328 0019 0B       		.uleb128 0xb
+ 329 001a 03       		.uleb128 0x3
+ 330 001b 0E       		.uleb128 0xe
+ 331 001c 00       		.byte	0
+ 332 001d 00       		.byte	0
+ 333 001e 03       		.uleb128 0x3
+ 334 001f 24       		.uleb128 0x24
+ 335 0020 00       		.byte	0
+ 336 0021 0B       		.uleb128 0xb
+ 337 0022 0B       		.uleb128 0xb
+ 338 0023 3E       		.uleb128 0x3e
+ 339 0024 0B       		.uleb128 0xb
+ 340 0025 03       		.uleb128 0x3
+ARM GAS  C:\Users\Alan\AppData\Local\Temp\cc3Kodbv.s 			page 9
+
+
+ 341 0026 08       		.uleb128 0x8
+ 342 0027 00       		.byte	0
+ 343 0028 00       		.byte	0
+ 344 0029 04       		.uleb128 0x4
+ 345 002a 16       		.uleb128 0x16
+ 346 002b 00       		.byte	0
+ 347 002c 03       		.uleb128 0x3
+ 348 002d 0E       		.uleb128 0xe
+ 349 002e 3A       		.uleb128 0x3a
+ 350 002f 0B       		.uleb128 0xb
+ 351 0030 3B       		.uleb128 0x3b
+ 352 0031 0B       		.uleb128 0xb
+ 353 0032 49       		.uleb128 0x49
+ 354 0033 13       		.uleb128 0x13
+ 355 0034 00       		.byte	0
+ 356 0035 00       		.byte	0
+ 357 0036 05       		.uleb128 0x5
+ 358 0037 16       		.uleb128 0x16
+ 359 0038 00       		.byte	0
+ 360 0039 03       		.uleb128 0x3
+ 361 003a 0E       		.uleb128 0xe
+ 362 003b 3A       		.uleb128 0x3a
+ 363 003c 0B       		.uleb128 0xb
+ 364 003d 3B       		.uleb128 0x3b
+ 365 003e 05       		.uleb128 0x5
+ 366 003f 49       		.uleb128 0x49
+ 367 0040 13       		.uleb128 0x13
+ 368 0041 00       		.byte	0
+ 369 0042 00       		.byte	0
+ 370 0043 06       		.uleb128 0x6
+ 371 0044 35       		.uleb128 0x35
+ 372 0045 00       		.byte	0
+ 373 0046 49       		.uleb128 0x49
+ 374 0047 13       		.uleb128 0x13
+ 375 0048 00       		.byte	0
+ 376 0049 00       		.byte	0
+ 377 004a 07       		.uleb128 0x7
+ 378 004b 13       		.uleb128 0x13
+ 379 004c 01       		.byte	0x1
+ 380 004d 0B       		.uleb128 0xb
+ 381 004e 0B       		.uleb128 0xb
+ 382 004f 3A       		.uleb128 0x3a
+ 383 0050 0B       		.uleb128 0xb
+ 384 0051 3B       		.uleb128 0x3b
+ 385 0052 0B       		.uleb128 0xb
+ 386 0053 01       		.uleb128 0x1
+ 387 0054 13       		.uleb128 0x13
+ 388 0055 00       		.byte	0
+ 389 0056 00       		.byte	0
+ 390 0057 08       		.uleb128 0x8
+ 391 0058 0D       		.uleb128 0xd
+ 392 0059 00       		.byte	0
+ 393 005a 03       		.uleb128 0x3
+ 394 005b 0E       		.uleb128 0xe
+ 395 005c 3A       		.uleb128 0x3a
+ 396 005d 0B       		.uleb128 0xb
+ 397 005e 3B       		.uleb128 0x3b
+ARM GAS  C:\Users\Alan\AppData\Local\Temp\cc3Kodbv.s 			page 10
+
+
+ 398 005f 0B       		.uleb128 0xb
+ 399 0060 49       		.uleb128 0x49
+ 400 0061 13       		.uleb128 0x13
+ 401 0062 38       		.uleb128 0x38
+ 402 0063 0B       		.uleb128 0xb
+ 403 0064 00       		.byte	0
+ 404 0065 00       		.byte	0
+ 405 0066 09       		.uleb128 0x9
+ 406 0067 2E       		.uleb128 0x2e
+ 407 0068 00       		.byte	0
+ 408 0069 3F       		.uleb128 0x3f
+ 409 006a 19       		.uleb128 0x19
+ 410 006b 03       		.uleb128 0x3
+ 411 006c 0E       		.uleb128 0xe
+ 412 006d 3A       		.uleb128 0x3a
+ 413 006e 0B       		.uleb128 0xb
+ 414 006f 3B       		.uleb128 0x3b
+ 415 0070 0B       		.uleb128 0xb
+ 416 0071 27       		.uleb128 0x27
+ 417 0072 19       		.uleb128 0x19
+ 418 0073 11       		.uleb128 0x11
+ 419 0074 01       		.uleb128 0x1
+ 420 0075 12       		.uleb128 0x12
+ 421 0076 06       		.uleb128 0x6
+ 422 0077 40       		.uleb128 0x40
+ 423 0078 18       		.uleb128 0x18
+ 424 0079 9742     		.uleb128 0x2117
+ 425 007b 19       		.uleb128 0x19
+ 426 007c 00       		.byte	0
+ 427 007d 00       		.byte	0
+ 428 007e 0A       		.uleb128 0xa
+ 429 007f 2E       		.uleb128 0x2e
+ 430 0080 01       		.byte	0x1
+ 431 0081 3F       		.uleb128 0x3f
+ 432 0082 19       		.uleb128 0x19
+ 433 0083 03       		.uleb128 0x3
+ 434 0084 0E       		.uleb128 0xe
+ 435 0085 3A       		.uleb128 0x3a
+ 436 0086 0B       		.uleb128 0xb
+ 437 0087 3B       		.uleb128 0x3b
+ 438 0088 0B       		.uleb128 0xb
+ 439 0089 27       		.uleb128 0x27
+ 440 008a 19       		.uleb128 0x19
+ 441 008b 11       		.uleb128 0x11
+ 442 008c 01       		.uleb128 0x1
+ 443 008d 12       		.uleb128 0x12
+ 444 008e 06       		.uleb128 0x6
+ 445 008f 40       		.uleb128 0x40
+ 446 0090 18       		.uleb128 0x18
+ 447 0091 9742     		.uleb128 0x2117
+ 448 0093 19       		.uleb128 0x19
+ 449 0094 01       		.uleb128 0x1
+ 450 0095 13       		.uleb128 0x13
+ 451 0096 00       		.byte	0
+ 452 0097 00       		.byte	0
+ 453 0098 0B       		.uleb128 0xb
+ 454 0099 898201   		.uleb128 0x4109
+ARM GAS  C:\Users\Alan\AppData\Local\Temp\cc3Kodbv.s 			page 11
+
+
+ 455 009c 00       		.byte	0
+ 456 009d 11       		.uleb128 0x11
+ 457 009e 01       		.uleb128 0x1
+ 458 009f 31       		.uleb128 0x31
+ 459 00a0 13       		.uleb128 0x13
+ 460 00a1 00       		.byte	0
+ 461 00a2 00       		.byte	0
+ 462 00a3 0C       		.uleb128 0xc
+ 463 00a4 34       		.uleb128 0x34
+ 464 00a5 00       		.byte	0
+ 465 00a6 03       		.uleb128 0x3
+ 466 00a7 0E       		.uleb128 0xe
+ 467 00a8 3A       		.uleb128 0x3a
+ 468 00a9 0B       		.uleb128 0xb
+ 469 00aa 3B       		.uleb128 0x3b
+ 470 00ab 0B       		.uleb128 0xb
+ 471 00ac 49       		.uleb128 0x49
+ 472 00ad 13       		.uleb128 0x13
+ 473 00ae 02       		.uleb128 0x2
+ 474 00af 18       		.uleb128 0x18
+ 475 00b0 00       		.byte	0
+ 476 00b1 00       		.byte	0
+ 477 00b2 0D       		.uleb128 0xd
+ 478 00b3 2E       		.uleb128 0x2e
+ 479 00b4 00       		.byte	0
+ 480 00b5 3F       		.uleb128 0x3f
+ 481 00b6 19       		.uleb128 0x19
+ 482 00b7 03       		.uleb128 0x3
+ 483 00b8 0E       		.uleb128 0xe
+ 484 00b9 3A       		.uleb128 0x3a
+ 485 00ba 0B       		.uleb128 0xb
+ 486 00bb 3B       		.uleb128 0x3b
+ 487 00bc 05       		.uleb128 0x5
+ 488 00bd 27       		.uleb128 0x27
+ 489 00be 19       		.uleb128 0x19
+ 490 00bf 3C       		.uleb128 0x3c
+ 491 00c0 19       		.uleb128 0x19
+ 492 00c1 00       		.byte	0
+ 493 00c2 00       		.byte	0
+ 494 00c3 00       		.byte	0
+ 495              		.section	.debug_aranges,"",%progbits
+ 496 0000 34000000 		.4byte	0x34
+ 497 0004 0200     		.2byte	0x2
+ 498 0006 00000000 		.4byte	.Ldebug_info0
+ 499 000a 04       		.byte	0x4
+ 500 000b 00       		.byte	0
+ 501 000c 0000     		.2byte	0
+ 502 000e 0000     		.2byte	0
+ 503 0010 00000000 		.4byte	.LFB2
+ 504 0014 02000000 		.4byte	.LFE2-.LFB2
+ 505 0018 00000000 		.4byte	.LFB3
+ 506 001c 28000000 		.4byte	.LFE3-.LFB3
+ 507 0020 00000000 		.4byte	.LFB4
+ 508 0024 02000000 		.4byte	.LFE4-.LFB4
+ 509 0028 00000000 		.4byte	.LFB5
+ 510 002c 14000000 		.4byte	.LFE5-.LFB5
+ 511 0030 00000000 		.4byte	0
+ARM GAS  C:\Users\Alan\AppData\Local\Temp\cc3Kodbv.s 			page 12
+
+
+ 512 0034 00000000 		.4byte	0
+ 513              		.section	.debug_ranges,"",%progbits
+ 514              	.Ldebug_ranges0:
+ 515 0000 00000000 		.4byte	.LFB2
+ 516 0004 02000000 		.4byte	.LFE2
+ 517 0008 00000000 		.4byte	.LFB3
+ 518 000c 28000000 		.4byte	.LFE3
+ 519 0010 00000000 		.4byte	.LFB4
+ 520 0014 02000000 		.4byte	.LFE4
+ 521 0018 00000000 		.4byte	.LFB5
+ 522 001c 14000000 		.4byte	.LFE5
+ 523 0020 00000000 		.4byte	0
+ 524 0024 00000000 		.4byte	0
+ 525              		.section	.debug_line,"",%progbits
+ 526              	.Ldebug_line0:
+ 527 0000 A6000000 		.section	.debug_str,"MS",%progbits,1
+ 527      02005800 
+ 527      00000201 
+ 527      FB0E0D00 
+ 527      01010101 
+ 528              	.LASF6:
+ 529 0000 6C6F6E67 		.ascii	"long long int\000"
+ 529      206C6F6E 
+ 529      6720696E 
+ 529      7400
+ 530              	.LASF10:
+ 531 000e 75696E74 		.ascii	"uint32\000"
+ 531      333200
+ 532              	.LASF26:
+ 533 0015 656E6162 		.ascii	"enableState\000"
+ 533      6C655374 
+ 533      61746500 
+ 534              	.LASF8:
+ 535 0021 756E7369 		.ascii	"unsigned int\000"
+ 535      676E6564 
+ 535      20696E74 
+ 535      00
+ 536              	.LASF19:
+ 537 002e 50574D52 		.ascii	"PWMRIGHT_Sleep\000"
+ 537      49474854 
+ 537      5F536C65 
+ 537      657000
+ 538              	.LASF25:
+ 539 003d 5C5C766D 		.ascii	"\\\\vmware-host\\Shared Folders\\Documents\\BLEIOSA"
+ 539      77617265 
+ 539      2D686F73 
+ 539      745C5368 
+ 539      61726564 
+ 540 006b 50505C72 		.ascii	"PP\\robot\\robot.cydsn\000"
+ 540      6F626F74 
+ 540      5C726F62 
+ 540      6F742E63 
+ 540      7964736E 
+ 541              	.LASF20:
+ 542 0080 50574D52 		.ascii	"PWMRIGHT_Wakeup\000"
+ 542      49474854 
+ 542      5F57616B 
+ARM GAS  C:\Users\Alan\AppData\Local\Temp\cc3Kodbv.s 			page 13
+
+
+ 542      65757000 
+ 543              	.LASF18:
+ 544 0090 50574D52 		.ascii	"PWMRIGHT_RestoreConfig\000"
+ 544      49474854 
+ 544      5F526573 
+ 544      746F7265 
+ 544      436F6E66 
+ 545              	.LASF17:
+ 546 00a7 50574D52 		.ascii	"PWMRIGHT_SaveConfig\000"
+ 546      49474854 
+ 546      5F536176 
+ 546      65436F6E 
+ 546      66696700 
+ 547              	.LASF16:
+ 548 00bb 50574D52 		.ascii	"PWMRIGHT_BACKUP_STRUCT\000"
+ 548      49474854 
+ 548      5F424143 
+ 548      4B55505F 
+ 548      53545255 
+ 549              	.LASF7:
+ 550 00d2 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 550      206C6F6E 
+ 550      6720756E 
+ 550      7369676E 
+ 550      65642069 
+ 551              	.LASF3:
+ 552 00e9 73686F72 		.ascii	"short unsigned int\000"
+ 552      7420756E 
+ 552      7369676E 
+ 552      65642069 
+ 552      6E7400
+ 553              	.LASF11:
+ 554 00fc 666C6F61 		.ascii	"float\000"
+ 554      7400
+ 555              	.LASF1:
+ 556 0102 756E7369 		.ascii	"unsigned char\000"
+ 556      676E6564 
+ 556      20636861 
+ 556      7200
+ 557              	.LASF13:
+ 558 0110 63686172 		.ascii	"char\000"
+ 558      00
+ 559              	.LASF4:
+ 560 0115 6C6F6E67 		.ascii	"long int\000"
+ 560      20696E74 
+ 560      00
+ 561              	.LASF24:
+ 562 011e 2E5C4765 		.ascii	".\\Generated_Source\\PSoC4\\PWMRIGHT_PM.c\000"
+ 562      6E657261 
+ 562      7465645F 
+ 562      536F7572 
+ 562      63655C50 
+ 563              	.LASF5:
+ 564 0145 6C6F6E67 		.ascii	"long unsigned int\000"
+ 564      20756E73 
+ 564      69676E65 
+ 564      6420696E 
+ARM GAS  C:\Users\Alan\AppData\Local\Temp\cc3Kodbv.s 			page 14
+
+
+ 564      7400
+ 565              	.LASF12:
+ 566 0157 646F7562 		.ascii	"double\000"
+ 566      6C6500
+ 567              	.LASF22:
+ 568 015e 50574D52 		.ascii	"PWMRIGHT_Enable\000"
+ 568      49474854 
+ 568      5F456E61 
+ 568      626C6500 
+ 569              	.LASF21:
+ 570 016e 50574D52 		.ascii	"PWMRIGHT_Stop\000"
+ 570      49474854 
+ 570      5F53746F 
+ 570      7000
+ 571              	.LASF14:
+ 572 017c 72656733 		.ascii	"reg32\000"
+ 572      3200
+ 573              	.LASF9:
+ 574 0182 75696E74 		.ascii	"uint8\000"
+ 574      3800
+ 575              	.LASF0:
+ 576 0188 7369676E 		.ascii	"signed char\000"
+ 576      65642063 
+ 576      68617200 
+ 577              	.LASF27:
+ 578 0194 50574D52 		.ascii	"PWMRIGHT_backup\000"
+ 578      49474854 
+ 578      5F626163 
+ 578      6B757000 
+ 579              	.LASF23:
+ 580 01a4 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
+ 580      4320342E 
+ 580      392E3320 
+ 580      32303135 
+ 580      30333033 
+ 581 01d7 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m0 -mthumb -g -O"
+ 581      20726576 
+ 581      6973696F 
+ 581      6E203232 
+ 581      31323230 
+ 582 020a 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 582      66756E63 
+ 582      74696F6E 
+ 582      2D736563 
+ 582      74696F6E 
+ 583              	.LASF2:
+ 584 0232 73686F72 		.ascii	"short int\000"
+ 584      7420696E 
+ 584      7400
+ 585              	.LASF15:
+ 586 023c 73697A65 		.ascii	"sizetype\000"
+ 586      74797065 
+ 586      00
+ 587              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20150303 (release) [ARM/embedded-4_9-br
