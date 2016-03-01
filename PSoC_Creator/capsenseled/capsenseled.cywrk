@@ -3,13 +3,16 @@
 <!--This file is machine generated and read. It is not intended to be edited by hand.-->
 <!--Due to this, there is no schema for this file.-->
 <CyGuid_2867d519-54d2-4c01-9830-c51cb08bc3dd type_name="CyDesigner.Common.ProjMgmt.Model.CyPrjMgmtWrkspc" version="5" xml_contents_version="3" name="capsenseled" persistent="" platform="NOT_USED">
-<current_project name=".\145capsenseled.cydsn\145capsenseled.cyprj" />
+<current_project name=".\145capsenseled-ble.cydsn\145capsenseled-ble.cyprj" />
 <wrkspc_folders />
 <files />
 <projects>
 <v>.\capsenseled.cydsn\capsenseled.cyprj</v>
+<v>.\145i2c-capsenseled.cydsn\145i2c-capsenseled.cyprj</v>
 <v>.\145capsenseled.cydsn\145capsenseled.cyprj</v>
+<v>.\145i2ccapsenseled-ble.cydsn\145i2ccapsenseled-ble.cyprj</v>
 <v>.\145capsenseled-ble.cydsn\145capsenseled-ble.cyprj</v>
+<v>.\testI2C.cydsn\testI2C.cyprj</v>
 </projects>
 <workspace_id v="16282b18-2515-4fdf-890a-022a58413a5c" />
 <WriteAppVersionLastSavedWith v="3.3.0.9409" />

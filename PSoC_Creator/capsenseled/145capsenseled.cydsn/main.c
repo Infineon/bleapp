@@ -35,7 +35,7 @@ int main()
             }
             capsense_UpdateAllBaselines();
             capsense_ScanAllWidgets();
-            if(uart_SpiUartGetTxBufferSize())
+            if(!uart_SpiUartGetTxBufferSize())
                 uart_SpiUartWriteTxData(rval);
         }  
         if(uart_SpiUartGetRxBufferSize())
