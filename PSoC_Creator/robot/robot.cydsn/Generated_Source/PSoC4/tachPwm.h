@@ -229,7 +229,7 @@ void tachPwm_RestoreConfig(void) ;
 #define tachPwm_INIT_PERIOD_VALUE          (199u)
 #define tachPwm_INIT_COMPARE_VALUE1        (100u)
 #define tachPwm_INIT_COMPARE_VALUE2        (63u)
-#define tachPwm_INIT_INTERRUPTS_MODE       (uint8)(((uint8)(0u <<   \
+#define tachPwm_INIT_INTERRUPTS_MODE       (uint8)(((uint8)(1u <<   \
                                                     tachPwm_STATUS_TC_INT_EN_MASK_SHIFT)) | \
                                                     (uint8)((uint8)(0u <<  \
                                                     tachPwm_STATUS_CMP2_INT_EN_MASK_SHIFT)) | \
