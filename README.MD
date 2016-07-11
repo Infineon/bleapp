@@ -1,10 +1,10 @@
 # BLEAPP
 
-The Xcode and PSoC Creator Projects to go with the Ble IOS and Android  App Tutorials at:
+The PSoC Creator, XCode, and Android Studio Projects to go with the Ble IOS and Android App Tutorials at:
 
-http://www.cypress.com/bleiosapp
+iOS:      http://www.cypress.com/bleiosapp
 
-http://www.cypress.com/bleandroidapp
+Android:  http://www.cypress.com/bleandroidapp
 
 ## PSOC_Creator
 
