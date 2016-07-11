@@ -1,6 +1,9 @@
 # BLEAPP
 
-The Xcode and PSoC Creator Projects to go with the Ble IOS App Tutorial at http://www.cypress.com/bleiosapp
+The Xcode and PSoC Creator Projects to go with the Ble IOS and Android  App Tutorials at:
+
+http://www.cypress.com/bleiosapp
+http://www.cypress.com/bleandroidapp
 
 ## PSOC_Creator
 
@@ -18,5 +21,11 @@ Contains the Xcode project to go with the capsenseled firmware
 ### BleRemote
 Contains the Xcode project to go with the robot firmware
 
-## Android
-Andriod studio project
+## AndroidStudio
+Andriod studio projects
+
+### BLE101
+Contains the Android Studio project to go with the cansenseled firmware
+
+### BLE101_robot
+Contains the Android Studio project to go with the robot firmware
