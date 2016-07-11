@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">BLE101</string>
+
+    <string name="Start">Start Bluetooth</string>
+    <string name="Search">Search for Device</string>
+    <string name="Connect">Connect to Device</string>
+    <string name="DiscoverServices">Discover Services and Characteristics</string>
+    <string name="GetChars">Get Characteristics</string>
+    <string name="Disconnect">Disconnect</string>
+    <string name="RedLED">Red LED</string>
+    <string name="Capsense">CapSense Value =</string>
+    <string name="NoTouch">"No Touch"</string>
+    <string name="NotifyOff">"Notify Off"</string>
+    <string name="Notify">Notify</string>
+</resources>
