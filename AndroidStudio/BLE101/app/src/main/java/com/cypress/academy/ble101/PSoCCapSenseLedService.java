@@ -405,7 +405,7 @@ public class PSoCCapSenseLedService extends Service {
                 // In this case, the only read the app does is the LED state.
                 // If the application had additional characteristics to read we could
                 // use a switch statement here to operate on each one separately.
-                if(uuid.equals(ledCharacteristicUUID)) {
+                if(uuid.equalsIgnoreCase(ledCharacteristicUUID)) {
                     final byte[] data = characteristic.getValue();
                     // Set the LED switch state variable based on the characteristic value ttat was read
                     mLedSwitchState = ((data[0] & 0xff) != 0x00);
@@ -431,7 +431,7 @@ public class PSoCCapSenseLedService extends Service {
             // In this case, the only notification the apps gets is the CapSense value.
             // If the application had additional notifications we could
             // use a switch statement here to operate on each one separately.
-            if(uuid.equals(capsenseCharacteristicUUID)) {
+            if(uuid.equalsIgnoreCase(capsenseCharacteristicUUID)) {
                 mCapSenseValue = characteristic.getIntValue(BluetoothGattCharacteristic.FORMAT_SINT16,0).toString();
             }
 
