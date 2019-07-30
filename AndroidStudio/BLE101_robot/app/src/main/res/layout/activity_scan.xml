@@ -28,7 +28,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 For more information on Cypress BLE products visit:
 http://www.cypress.com/products/bluetooth-low-energy-ble
 -->
-<android.support.v4.widget.SwipeRefreshLayout
+<androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/swipeRefreshId"
     android:layout_width="match_parent"
@@ -55,4 +56,5 @@ http://www.cypress.com/products/bluetooth-low-energy-ble
             android:layout_height="match_parent"/>
 
     </LinearLayout>
-</android.support.v4.widget.SwipeRefreshLayout>
+</androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+    >
