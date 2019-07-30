@@ -1,6 +1,6 @@
 /*******************************************************************************
 * File Name: capsense.h
-* Version 2.30
+* Version 2.60
 *
 * Description:
 *  This file provides constants and parameter values for the CapSense CSD
@@ -9,7 +9,7 @@
 * Note:
 *
 ********************************************************************************
-* Copyright 2013-2015, Cypress Semiconductor Corporation.  All rights reserved.
+* Copyright 2013-2016, Cypress Semiconductor Corporation.  All rights reserved.
 * You may use this file only in accordance with the license, terms, conditions,
 * disclaimers, and limitations in the end user license agreement accompanying
 * the software package with which this file was provided.
@@ -278,7 +278,7 @@ void capsense_NormalizeWidgets(uint32 widgetsNum, uint8 dataPtr[]);
 #define capsense_CSD_TRIM2_REG          (*(reg32 *) capsense_IDAC1_cy_psoc4_idac__CSD_TRIM2)
 #define capsense_CSD_TRIM2_PTR          ( (reg32 *) capsense_IDAC1_cy_psoc4_idac__CSD_TRIM2)
 
-#if (CY_PSOC4_4100M || CY_PSOC4_4200M)
+#if (2u == capsense_M0S8CSD_BLOCK_CNT)
     #if (capsense_CSD_FFB__CSD_NUMBER != 1u)
         #define capsense_SFLASH_CSD_TRIM1_REG   (*(reg8 *) CYREG_SFLASH_CSD_TRIM1_CSD)
         #define capsense_SFLASH_CSD_TRIM1_PTR   ( (reg8 *) CYREG_SFLASH_CSD_TRIM1_CSD)
@@ -298,7 +298,7 @@ void capsense_NormalizeWidgets(uint32 widgetsNum, uint8 dataPtr[]);
 
     #define capsense_SFLASH_CSD_TRIM2_REG   (*(reg8 *) CYREG_SFLASH_CSD_TRIM2_CSD)
     #define capsense_SFLASH_CSD_TRIM2_PTR   ( (reg8 *) CYREG_SFLASH_CSD_TRIM2_CSD)
-#endif /* (CY_PSOC4_4100M || CY_PSOC4_4200M) */
+#endif /* (2u == capsense_M0S8CSD_BLOCK_CNT) */
 
 /* Port function select */
 #define capsense_PORT_SEL0_REG          (*(reg32 *) CYREG_HSIOM_PORT_SEL0 )
@@ -727,7 +727,7 @@ void capsense_NormalizeWidgets(uint32 widgetsNum, uint8 dataPtr[]);
 extern volatile uint8 capsense_csdStatusVar;
 extern volatile uint8 capsense_sensorIndex;
 extern uint16 capsense_sensorRaw[capsense_TOTAL_SENSOR_COUNT];
-extern uint8 capsense_unscannedSnsDriveMode[capsense_TOTAL_SENSOR_COUNT];
+extern uint8 capsense_unscannedSnsDriveMode[capsense_PORT_PIN_CONFIG_TBL_ZISE];
 extern uint8 capsense_sensorEnableMaskBackup[capsense_TOTAL_SENSOR_MASK];
 extern uint8 capsense_sensorEnableMask[capsense_TOTAL_SENSOR_MASK];
 

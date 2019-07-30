@@ -1,6 +1,6 @@
 /*******************************************************************************
 * File Name: QDLEFT.c
-* Version 2.0
+* Version 2.10
 *
 * Description:
 *  This file provides the source code to the API for the QDLEFT
@@ -10,7 +10,7 @@
 *  None
 *
 ********************************************************************************
-* Copyright 2013-2014, Cypress Semiconductor Corporation.  All rights reserved.
+* Copyright 2013-2015, Cypress Semiconductor Corporation.  All rights reserved.
 * You may use this file only in accordance with the license, terms, conditions,
 * disclaimers, and limitations in the end user license agreement accompanying
 * the software package with which this file was provided.
@@ -194,6 +194,12 @@ void QDLEFT_Enable(void)
             QDLEFT_TriggerCommand(QDLEFT_MASK, QDLEFT_CMD_START);
         #endif /* (0u == QDLEFT_TC_START_SIGNAL_PRESENT) */
     #endif /* (QDLEFT__TIMER == QDLEFT_CONFIG) */
+    
+    #if (QDLEFT__QUAD == QDLEFT_CONFIG)
+        #if (0u != QDLEFT_QUAD_AUTO_START)
+            QDLEFT_TriggerCommand(QDLEFT_MASK, QDLEFT_CMD_RELOAD);
+        #endif /* (0u != QDLEFT_QUAD_AUTO_START) */
+    #endif  /* (QDLEFT__QUAD == QDLEFT_CONFIG) */
 }
 
 
@@ -831,6 +837,14 @@ void QDLEFT_SetPeriodSwap(uint32 swapEnable)
 * Return:
 *  None
 *
+* Note:
+*  It is not recommended to use the value equal to "0" or equal to 
+*  "period value" in Center or Asymmetric align PWM modes on the 
+*  PSoC 4100/PSoC 4200 devices.
+*  PSoC 4000 devices write the 16 bit compare register with the decremented 
+*  compare value in the Up counting mode (except 0x0u), and the incremented 
+*  compare value in the Down counting mode (except 0xFFFFu).
+*
 *******************************************************************************/
 void QDLEFT_WriteCompare(uint32 compare)
 {
@@ -867,12 +881,20 @@ void QDLEFT_WriteCompare(uint32 compare)
 * Summary:
 *  Reads the compare register. Not applicable for Timer/Counter with Capture
 *  or in Quadrature Decoder modes.
+*  PSoC 4000 devices read the incremented compare register value in the 
+*  Up counting mode (except 0xFFFFu), and the decremented value in the 
+*  Down counting mode (except 0x0u).
 *
 * Parameters:
 *  None
 *
 * Return:
 *  Compare value
+*
+* Note:
+*  PSoC 4000 devices read the incremented compare register value in the 
+*  Up counting mode (except 0xFFFFu), and the decremented value in the 
+*  Down counting mode (except 0x0u).
 *
 *******************************************************************************/
 uint32 QDLEFT_ReadCompare(void)
@@ -920,6 +942,14 @@ uint32 QDLEFT_ReadCompare(void)
 * Return:
 *  None
 *
+* Note:
+*  It is not recommended to use the value equal to "0" or equal to 
+*  "period value" in Center or Asymmetric align PWM modes on the 
+*  PSoC 4100/PSoC 4200 devices.
+*  PSoC 4000 devices write the 16 bit compare register with the decremented 
+*  compare value in the Up counting mode (except 0x0u), and the incremented 
+*  compare value in the Down counting mode (except 0xFFFFu).
+*
 *******************************************************************************/
 void QDLEFT_WriteCompareBuf(uint32 compareBuf)
 {
@@ -960,6 +990,11 @@ void QDLEFT_WriteCompareBuf(uint32 compareBuf)
 *
 * Return:
 *  Compare buffer value
+*
+* Note:
+*  PSoC 4000 devices read the incremented compare register value in the 
+*  Up counting mode (except 0xFFFFu), and the decremented value in the 
+*  Down counting mode (except 0x0u).
 *
 *******************************************************************************/
 uint32 QDLEFT_ReadCompareBuf(void)
@@ -1218,10 +1253,10 @@ void QDLEFT_SetCountMode(uint32 triggerMode)
 *  command: Enumerated command values. Capture command only applicable for
 *           Timer/Counter with Capture and PWM modes.
 *   Values:
-*     - QDLEFT_CMD_CAPTURE    - Trigger Capture command
-*     - QDLEFT_CMD_RELOAD     - Trigger Reload command
-*     - QDLEFT_CMD_STOP       - Trigger Stop command
-*     - QDLEFT_CMD_START      - Trigger Start command
+*     - QDLEFT_CMD_CAPTURE    - Trigger Capture/Switch command
+*     - QDLEFT_CMD_RELOAD     - Trigger Reload/Index command
+*     - QDLEFT_CMD_STOP       - Trigger Stop/Kill command
+*     - QDLEFT_CMD_START      - Trigger Start/phiB command
 *
 * Return:
 *  None

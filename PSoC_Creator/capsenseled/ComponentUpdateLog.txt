@@ -1,0 +1,14 @@
+Last Modified Date & Time: 07/30/2019 10:54:28
+
+capsenseled: capsenseled.cydwr
+	cy_boot [v5.20] to [v5.80]
+	cy_lfclk [v1.0] to [v1.20]
+	LIN_Dynamic [v3.20] to [v5.0]
+
+capsenseled: TopDesign.cysch
+	ble [v2.30] to [v3.61]
+	capsense [v2.30] to [v2.60]
+	blue [v2.10] to [v2.20]
+	red [v2.10] to [v2.20]
+
+

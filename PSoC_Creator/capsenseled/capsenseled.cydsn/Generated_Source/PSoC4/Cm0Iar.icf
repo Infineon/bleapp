@@ -119,8 +119,15 @@ if ((CY_APPL_LOADER)&&!(CY_APPL_LOADABLE))
 }
 else
 {
-    /* Must be part of the image, but beyond rom memory. */
-     ".cyloadermeta"     : place at address mem : 0x90700000 { readonly section .cyloadermeta };
+     if ((CYDEV_IS_IMPORTING_CODE == 1) && (CY_FIRST_AVAILABLE_META_ROW == 2))
+     {
+          ".cyloadermeta" : place at address mem : (CY_FLASH_SIZE - CY_METADATA_SIZE) { readonly section .cyloadermeta };
+     }
+     else
+     {
+          /* Must be part of the image, but beyond rom memory. */
+          ".cyloadermeta" : place at address mem : 0x90700000 { readonly section .cyloadermeta };
+     }
 }
 
 

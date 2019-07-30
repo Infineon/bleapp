@@ -1,17 +1,15 @@
 /*******************************************************************************
-* File Name: core_cm0_psoc4.h
-* Version 5.20
+* \file core_cm0_psoc4.h
+* \version 5.80
 *
-*  Description:
-*   Provides important type information for the  PSOC4 device family.
-*   This includes types necessary for core_cm0.h.
+* \brief Provides important type information for the  PSOC4 device family.
+* This includes types necessary for core_cm0.h.
 *
-*  Note:
-*   Documentation of the API's in this file is located in the
-*   System Reference Guide provided with PSoC Creator.
+* \note Documentation of the API's in this file is located in the
+* System Reference Guide provided with PSoC Creator.
 *
 ********************************************************************************
-* Copyright 2008-2015, Cypress Semiconductor Corporation.  All rights reserved.
+* Copyright 2008-2018, Cypress Semiconductor Corporation.  All rights reserved.
 * You may use this file only in accordance with the license, terms, conditions,
 * disclaimers, and limitations in the end user license agreement accompanying
 * the software package with which this file was provided.

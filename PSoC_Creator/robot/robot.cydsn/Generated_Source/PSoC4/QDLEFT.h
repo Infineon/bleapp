@@ -1,6 +1,6 @@
 /*******************************************************************************
 * File Name: QDLEFT.h
-* Version 2.0
+* Version 2.10
 *
 * Description:
 *  This file provides constants and parameter values for the QDLEFT
@@ -10,7 +10,7 @@
 *  None
 *
 ********************************************************************************
-* Copyright 2013-2014, Cypress Semiconductor Corporation.  All rights reserved.
+* Copyright 2013-2015, Cypress Semiconductor Corporation.  All rights reserved.
 * You may use this file only in accordance with the license, terms, conditions,
 * disclaimers, and limitations in the end user license agreement accompanying
 * the software package with which this file was provided.
@@ -55,6 +55,7 @@ extern uint8  QDLEFT_initVar;
 /* Quad Mode */
 /* Parameters */
 #define QDLEFT_QUAD_ENCODING_MODES            (0lu)
+#define QDLEFT_QUAD_AUTO_START                (0lu)
 
 /* Signal modes */
 #define QDLEFT_QUAD_INDEX_SIGNAL_MODE         (0lu)

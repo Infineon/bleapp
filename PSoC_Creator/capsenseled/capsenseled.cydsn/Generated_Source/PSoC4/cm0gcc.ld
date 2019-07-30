@@ -52,6 +52,12 @@ EXTERN(Reset)
 /* Bring in the interrupt routines & vector */
 EXTERN(main)
 
+/* Bring in the romvector */
+EXTERN(RomVectors)
+
+/* Bring in the ramvector */
+EXTERN(CyRamVectors)
+
 /* Bring in the meta data */
 EXTERN(cy_meta_loader cy_bootloader cy_meta_loadable cy_meta_bootloader)
 EXTERN(cy_meta_flashprotect cy_metadata cy_meta_chipprotect)
@@ -89,7 +95,7 @@ SECTIONS
       CREATE_OBJECT_SYMBOLS
       PROVIDE(__cy_interrupt_vector = RomVectors);
 
-      *(.romvectors)
+      KEEP(*(.romvectors))
 
       /* Make sure we pulled in an interrupt vector.  */
       ASSERT (. != __cy_interrupt_vector, "No interrupt vector");

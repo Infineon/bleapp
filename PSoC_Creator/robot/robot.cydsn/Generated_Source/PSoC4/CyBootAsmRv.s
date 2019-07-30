@@ -1,12 +1,11 @@
 ;-------------------------------------------------------------------------------
-; FILENAME: CyBootAsmRv.s
-; Version 5.20
+; \file CyBootAsmRv.s
+; \version 5.80
 ;
-;  DESCRIPTION:
-;    Assembly routines for RealView.
+;  \brief Assembly routines for RealView.
 ;
 ;-------------------------------------------------------------------------------
-; Copyright 2010-2015, Cypress Semiconductor Corporation.  All rights reserved.
+; Copyright 2010-2018, Cypress Semiconductor Corporation.  All rights reserved.
 ; You may use this file only in accordance with the license, terms, conditions,
 ; disclaimers, and limitations in the end user license agreement accompanying
 ; the software package with which this file was provided.
@@ -39,18 +38,37 @@ CyDelayCycles FUNCTION
     ADDS r0, r0, #2         ;    1    2    Round to nearest multiple of 4
     LSRS r0, r0, #2         ;    1    2    Divide by 4 and set flags
     BEQ CyDelayCycles_done  ;    2    2    Skip if 0
-    IF :DEF: CYIPBLOCK_m0s8cpussv2_VERSION && :DEF: CYIPBLOCK_m0s8srssv2_VERSION
-        IF ((CYIPBLOCK_m0s8cpussv2_VERSION == 1)&&(CYIPBLOCK_m0s8srssv2_VERSION == 1))
-            ; If device is using CPUSSv2 and SRSSv2 leave loop unaligned
-        ENDIF
+    IF :DEF: CYIPBLOCK_m0s8cpuss_VERSION
+        NOP                     ;    1    2    Loop alignment padding
     ELSE
-        NOP                 ;    1    2    Loop alignment padding
+        IF :DEF:  CYIPBLOCK_s8srsslt_VERSION
+            IF :DEF:  CYIPBLOCK_m0s8cpussv2_VERSION
+                IF :DEF: CYIPBLOCK_mxusbpd_VERSION
+                    ; Do nothing
+                ELSE
+                    IF :DEF: CYIPBLOCK_m0s8usbpd_VERSION
+                        ; Do nothing
+                    ELSE
+                        NOP             ;    1    2    Loop alignment padding
+                    ENDIF
+                ENDIF
+            ENDIF
+        ENDIF
+        ;Leave loop unaligned
     ENDIF
 CyDelayCycles_loop
-    SUBS r0, r0, #1         ;    1    2   Decrement counter
-    BNE CyDelayCycles_loop  ;    3    2   3 CPU cycles (if branche is taken)
-    NOP                     ;    1    2    Loop alignment padding
-    NOP                     ;    1    2    Loop alignment padding
+    ; For CM0+ branch instruction takes 2 CPU cycles, for CM0 it takes 3 cycles 
+    IF :DEF: CYDEV_CM0P_BASE
+        ADDS r0, r0, #1         ;    1    2    Increment counter
+        SUBS r0, r0, #2         ;    1    2    Decrement counter by 2
+        BNE CyDelayCycles_loop  ;    2    2    2 CPU cycles (if branche is taken)
+        NOP                     ;    1    2    Loop alignment padding
+    ELSE
+        SUBS r0, r0, #1         ;    1    2    Decrement counter 
+        BNE CyDelayCycles_loop  ;    3    2    3 CPU cycles (if branche is taken)
+        NOP                     ;    1    2    Loop alignment padding
+        NOP                     ;    1    2    Loop alignment padding
+    ENDIF
 CyDelayCycles_done
     BX lr                   ;    3    2
     ENDFUNC

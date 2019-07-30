@@ -19,120 +19,6 @@
         <register>
           <name>COUNTER</name>
           <description>Current counter value</description>
-          <addressOffset>0x40200148</addressOffset>
-          <size>32</size>
-          <access>read-write</access>
-          <resetValue>0</resetValue>
-          <resetMask>0</resetMask>
-        </register>
-        <register>
-          <name>CC</name>
-          <description>Compare / capture value</description>
-          <addressOffset>0x4020014C</addressOffset>
-          <size>32</size>
-          <access>read-write</access>
-          <resetValue>0</resetValue>
-          <resetMask>0</resetMask>
-        </register>
-        <register>
-          <name>CC_BUF</name>
-          <description>Compare / capture buffer value</description>
-          <addressOffset>0x40200150</addressOffset>
-          <size>32</size>
-          <access>read-write</access>
-          <resetValue>0</resetValue>
-          <resetMask>0</resetMask>
-        </register>
-        <register>
-          <name>PERIOD</name>
-          <description>Period value</description>
-          <addressOffset>0x40200154</addressOffset>
-          <size>32</size>
-          <access>read-write</access>
-          <resetValue>0</resetValue>
-          <resetMask>0</resetMask>
-        </register>
-        <register>
-          <name>PERIOD_BUF</name>
-          <description>Period buffer value</description>
-          <addressOffset>0x40200158</addressOffset>
-          <size>32</size>
-          <access>read-write</access>
-          <resetValue>0</resetValue>
-          <resetMask>0</resetMask>
-        </register>
-      </registers>
-    </peripheral>
-    <peripheral>
-      <name>QDLEFT</name>
-      <description>No description available</description>
-      <baseAddress>0x0</baseAddress>
-      <addressBlock>
-        <offset>0</offset>
-        <size>0x0</size>
-        <usage>registers</usage>
-      </addressBlock>
-      <registers>
-        <register>
-          <name>COUNTER</name>
-          <description>Current counter value</description>
-          <addressOffset>0x40200108</addressOffset>
-          <size>32</size>
-          <access>read-write</access>
-          <resetValue>0</resetValue>
-          <resetMask>0</resetMask>
-        </register>
-        <register>
-          <name>CC</name>
-          <description>Compare / capture value</description>
-          <addressOffset>0x4020010C</addressOffset>
-          <size>32</size>
-          <access>read-write</access>
-          <resetValue>0</resetValue>
-          <resetMask>0</resetMask>
-        </register>
-        <register>
-          <name>CC_BUF</name>
-          <description>Compare / capture buffer value</description>
-          <addressOffset>0x40200110</addressOffset>
-          <size>32</size>
-          <access>read-write</access>
-          <resetValue>0</resetValue>
-          <resetMask>0</resetMask>
-        </register>
-        <register>
-          <name>PERIOD</name>
-          <description>Period value</description>
-          <addressOffset>0x40200114</addressOffset>
-          <size>32</size>
-          <access>read-write</access>
-          <resetValue>0</resetValue>
-          <resetMask>0</resetMask>
-        </register>
-        <register>
-          <name>PERIOD_BUF</name>
-          <description>Period buffer value</description>
-          <addressOffset>0x40200118</addressOffset>
-          <size>32</size>
-          <access>read-write</access>
-          <resetValue>0</resetValue>
-          <resetMask>0</resetMask>
-        </register>
-      </registers>
-    </peripheral>
-    <peripheral>
-      <name>QDRIGHT</name>
-      <description>No description available</description>
-      <baseAddress>0x0</baseAddress>
-      <addressBlock>
-        <offset>0</offset>
-        <size>0x0</size>
-        <usage>registers</usage>
-      </addressBlock>
-      <registers>
-        <register>
-          <name>COUNTER</name>
-          <description>Current counter value</description>
           <addressOffset>0x40200188</addressOffset>
           <size>32</size>
           <access>read-write</access>
@@ -178,7 +64,7 @@
       </registers>
     </peripheral>
     <peripheral>
-      <name>PWMLEFT</name>
+      <name>QDLEFT</name>
       <description>No description available</description>
       <baseAddress>0x0</baseAddress>
       <addressBlock>
@@ -235,6 +121,120 @@
       </registers>
     </peripheral>
     <peripheral>
+      <name>QDRIGHT</name>
+      <description>No description available</description>
+      <baseAddress>0x0</baseAddress>
+      <addressBlock>
+        <offset>0</offset>
+        <size>0x0</size>
+        <usage>registers</usage>
+      </addressBlock>
+      <registers>
+        <register>
+          <name>COUNTER</name>
+          <description>Current counter value</description>
+          <addressOffset>0x40200108</addressOffset>
+          <size>32</size>
+          <access>read-write</access>
+          <resetValue>0</resetValue>
+          <resetMask>0</resetMask>
+        </register>
+        <register>
+          <name>CC</name>
+          <description>Compare / capture value</description>
+          <addressOffset>0x4020010C</addressOffset>
+          <size>32</size>
+          <access>read-write</access>
+          <resetValue>0</resetValue>
+          <resetMask>0</resetMask>
+        </register>
+        <register>
+          <name>CC_BUF</name>
+          <description>Compare / capture buffer value</description>
+          <addressOffset>0x40200110</addressOffset>
+          <size>32</size>
+          <access>read-write</access>
+          <resetValue>0</resetValue>
+          <resetMask>0</resetMask>
+        </register>
+        <register>
+          <name>PERIOD</name>
+          <description>Period value</description>
+          <addressOffset>0x40200114</addressOffset>
+          <size>32</size>
+          <access>read-write</access>
+          <resetValue>0</resetValue>
+          <resetMask>0</resetMask>
+        </register>
+        <register>
+          <name>PERIOD_BUF</name>
+          <description>Period buffer value</description>
+          <addressOffset>0x40200118</addressOffset>
+          <size>32</size>
+          <access>read-write</access>
+          <resetValue>0</resetValue>
+          <resetMask>0</resetMask>
+        </register>
+      </registers>
+    </peripheral>
+    <peripheral>
+      <name>PWMLEFT</name>
+      <description>No description available</description>
+      <baseAddress>0x0</baseAddress>
+      <addressBlock>
+        <offset>0</offset>
+        <size>0x0</size>
+        <usage>registers</usage>
+      </addressBlock>
+      <registers>
+        <register>
+          <name>COUNTER</name>
+          <description>Current counter value</description>
+          <addressOffset>0x40200148</addressOffset>
+          <size>32</size>
+          <access>read-write</access>
+          <resetValue>0</resetValue>
+          <resetMask>0</resetMask>
+        </register>
+        <register>
+          <name>CC</name>
+          <description>Compare / capture value</description>
+          <addressOffset>0x4020014C</addressOffset>
+          <size>32</size>
+          <access>read-write</access>
+          <resetValue>0</resetValue>
+          <resetMask>0</resetMask>
+        </register>
+        <register>
+          <name>CC_BUF</name>
+          <description>Compare / capture buffer value</description>
+          <addressOffset>0x40200150</addressOffset>
+          <size>32</size>
+          <access>read-write</access>
+          <resetValue>0</resetValue>
+          <resetMask>0</resetMask>
+        </register>
+        <register>
+          <name>PERIOD</name>
+          <description>Period value</description>
+          <addressOffset>0x40200154</addressOffset>
+          <size>32</size>
+          <access>read-write</access>
+          <resetValue>0</resetValue>
+          <resetMask>0</resetMask>
+        </register>
+        <register>
+          <name>PERIOD_BUF</name>
+          <description>Period buffer value</description>
+          <addressOffset>0x40200158</addressOffset>
+          <size>32</size>
+          <access>read-write</access>
+          <resetValue>0</resetValue>
+          <resetMask>0</resetMask>
+        </register>
+      </registers>
+    </peripheral>
+    <peripheral>
       <name>tachPwm</name>
       <description>No description available</description>
       <baseAddress>0x0</baseAddress>
@@ -247,7 +247,7 @@
         <register>
           <name>tachPwm_COMPARE_Reg_</name>
           <description>UDB.D0 - Assigned Compare Value</description>
-          <addressOffset>0x400F0021</addressOffset>
+          <addressOffset>0x400F0022</addressOffset>
           <size>8</size>
           <access>read-write</access>
           <resetValue>0</resetValue>
@@ -256,7 +256,7 @@
         <register>
           <name>tachPwm_Control_Reg</name>
           <description>UDB Control Register - Assigned Control Register Value</description>
-          <addressOffset>0x400F0071</addressOffset>
+          <addressOffset>0x400F0072</addressOffset>
           <size>8</size>
           <access>read-write</access>
           <resetValue>0</resetValue>
@@ -288,7 +288,7 @@
         <register>
           <name>tachPwm_STATUS_MASK</name>
           <description>UDB Status bits Interrupt Mask Enable Register</description>
-          <addressOffset>0x400F0081</addressOffset>
+          <addressOffset>0x400F0082</addressOffset>
           <size>8</size>
           <access>read-write</access>
           <resetValue>0</resetValue>
@@ -334,7 +334,7 @@
         <register>
           <name>tachPwm_STATUS_AUX_CTRL</name>
           <description>UDB Auxilliary Control Register</description>
-          <addressOffset>0x400F0091</addressOffset>
+          <addressOffset>0x400F0092</addressOffset>
           <size>8</size>
           <access>read-write</access>
           <resetValue>0</resetValue>
@@ -471,7 +471,7 @@
         <register>
           <name>ledpwm_COMPARE_Reg_</name>
           <description>UDB.D0 - Assigned Compare Value</description>
-          <addressOffset>0x400F0020</addressOffset>
+          <addressOffset>0x400F0023</addressOffset>
           <size>8</size>
           <access>read-write</access>
           <resetValue>0</resetValue>
@@ -480,7 +480,7 @@
         <register>
           <name>ledpwm_Control_Reg</name>
           <description>UDB Control Register - Assigned Control Register Value</description>
-          <addressOffset>0x400F0070</addressOffset>
+          <addressOffset>0x400F0073</addressOffset>
           <size>8</size>
           <access>read-write</access>
           <resetValue>0</resetValue>
@@ -512,7 +512,7 @@
         <register>
           <name>ledpwm_STATUS_MASK</name>
           <description>UDB Status bits Interrupt Mask Enable Register</description>
-          <addressOffset>0x400F0080</addressOffset>
+          <addressOffset>0x400F0083</addressOffset>
           <size>8</size>
           <access>read-write</access>
           <resetValue>0</resetValue>
@@ -558,7 +558,7 @@
         <register>
           <name>ledpwm_STATUS_AUX_CTRL</name>
           <description>UDB Auxilliary Control Register</description>
-          <addressOffset>0x400F0090</addressOffset>
+          <addressOffset>0x400F0093</addressOffset>
           <size>8</size>
           <access>read-write</access>
           <resetValue>0</resetValue>

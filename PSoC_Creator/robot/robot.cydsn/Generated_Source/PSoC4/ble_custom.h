@@ -1,13 +1,13 @@
 /***************************************************************************//**
 * \file CYBLE_custom.h
-* \version 2.30
+* \version 3.61
 * 
 * \brief
 *  Contains the function prototypes and constants for the Custom Service.
 * 
 ********************************************************************************
 * \copyright
-* Copyright 2014-2015, Cypress Semiconductor Corporation.  All rights reserved.
+* Copyright 2014-2019, Cypress Semiconductor Corporation.  All rights reserved.
 * You may use this file only in accordance with the license, terms, conditions,
 * disclaimers, and limitations in the end user license agreement accompanying
 * the software package with which this file was provided.
@@ -44,13 +44,17 @@
 
 
 #define CYBLE_MOTORSERVICE_SERVICE_HANDLE   (0x000Cu) /* Handle of MotorService service */
+#define CYBLE_MOTORSERVICE_SPEEDLEFT_DECL_HANDLE   (0x000Du) /* Handle of SpeedLeft characteristic declaration */
 #define CYBLE_MOTORSERVICE_SPEEDLEFT_CHAR_HANDLE   (0x000Eu) /* Handle of SpeedLeft characteristic */
 #define CYBLE_MOTORSERVICE_SPEEDLEFT_CHARACTERISTIC_USER_DESCRIPTION_DESC_HANDLE   (0x000Fu) /* Handle of Characteristic User Description descriptor */
+#define CYBLE_MOTORSERVICE_SPEEDRIGHT_DECL_HANDLE   (0x0010u) /* Handle of SpeedRight characteristic declaration */
 #define CYBLE_MOTORSERVICE_SPEEDRIGHT_CHAR_HANDLE   (0x0011u) /* Handle of SpeedRight characteristic */
 #define CYBLE_MOTORSERVICE_SPEEDRIGHT_CHARACTERISTIC_USER_DESCRIPTION_DESC_HANDLE   (0x0012u) /* Handle of Characteristic User Description descriptor */
+#define CYBLE_MOTORSERVICE_TACHLEFT_DECL_HANDLE   (0x0013u) /* Handle of TachLeft characteristic declaration */
 #define CYBLE_MOTORSERVICE_TACHLEFT_CHAR_HANDLE   (0x0014u) /* Handle of TachLeft characteristic */
 #define CYBLE_MOTORSERVICE_TACHLEFT_TACHLEFTCCCD_DESC_HANDLE   (0x0015u) /* Handle of TachLeftCCCD descriptor */
 #define CYBLE_MOTORSERVICE_TACHLEFT_CHARACTERISTIC_USER_DESCRIPTION_DESC_HANDLE   (0x0016u) /* Handle of Characteristic User Description descriptor */
+#define CYBLE_MOTORSERVICE_TACHRIGHT_DECL_HANDLE   (0x0017u) /* Handle of TachRight characteristic declaration */
 #define CYBLE_MOTORSERVICE_TACHRIGHT_CHAR_HANDLE   (0x0018u) /* Handle of TachRight characteristic */
 #define CYBLE_MOTORSERVICE_TACHRIGHT_CHARACTERISTIC_USER_DESCRIPTION_DESC_HANDLE   (0x0019u) /* Handle of Characteristic User Description descriptor */
 #define CYBLE_MOTORSERVICE_TACHRIGHT_TACHRIGHTCCCD_DESC_HANDLE   (0x001Au) /* Handle of TachRightCCCD descriptor */
@@ -83,7 +87,7 @@ typedef struct
     CYBLE_GATT_DB_ATTR_HANDLE_T customServCharHandle;
     /** Custom Characteristic Descriptors handles */
     CYBLE_GATT_DB_ATTR_HANDLE_T customServCharDesc[     /* MDK doesn't allow array with zero length */
-        CYBLE_CUSTOM_SERVICE_CHAR_DESCRIPTORS_COUNT == 0u ? 1u : CYBLE_CUSTOM_SERVICE_CHAR_DESCRIPTORS_COUNT];
+        (CYBLE_CUSTOM_SERVICE_CHAR_DESCRIPTORS_COUNT == 0u) ? 1u : CYBLE_CUSTOM_SERVICE_CHAR_DESCRIPTORS_COUNT];
 } CYBLE_CUSTOMS_INFO_T;
 
 /** Structure with Custom Service attribute handles. */
@@ -94,20 +98,15 @@ typedef struct
     
     /** Information about Custom Characteristics */
     CYBLE_CUSTOMS_INFO_T customServInfo[                /* MDK doesn't allow array with zero length */
-        CYBLE_CUSTOM_SERVICE_CHAR_COUNT == 0u ? 1u : CYBLE_CUSTOM_SERVICE_CHAR_COUNT];
+        (CYBLE_CUSTOM_SERVICE_CHAR_COUNT == 0u) ? 1u : CYBLE_CUSTOM_SERVICE_CHAR_COUNT];
 } CYBLE_CUSTOMS_T;
 
 
 #endif /* (CYBLE_CUSTOM_SERVER) */
 
-/** @} */
-
-/** \cond IGNORE */
-/* The custom Client functionality is not functional in current version of 
-* the component.
-*/
 #ifdef CYBLE_CUSTOM_CLIENT
 
+/** Structure with discovered attributes information of Custom Service Descriptors */
 typedef struct
 {
     /** Custom Descriptor handle */
@@ -119,6 +118,7 @@ typedef struct
    
 } CYBLE_CUSTOMC_DESC_T;
 
+/** Structure with discovered attributes information of Custom Service Characteristics */
 typedef struct
 {
     /** Characteristic handle */
@@ -153,22 +153,25 @@ typedef struct
 } CYBLE_CUSTOMC_T;
 
 #endif /* (CYBLE_CUSTOM_CLIENT) */
-/** \endcond */
+
+
+/***************************************
+* External data references 
+***************************************/
 
 #ifdef CYBLE_CUSTOM_SERVER
 
+/** Custom Services GATT DB handles structures */
 extern const CYBLE_CUSTOMS_T cyBle_customs[CYBLE_CUSTOMS_SERVICE_COUNT];
 
 #endif /* (CYBLE_CUSTOM_SERVER) */
 
-/** \cond IGNORE */
 #ifdef CYBLE_CUSTOM_CLIENT
 
-extern CYBLE_CUSTOMC_T cyBle_customc[CYBLE_CUSTOMC_SERVICE_COUNT];
+/** Custom Services discovered attributes information */
+extern CYBLE_CUSTOMC_T cyBle_customCServ[CYBLE_CUSTOMC_SERVICE_COUNT];
 
 #endif /* (CYBLE_CUSTOM_CLIENT) */
-/** \endcond */
-
 
 /***************************************
 * Private Function Prototypes
@@ -186,20 +189,7 @@ void CyBle_CustomcDiscoverCharDescriptorsEventHandler(const CYBLE_DISC_DESCR_INF
 
 #endif /* (CYBLE_CUSTOM_CLIENT) */
 
-/** \endcond */
 
-/***************************************
-* External data references 
-***************************************/
-
-#ifdef CYBLE_CUSTOM_CLIENT
-
-extern CYBLE_CUSTOMC_T cyBle_customCServ[CYBLE_CUSTOMC_SERVICE_COUNT];
-
-#endif /* (CYBLE_CUSTOM_CLIENT) */
-
-
-/** \cond IGNORE */
 /***************************************
 * The following code is DEPRECATED and
 * should not be used in new projects.
@@ -210,6 +200,7 @@ extern CYBLE_CUSTOMC_T cyBle_customCServ[CYBLE_CUSTOMC_SERVICE_COUNT];
 #define customServiceInfo               customServInfo
 /** \endcond */
 
+/** @} */
 
 #endif /* CY_BLE_CYBLE_CUSTOM_H  */
 

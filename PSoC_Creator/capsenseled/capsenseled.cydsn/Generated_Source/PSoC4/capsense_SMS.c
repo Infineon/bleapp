@@ -1,6 +1,6 @@
 /*******************************************************************************
 * File Name: capsense_SMS.c
-* Version 2.30
+* Version 2.60
 *
 * Description:
 *  This file provides the source code of wrapper between CapSense CSD component
@@ -9,7 +9,7 @@
 * Note:
 *
 ********************************************************************************
-* Copyright 2013-2015, Cypress Semiconductor Corporation.  All rights reserved.
+* Copyright 2013-2016, Cypress Semiconductor Corporation.  All rights reserved.
 * You may use this file only in accordance with the license, terms, conditions,
 * disclaimers, and limitations in the end user license agreement accompanying
 * the software package with which this file was provided.
@@ -88,8 +88,8 @@ uint8 capsense_sensorSensitivity[] = {
     2u, 2u, 2u, 2u, 2u, 
 };
 
-capsense_CONFIG_TYPE_P4_v2_30 capsense_config;
-capsense_CONFIG_TYPE_POINTERS_P4_v2_30 const capsense_configPointers = {
+capsense_CONFIG_TYPE_P4_v2_60 capsense_config;
+capsense_CONFIG_TYPE_POINTERS_P4_v2_60 const capsense_configPointers = {
     capsense_modulationIDAC,
     capsense_compensationIDAC,
     capsense_sensorSensitivity,
@@ -172,23 +172,23 @@ void capsense_AutoTune(void)
 
     capsense_DisableBaselineIDAC();
 
-    CalibrateSensors_P4_v2_30(&capsense_config, capsense_CAL_RAW_COUNT);
+    CalibrateSensors_P4_v2_60(&capsense_config, capsense_CAL_RAW_COUNT);
 
     #if(0u != capsense_TOTAL_CENTROIDS_COUNT)
         capsense_NormalizeWidgets(capsense_END_OF_WIDGETS_INDEX, capsense_modulationIDAC);
     #endif /* (0u != capsense_TOTAL_CENTROIDS_COUNT)  */
 
-    TunePrescalers_P4_v2_30(&capsense_config);
+    TunePrescalers_P4_v2_60(&capsense_config);
 
     #if(capsense_PRS_OPTIONS != capsense__PRS_NONE)
         capsense_prescalersTuningDone = 1u;
     #endif /* (capsense_PRS_OPTIONS == capsense__PRS_NONE) */
 
-    CalibrateSensors_P4_v2_30(&capsense_config, capsense_CAL_RAW_COUNT);
+    CalibrateSensors_P4_v2_60(&capsense_config, capsense_CAL_RAW_COUNT);
     #if(0u != capsense_TOTAL_CENTROIDS_COUNT)
         capsense_NormalizeWidgets(capsense_END_OF_WIDGETS_INDEX, capsense_modulationIDAC);
     #endif /* (0u != capsense_TOTAL_CENTROIDS_COUNT)  */
-    TuneSensitivity_P4_v2_30(&capsense_config);
+    TuneSensitivity_P4_v2_60(&capsense_config);
 
     capsense_EnableBaselineIDAC(&capsense_config);
 
@@ -242,7 +242,7 @@ void capsense_UpdateThresholds(uint32 sensor)
         capsense_hysteresis[widget] = (uint8)(fingerThreshold >> 3u);
     #else
         /* Calculate Finger Threshold and Noise Threshold with Smartsense (automatic) */
-        CalculateThresholds_P4_v2_30(&capsense_config, (uint8)sensor, (uint8)widget, capsense_fingerThreshold, capsense_noiseThreshold);
+        CalculateThresholds_P4_v2_60(&capsense_config, (uint8)sensor, (uint8)widget, capsense_fingerThreshold, capsense_noiseThreshold);
 
         fingerThreshold = capsense_fingerThreshold[widget];
 
@@ -351,7 +351,7 @@ void capsense_DisableBaselineIDAC(void)
 *  None
 *
 *******************************************************************************/
-void  capsense_EnableBaselineIDAC(const capsense_CONFIG_TYPE_P4_v2_30 *config)
+void  capsense_EnableBaselineIDAC(const capsense_CONFIG_TYPE_P4_v2_60 *config)
 {
     uint32 curSensor;
     uint32 newRegValue;

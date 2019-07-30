@@ -1,6 +1,6 @@
 /*******************************************************************************
 * File Name: capsense_TunerHelper.c
-* Version 2.30
+* Version 2.60
 *
 * Description:
 *  This file provides the source code of the Tuner helper APIs for the CapSense CSD
@@ -9,7 +9,7 @@
 * Note:
 *
 ********************************************************************************
-* Copyright 2013-2015, Cypress Semiconductor Corporation.  All rights reserved.
+* Copyright 2013-2016, Cypress Semiconductor Corporation.  All rights reserved.
 * You may use this file only in accordance with the license, terms, conditions,
 * disclaimers, and limitations in the end user license agreement accompanying
 * the software package with which this file was provided.
@@ -314,7 +314,7 @@ void capsense_TunerComm(void)
         /* `#START capsense_ProcessAllWidgets_Debug` */
 
         /* `#END` */
-        
+
         #ifdef capsense_PROCESS_ALL_WIDGETS_CALLBACK
             capsense_ProcessAllWidgets_Callback();
         #endif /* capsense_PROCESS_ALL_WIDGETS_CALLBACK */

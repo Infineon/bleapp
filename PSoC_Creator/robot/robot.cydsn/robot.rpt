@@ -1,13 +1,13 @@
-Loading plugins phase: Elapsed time ==> 0s.255ms
-Initializing data phase: Elapsed time ==> 0s.000ms
+Loading plugins phase: Elapsed time ==> 0s.168ms
 <CYPRESSTAG name="CyDsfit arguments...">
-cydsfit arguments: -.fdsnotice -.fdswarpdepfile=warp_dependencies.txt -.fdselabdepfile=elab_dependencies.txt -.fdsbldfile=generated_files.txt -p C:\SVN\apps\trunk\Cypress Academy\Video_Class\6_BLE_iOS\Git_Projects\bleiosapp\PSoC_Creator\robot\robot.cydsn\robot.cyprj -d CY8C4247LQI-BL483 -s C:\SVN\apps\trunk\Cypress Academy\Video_Class\6_BLE_iOS\Git_Projects\bleiosapp\PSoC_Creator\robot\robot.cydsn\Generated_Source\PSoC4 -- -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE</CYPRESSTAG>
+cydsfit arguments: -.fdsnotice -.fdswarpdepfile=warp_dependencies.txt -.fdselabdepfile=elab_dependencies.txt -.fdsbldfile=generated_files.txt -.fdsreffile=referenced_files.txt -p C:\Users\vlni\bleapp\PSoC_Creator\robot\robot.cydsn\robot.cyprj -d CY8C4247LQI-BL483 -s C:\Users\vlni\bleapp\PSoC_Creator\robot\robot.cydsn\Generated_Source\PSoC4 -- -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE
+</CYPRESSTAG>
 <CYPRESSTAG name="Design elaboration results...">
 </CYPRESSTAG>
-Elaboration phase: Elapsed time ==> 2s.382ms
+Elaboration phase: Elapsed time ==> 1s.973ms
 <CYPRESSTAG name="HDL generation results...">
 </CYPRESSTAG>
-HDL generation phase: Elapsed time ==> 0s.095ms
+HDL generation phase: Elapsed time ==> 0s.087ms
 <CYPRESSTAG name="Synthesis results...">
 
      | | | | | | |
@@ -24,24 +24,24 @@ HDL generation phase: Elapsed time ==> 0s.095ms
 
 ======================================================================
 Compiling:  robot.v
-Program  :   C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\warp\bin/warp.exe
-Options  :    -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE -ya -.fftprj=C:\SVN\apps\trunk\Cypress Academy\Video_Class\6_BLE_iOS\Git_Projects\bleiosapp\PSoC_Creator\robot\robot.cydsn\robot.cyprj -dcpsoc3 robot.v -verilog
+Program  :   C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\bin\warp.exe
+Options  :    -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE -ya -.fftprj=C:\Users\vlni\bleapp\PSoC_Creator\robot\robot.cydsn\robot.cyprj -dcpsoc3 robot.v -verilog
 ======================================================================
 
 ======================================================================
 Compiling:  robot.v
-Program  :   C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\warp\bin/warp.exe
-Options  :    -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE -ya -.fftprj=C:\SVN\apps\trunk\Cypress Academy\Video_Class\6_BLE_iOS\Git_Projects\bleiosapp\PSoC_Creator\robot\robot.cydsn\robot.cyprj -dcpsoc3 robot.v -verilog
+Program  :   C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\bin\warp.exe
+Options  :    -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE -ya -.fftprj=C:\Users\vlni\bleapp\PSoC_Creator\robot\robot.cydsn\robot.cyprj -dcpsoc3 robot.v -verilog
 ======================================================================
 
 ======================================================================
 Compiling:  robot.v
 Program  :   vlogfe
-Options  :    -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE -ya -.fftprj=C:\SVN\apps\trunk\Cypress Academy\Video_Class\6_BLE_iOS\Git_Projects\bleiosapp\PSoC_Creator\robot\robot.cydsn\robot.cyprj -dcpsoc3 -verilog robot.v
+Options  :    -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE -ya -.fftprj=C:\Users\vlni\bleapp\PSoC_Creator\robot\robot.cydsn\robot.cyprj -dcpsoc3 -verilog robot.v
 ======================================================================
 
 vlogfe V6.3 IR 41:  Verilog parser
-Wed Mar 16 13:09:19 2016
+Tue Jul 30 10:55:50 2019
 
 
 ======================================================================
@@ -51,36 +51,36 @@ Options  :    -yv2 -q10 robot.v
 ======================================================================
 
 vpp V6.3 IR 41:  Verilog Pre-Processor
-Wed Mar 16 13:09:19 2016
+Tue Jul 30 10:55:50 2019
 
-Flattening file 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\or_v1_0\or_v1_0.v'
-Flattening file 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\cy_constant_v1_0\cy_constant_v1_0.v'
-Flattening file 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\cy_virtualmux_v1_0\cy_virtualmux_v1_0.v'
-Flattening file 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\B_PWM_v3_30\B_PWM_v3_30.v'
-Flattening file 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\warp\lib\common\cypress.v'
-Flattening file 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\warp\lib\common\cy_psoc3_inc.v'
-Flattening file 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\ZeroTerminal\ZeroTerminal.v'
-Flattening file 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\not_v1_0\not_v1_0.v'
+Flattening file 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\or_v1_0\or_v1_0.v'
+Flattening file 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\cy_constant_v1_0\cy_constant_v1_0.v'
+Flattening file 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\cy_virtualmux_v1_0\cy_virtualmux_v1_0.v'
+Flattening file 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\B_PWM_v3_30\B_PWM_v3_30.v'
+Flattening file 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\cypress.v'
+Flattening file 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\cy_psoc3_inc.v'
+Flattening file 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\ZeroTerminal\ZeroTerminal.v'
+Flattening file 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\not_v1_0\not_v1_0.v'
 
 vpp:  No errors.
 
 Library 'work' => directory 'lcpsoc3'
 General_symbol_table
 General_symbol_table
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\warp\lib\common\std.vhd'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\warp\lib\common\cypress.vhd'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\warp\lib\common\work\cypress.vif'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\warp\lib\ieee\work\stdlogic.vif'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\warp\lib\common\stdlogic\lpmpkg.vif'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\warp\lib\common\stdlogic\rtlpkg.vif'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\warp\lib\common\stdlogic\mod_cnst.vif'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\warp\lib\common\stdlogic\mod_mthv.vif'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\warp\lib\common\stdlogic\mod_genv.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\std.vhd'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\cypress.vhd'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\work\cypress.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\ieee\work\stdlogic.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\stdlogic\lpmpkg.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\stdlogic\rtlpkg.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\stdlogic\mod_cnst.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\stdlogic\mod_mthv.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\stdlogic\mod_genv.vif'.
 Using control file 'robot.ctl'.
-C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\B_PWM_v3_30\B_PWM_v3_30.v (line 947, col 46):  Note: Substituting module 'sub_vi_vv' for '-'.
-C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\B_PWM_v3_30\B_PWM_v3_30.v (line 977, col 46):  Note: Substituting module 'add_vi_vv' for '+'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\warp\lib\common\stdlogic\cy_psoc3pkg.vif'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\warp\lib\common\stdlogic\cy_psoc3.vif'.
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\B_PWM_v3_30\B_PWM_v3_30.v (line 947, col 46):  Note: Substituting module 'sub_vi_vv' for '-'.
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\B_PWM_v3_30\B_PWM_v3_30.v (line 977, col 46):  Note: Substituting module 'add_vi_vv' for '+'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\stdlogic\cy_psoc3pkg.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\stdlogic\cy_psoc3.vif'.
 
 vlogfe:  No errors.
 
@@ -88,34 +88,34 @@ vlogfe:  No errors.
 ======================================================================
 Compiling:  robot.v
 Program  :   tovif
-Options  :    -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE -ya -.fftprj=C:\SVN\apps\trunk\Cypress Academy\Video_Class\6_BLE_iOS\Git_Projects\bleiosapp\PSoC_Creator\robot\robot.cydsn\robot.cyprj -dcpsoc3 -verilog robot.v
+Options  :    -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE -ya -.fftprj=C:\Users\vlni\bleapp\PSoC_Creator\robot\robot.cydsn\robot.cyprj -dcpsoc3 -verilog robot.v
 ======================================================================
 
 tovif V6.3 IR 41:  High-level synthesis
-Wed Mar 16 13:09:19 2016
+Tue Jul 30 10:55:50 2019
 
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\warp\lib\common\std.vhd'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\warp\lib\common\cypress.vhd'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\warp\lib\common\work\cypress.vif'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\warp\lib\ieee\work\stdlogic.vif'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\warp\lib\common\stdlogic\lpmpkg.vif'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\warp\lib\common\stdlogic\rtlpkg.vif'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\warp\lib\common\stdlogic\mod_cnst.vif'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\warp\lib\common\stdlogic\mod_mthv.vif'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\warp\lib\common\stdlogic\mod_genv.vif'.
-Linking 'C:\SVN\apps\trunk\Cypress Academy\Video_Class\6_BLE_iOS\Git_Projects\bleiosapp\PSoC_Creator\robot\robot.cydsn\codegentemp\robot.ctl'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\or_v1_0\or_v1_0.v'.
-Linking 'C:\SVN\apps\trunk\Cypress Academy\Video_Class\6_BLE_iOS\Git_Projects\bleiosapp\PSoC_Creator\robot\robot.cydsn\codegentemp\robot.v'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\cy_constant_v1_0\cy_constant_v1_0.v'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\cy_virtualmux_v1_0\cy_virtualmux_v1_0.v'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\B_PWM_v3_30\B_PWM_v3_30.v'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\warp\lib\common\cypress.v'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\warp\lib\common\cy_psoc3_inc.v'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\ZeroTerminal\ZeroTerminal.v'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\not_v1_0\not_v1_0.v'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\warp\lib\common\stdlogic\cy_psoc3pkg.vif'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\warp\lib\common\stdlogic\cy_psoc3.vif'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\warp\lib\lcpsoc3\stdlogic\mod_cnst.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\std.vhd'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\cypress.vhd'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\work\cypress.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\ieee\work\stdlogic.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\stdlogic\lpmpkg.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\stdlogic\rtlpkg.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\stdlogic\mod_cnst.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\stdlogic\mod_mthv.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\stdlogic\mod_genv.vif'.
+Linking 'C:\Users\vlni\bleapp\PSoC_Creator\robot\robot.cydsn\codegentemp\robot.ctl'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\or_v1_0\or_v1_0.v'.
+Linking 'C:\Users\vlni\bleapp\PSoC_Creator\robot\robot.cydsn\codegentemp\robot.v'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\cy_constant_v1_0\cy_constant_v1_0.v'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\cy_virtualmux_v1_0\cy_virtualmux_v1_0.v'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\B_PWM_v3_30\B_PWM_v3_30.v'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\cypress.v'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\cy_psoc3_inc.v'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\ZeroTerminal\ZeroTerminal.v'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\not_v1_0\not_v1_0.v'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\stdlogic\cy_psoc3pkg.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\stdlogic\cy_psoc3.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\lcpsoc3\stdlogic\mod_cnst.vif'.
 
 tovif:  No errors.
 
@@ -123,41 +123,41 @@ tovif:  No errors.
 ======================================================================
 Compiling:  robot.v
 Program  :   topld
-Options  :    -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE -ya -.fftprj=C:\SVN\apps\trunk\Cypress Academy\Video_Class\6_BLE_iOS\Git_Projects\bleiosapp\PSoC_Creator\robot\robot.cydsn\robot.cyprj -dcpsoc3 -verilog robot.v
+Options  :    -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE -ya -.fftprj=C:\Users\vlni\bleapp\PSoC_Creator\robot\robot.cydsn\robot.cyprj -dcpsoc3 -verilog robot.v
 ======================================================================
 
 topld V6.3 IR 41:  Synthesis and optimization
-Wed Mar 16 13:09:20 2016
+Tue Jul 30 10:55:51 2019
 
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\warp\lib\common\std.vhd'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\warp\lib\common\cypress.vhd'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\warp\lib\common\work\cypress.vif'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\warp\lib\ieee\work\stdlogic.vif'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\warp\lib\common\stdlogic\lpmpkg.vif'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\warp\lib\common\stdlogic\rtlpkg.vif'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\warp\lib\common\stdlogic\mod_cnst.vif'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\warp\lib\common\stdlogic\mod_mthv.vif'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\warp\lib\common\stdlogic\mod_genv.vif'.
-Linking 'C:\SVN\apps\trunk\Cypress Academy\Video_Class\6_BLE_iOS\Git_Projects\bleiosapp\PSoC_Creator\robot\robot.cydsn\codegentemp\robot.ctl'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\or_v1_0\or_v1_0.v'.
-Linking 'C:\SVN\apps\trunk\Cypress Academy\Video_Class\6_BLE_iOS\Git_Projects\bleiosapp\PSoC_Creator\robot\robot.cydsn\codegentemp\robot.v'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\cy_constant_v1_0\cy_constant_v1_0.v'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\cy_virtualmux_v1_0\cy_virtualmux_v1_0.v'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\B_PWM_v3_30\B_PWM_v3_30.v'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\warp\lib\common\cypress.v'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\warp\lib\common\cy_psoc3_inc.v'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\ZeroTerminal\ZeroTerminal.v'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\not_v1_0\not_v1_0.v'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\warp\lib\common\stdlogic\cy_psoc3pkg.vif'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\warp\lib\common\stdlogic\cy_psoc3.vif'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\warp\lib\lcpsoc3\stdlogic\mod_cnst.vif'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\warp\lib\lcpsoc3\stdlogic\cpsoc3.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\std.vhd'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\cypress.vhd'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\work\cypress.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\ieee\work\stdlogic.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\stdlogic\lpmpkg.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\stdlogic\rtlpkg.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\stdlogic\mod_cnst.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\stdlogic\mod_mthv.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\stdlogic\mod_genv.vif'.
+Linking 'C:\Users\vlni\bleapp\PSoC_Creator\robot\robot.cydsn\codegentemp\robot.ctl'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\or_v1_0\or_v1_0.v'.
+Linking 'C:\Users\vlni\bleapp\PSoC_Creator\robot\robot.cydsn\codegentemp\robot.v'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\cy_constant_v1_0\cy_constant_v1_0.v'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\cy_virtualmux_v1_0\cy_virtualmux_v1_0.v'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\B_PWM_v3_30\B_PWM_v3_30.v'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\cypress.v'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\cy_psoc3_inc.v'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\ZeroTerminal\ZeroTerminal.v'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\not_v1_0\not_v1_0.v'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\stdlogic\cy_psoc3pkg.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\stdlogic\cy_psoc3.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\lcpsoc3\stdlogic\mod_cnst.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\lcpsoc3\stdlogic\cpsoc3.vif'.
 
 ----------------------------------------------------------
 Detecting unused logic.
 ----------------------------------------------------------
     User names
-	Net_2199
+	Net_2747
 	\BLE:Net_55\
 	\tachPwm:PWMUDB:km_run\
 	\tachPwm:PWMUDB:ctrl_cmpmode2_2\
@@ -1094,20 +1094,20 @@ Circuit simplification results:
 
 topld:  No errors.
 
-CYPRESS_DIR    : C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\warp
-Warp Program   : C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\warp\bin/warp.exe
-Warp Arguments : -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE -ya "-.fftprj=C:\SVN\apps\trunk\Cypress Academy\Video_Class\6_BLE_iOS\Git_Projects\bleiosapp\PSoC_Creator\robot\robot.cydsn\robot.cyprj" -dcpsoc3 robot.v -verilog
+CYPRESS_DIR    : C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp
+Warp Program   : C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\bin\warp.exe
+Warp Arguments : -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE -ya -.fftprj=C:\Users\vlni\bleapp\PSoC_Creator\robot\robot.cydsn\robot.cyprj -dcpsoc3 robot.v -verilog
 </CYPRESSTAG>
-Warp synthesis phase: Elapsed time ==> 1s.424ms
+Warp synthesis phase: Elapsed time ==> 1s.335ms
 <CYPRESSTAG name="Fitter results...">
 <CYPRESSTAG name="Fitter startup details...">
-cyp3fit: V3.3.0.7343, Family: PSoC3, Started at: Wednesday, 16 March 2016 13:09:20
-Options: -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE -ya -.fftprj=C:\SVN\apps\trunk\Cypress Academy\Video_Class\6_BLE_iOS\Git_Projects\bleiosapp\PSoC_Creator\robot\robot.cydsn\robot.cyprj -d CY8C4247LQI-BL483 robot.v -verilog
+cyp3fit: V4.2.0.641, Family: PSoC3, Started at: Tuesday, 30 July 2019 10:55:51
+Options: -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE -ya -.fftprj=C:\Users\vlni\bleapp\PSoC_Creator\robot\robot.cydsn\robot.cyprj -d CY8C4247LQI-BL483 robot.v -verilog
 </CYPRESSTAG>
 <CYPRESSTAG name="Design parsing">
-Design parsing phase: Elapsed time ==> 0s.023ms
+Design parsing phase: Elapsed time ==> 0s.015ms
 </CYPRESSTAG>
-<CYPRESSTAG name="Tech mapping">
+<CYPRESSTAG name="Tech Mapping">
 <CYPRESSTAG name="Initial Mapping" icon="FILE_RPT_TECHM">
     Removed wire end \tachPwm:PWMUDB:MODULE_1:g2:a0:g1:z1:s0:g1:u0:c_24\ kept zero
     Removed wire end \tachPwm:PWMUDB:MODULE_1:g2:a0:g1:z1:s0:g1:u0:c_16\ kept zero
@@ -1151,6 +1151,9 @@ Done removing unused cells.
 
 Removing unused cells resulting from optimization
 Done removing unused cells.
+
+Removing unused cells resulting from optimization
+Done removing unused cells.
 <CYPRESSTAG name="Duplicate Macrocell detection">
 </CYPRESSTAG>
 </CYPRESSTAG>
@@ -1173,14 +1176,14 @@ Design Equations
     Pin : Name = Control(0)
         Attributes:
             In Group/Port: True
-            In Sync Option: SYNC
+            In Sync Option: NOSYNC
             Out Sync Option: AUTO
             Interrupt generated: True
             Interrupt mode: FALLING
             Drive mode: RES_PULL_UP
             VTrip: CMOS
             Slew: FAST
-            Input Sync needed: True
+            Input Sync needed: False
             Output Sync needed: False
             SC shield enabled: False
             POR State: ANY
@@ -1199,7 +1202,7 @@ Design Equations
             SIO Vtrip: MULTIPLIER_0_5
             SIO Multiplier Index: 0
             SIO RefSel: VCC_IO
-            Required Capabilitites: DIGITAL, ROUTABLE, PORT_INTERRUPT
+            Required Capabilities: DIGITAL, PORT_INTERRUPT
             Initial Value: 1
             IO Voltage: 0
         PORT MAP (
@@ -1238,12 +1241,12 @@ Design Equations
             SIO Vtrip: MULTIPLIER_0_5
             SIO Multiplier Index: 0
             SIO RefSel: VCC_IO
-            Required Capabilitites: DIGITAL, ROUTABLE
+            Required Capabilities: DIGITAL, ROUTABLE
             Initial Value: 1
             IO Voltage: 0
         PORT MAP (
             pa_out => red(0)__PA ,
-            input => Net_938 ,
+            pin_input => Net_938 ,
             pad => red(0)_PAD );
         Properties:
         {
@@ -1278,12 +1281,12 @@ Design Equations
             SIO Vtrip: MULTIPLIER_0_5
             SIO Multiplier Index: 0
             SIO RefSel: VCC_IO
-            Required Capabilitites: DIGITAL
+            Required Capabilities: DIGITAL
             Initial Value: 1
             IO Voltage: 0
         PORT MAP (
             pa_out => M1(0)__PA ,
-            input => Net_214 ,
+            pin_input => Net_214 ,
             pad => M1(0)_PAD );
         Properties:
         {
@@ -1318,12 +1321,12 @@ Design Equations
             SIO Vtrip: MULTIPLIER_0_5
             SIO Multiplier Index: 0
             SIO RefSel: VCC_IO
-            Required Capabilitites: DIGITAL
+            Required Capabilities: DIGITAL
             Initial Value: 1
             IO Voltage: 0
         PORT MAP (
             pa_out => M2(0)__PA ,
-            input => Net_254 ,
+            pin_input => Net_254 ,
             pad => M2(0)_PAD );
         Properties:
         {
@@ -1358,7 +1361,7 @@ Design Equations
             SIO Vtrip: MULTIPLIER_0_5
             SIO Multiplier Index: 0
             SIO RefSel: VCC_IO
-            Required Capabilitites: DIGITAL
+            Required Capabilities: DIGITAL
             Initial Value: 1
             IO Voltage: 0
         PORT MAP (
@@ -1397,7 +1400,7 @@ Design Equations
             SIO Vtrip: MULTIPLIER_0_5
             SIO Multiplier Index: 0
             SIO RefSel: VCC_IO
-            Required Capabilitites: DIGITAL
+            Required Capabilities: DIGITAL
             Initial Value: 0
             IO Voltage: 0
         PORT MAP (
@@ -1436,7 +1439,7 @@ Design Equations
             SIO Vtrip: MULTIPLIER_0_5
             SIO Multiplier Index: 0
             SIO RefSel: VCC_IO
-            Required Capabilitites: DIGITAL
+            Required Capabilities: DIGITAL
             Initial Value: 0
             IO Voltage: 0
         PORT MAP (
@@ -1475,7 +1478,7 @@ Design Equations
             SIO Vtrip: MULTIPLIER_0_5
             SIO Multiplier Index: 0
             SIO RefSel: VCC_IO
-            Required Capabilitites: DIGITAL
+            Required Capabilities: DIGITAL
             Initial Value: 1
             IO Voltage: 0
         PORT MAP (
@@ -1514,7 +1517,7 @@ Design Equations
             SIO Vtrip: MULTIPLIER_0_5
             SIO Multiplier Index: 0
             SIO RefSel: VCC_IO
-            Required Capabilitites: DIGITAL
+            Required Capabilities: DIGITAL
             Initial Value: 0
             IO Voltage: 0
         PORT MAP (
@@ -1553,7 +1556,7 @@ Design Equations
             SIO Vtrip: MULTIPLIER_0_5
             SIO Multiplier Index: 0
             SIO RefSel: VCC_IO
-            Required Capabilitites: DIGITAL
+            Required Capabilities: DIGITAL
             Initial Value: 0
             IO Voltage: 0
         PORT MAP (
@@ -1592,7 +1595,7 @@ Design Equations
             SIO Vtrip: MULTIPLIER_0_5
             SIO Multiplier Index: 0
             SIO RefSel: VCC_IO
-            Required Capabilitites: DIGITAL, ROUTABLE
+            Required Capabilities: DIGITAL, ROUTABLE
             Initial Value: 0
             IO Voltage: 0
         PORT MAP (
@@ -1632,7 +1635,7 @@ Design Equations
             SIO Vtrip: MULTIPLIER_0_5
             SIO Multiplier Index: 0
             SIO RefSel: VCC_IO
-            Required Capabilitites: DIGITAL, ROUTABLE
+            Required Capabilities: DIGITAL, ROUTABLE
             Initial Value: 0
             IO Voltage: 0
         PORT MAP (
@@ -1672,7 +1675,7 @@ Design Equations
             SIO Vtrip: MULTIPLIER_0_5
             SIO Multiplier Index: 0
             SIO RefSel: VCC_IO
-            Required Capabilitites: DIGITAL, ROUTABLE
+            Required Capabilities: DIGITAL, ROUTABLE
             Initial Value: 0
             IO Voltage: 0
         PORT MAP (
@@ -1712,7 +1715,7 @@ Design Equations
             SIO Vtrip: MULTIPLIER_0_5
             SIO Multiplier Index: 0
             SIO RefSel: VCC_IO
-            Required Capabilitites: DIGITAL, ROUTABLE
+            Required Capabilities: DIGITAL, ROUTABLE
             Initial Value: 0
             IO Voltage: 0
         PORT MAP (
@@ -2026,6 +2029,7 @@ Design Equations
         Properties:
         {
             int_type = "10"
+            is_nmi = 0
         }
 
     interrupt: Name =swint
@@ -2034,6 +2038,7 @@ Design Equations
         Properties:
         {
             int_type = "10"
+            is_nmi = 0
         }
 
     interrupt: Name =tachTimer
@@ -2042,6 +2047,7 @@ Design Equations
         Properties:
         {
             int_type = "10"
+            is_nmi = 0
         }
     </CYPRESSTAG>
 </CYPRESSTAG>
@@ -2078,18 +2084,46 @@ DAC                           :      :      :      :
   7-bit IDAC                  :    0 :    1 :    1 :  0.00 %
   8-bit IDAC                  :    0 :    1 :    1 :  0.00 %
 </CYPRESSTAG>
-Technology Mapping: Elapsed time ==> 0s.032ms
-Tech mapping phase: Elapsed time ==> 0s.065ms
+Technology Mapping: Elapsed time ==> 0s.132ms
+Tech Mapping phase: Elapsed time ==> 0s.164ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Analog Placement">
-<CYPRESSTAG name="Analog Placement">
-Elapsed time ==> 0.1393789s
+<CYPRESSTAG name="FFB & IO Pre Placement">
+<CYPRESSTAG name="Placement" icon="FILE_RPT_PLACEMENT">
+
+Cell                                : Block                              
+=========================================================================
+Control(0)                          : [IOP=(2)][IoId=(7)]                
+red(0)                              : [IOP=(2)][IoId=(6)]                
+M1(0)                               : [IOP=(3)][IoId=(0)]                
+M2(0)                               : [IOP=(1)][IoId=(4)]                
+POWERLEFT(0)                        : [IOP=(3)][IoId=(5)]                
+GNDLEFT(0)                          : [IOP=(3)][IoId=(4)]                
+DIRLEFT(0)                          : [IOP=(3)][IoId=(1)]                
+POWERRIGHT(0)                       : [IOP=(1)][IoId=(2)]                
+GNDRIGHT(0)                         : [IOP=(1)][IoId=(3)]                
+DIRRIGHT(0)                         : [IOP=(1)][IoId=(5)]                
+qd1a(0)                             : [IOP=(3)][IoId=(2)]                
+qd1b(0)                             : [IOP=(3)][IoId=(3)]                
+qd2a(0)                             : [IOP=(1)][IoId=(7)]                
+qd2b(0)                             : [IOP=(1)][IoId=(6)]                
+ClockGenBlock                       : CLK_GEN_[FFB(CLK_GEN,0)]           
+\BLE:cy_m0s8_ble\                   : BLE_[FFB(BLE,0)]                   
+\PWMLEFT:cy_m0s8_tcpwm_1\           : TCPWM_[FFB(TCPWM,0)]               
+\PWMRIGHT:cy_m0s8_tcpwm_1\          : TCPWM_[FFB(TCPWM,2)]               
+\QDLEFT:cy_m0s8_tcpwm_1\            : TCPWM_[FFB(TCPWM,1)]               
+\QDRIGHT:cy_m0s8_tcpwm_1\           : TCPWM_[FFB(TCPWM,3)]               
+
 </CYPRESSTAG>
-Analog Placement phase: Elapsed time ==> 0s.358ms
+</CYPRESSTAG>
+<CYPRESSTAG name="Real Analog Placement">
+Elapsed time ==> 0.1229283s
+</CYPRESSTAG>
+Analog Placement phase: Elapsed time ==> 0s.336ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Analog Routing">
 <CYPRESSTAG name="Analog Routing">
-Route success=True, Iterations=1 Elapsed=0.0008990 secs
+Route success=True, Iterations=1 Elapsed=0.0007670 secs
 </CYPRESSTAG>
 Analog Routing phase: Elapsed time ==> 0s.001ms
 </CYPRESSTAG>
@@ -2102,7 +2136,7 @@ Map of item to net {
 }
 Mux Info {
 }
-Analog Code Generation phase: Elapsed time ==> 0s.025ms
+Analog Code Generation phase: Elapsed time ==> 0s.018ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Digital Placement">
 <CYPRESSTAG name="Detailed placement messages">
@@ -2117,33 +2151,27 @@ PLD Packing Summary
 ------------------------------------------------------------
             Resource Type : Used : Free :  Max :  % Used
     ====================================================
-                     PLDs :    4 :    4 :    8 :  50.00%
+                     PLDs :    3 :    5 :    8 :  37.50%
 
 <CYPRESSTAG name="PLD Statistics">
 
         PLD Resource Type :     Average/LAB
     =======================================
-                   Inputs :            3.00
-                   Pterms :            2.50
-               Macrocells :            2.50
+                   Inputs :            4.00
+                   Pterms :            3.33
+               Macrocells :            3.33
 </CYPRESSTAG>
 <CYPRESSTAG name="Packed PLD Contents">
 Packed PLD Contents not displayed at this verbose level.</CYPRESSTAG>
 </CYPRESSTAG>
-PLD Packing: Elapsed time ==> 0s.000ms
+PLD Packing: Elapsed time ==> 0s.001ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Partitioning">
 <CYPRESSTAG name="Initial Partitioning Summary">
 Initial Partitioning Summary not displayed at this verbose level.</CYPRESSTAG>
 <CYPRESSTAG name="Final Partitioning Summary">
 Final Partitioning Summary not displayed at this verbose level.</CYPRESSTAG>
-Partitioning: Elapsed time ==> 0s.017ms
-</CYPRESSTAG>
-<CYPRESSTAG name="Simulated Annealing">
-Annealing: Elapsed time ==> 0s.001ms
-<CYPRESSTAG name="Simulated Annealing Results">
-The seed used for moves was 114161200.
-Inital cost was 51, final cost is 51 (0.00% improvement).</CYPRESSTAG>
+Partitioning: Elapsed time ==> 0s.013ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Final Placement Summary">
 
@@ -2160,13 +2188,10 @@ Final Placement Summary
 ------------------------------------------------------------
 Component Placement Details
 ------------------------------------------------------------
-UDB [UDB=(0,0)] is empty.
-UDB [UDB=(0,1)] contents:
-LAB@[UDB=(0,1)][LB=0] #macrocells=2, #inputs=2, #pterms=2
+UDB [UDB=(0,0)] contents:
+LAB@[UDB=(0,0)][LB=0] #macrocells=4, #inputs=4, #pterms=4
 {
-    [McSlotId=0]: (empty)
-    [McSlotId=1]: (empty)
-    [McSlotId=2]:     MacroCell: Name=\ledpwm:PWMUDB:status_0\, Mode=(D-Register) @ [UDB=(0,1)][LB=0][MC=2]
+    [McSlotId=0]:     MacroCell: Name=\ledpwm:PWMUDB:status_0\, Mode=(D-Register) @ [UDB=(0,0)][LB=0][MC=0]
         Total # of inputs        : 2
         Total # of product terms : 1
         List of special equations: 
@@ -2181,7 +2206,7 @@ LAB@[UDB=(0,1)][LB=0] #macrocells=2, #inputs=2, #pterms=2
         {
         }
 
-    [McSlotId=3]:     MacroCell: Name=\ledpwm:PWMUDB:prevCompare1\, Mode=(D-Register) @ [UDB=(0,1)][LB=0][MC=3]
+    [McSlotId=1]:     MacroCell: Name=\ledpwm:PWMUDB:prevCompare1\, Mode=(D-Register) @ [UDB=(0,0)][LB=0][MC=1]
         Total # of inputs        : 1
         Total # of product terms : 1
         List of special equations: 
@@ -2195,11 +2220,8 @@ LAB@[UDB=(0,1)][LB=0] #macrocells=2, #inputs=2, #pterms=2
         Properties               : 
         {
         }
-}
 
-LAB@[UDB=(0,1)][LB=1] #macrocells=4, #inputs=5, #pterms=4
-{
-    [McSlotId=0]:     MacroCell: Name=Net_935, Mode=(D-Register) @ [UDB=(0,1)][LB=1][MC=0]
+    [McSlotId=2]:     MacroCell: Name=Net_935, Mode=(D-Register) @ [UDB=(0,0)][LB=0][MC=2]
         Total # of inputs        : 2
         Total # of product terms : 1
         List of special equations: 
@@ -2214,7 +2236,7 @@ LAB@[UDB=(0,1)][LB=1] #macrocells=4, #inputs=5, #pterms=4
         {
         }
 
-    [McSlotId=1]:     MacroCell: Name=Net_938, Mode=(Combinatorial) @ [UDB=(0,1)][LB=1][MC=1]
+    [McSlotId=3]:     MacroCell: Name=Net_938, Mode=(Combinatorial) @ [UDB=(0,0)][LB=0][MC=3]
         Total # of inputs        : 1
         Total # of product terms : 1
             Clock Enable: True
@@ -2226,8 +2248,11 @@ LAB@[UDB=(0,1)][LB=1] #macrocells=4, #inputs=5, #pterms=4
         Properties               : 
         {
         }
+}
 
-    [McSlotId=2]:     MacroCell: Name=\ledpwm:PWMUDB:runmode_enable\, Mode=(D-Register) @ [UDB=(0,1)][LB=1][MC=2]
+LAB@[UDB=(0,0)][LB=1] #macrocells=2, #inputs=3, #pterms=2
+{
+    [McSlotId=0]:     MacroCell: Name=\ledpwm:PWMUDB:runmode_enable\, Mode=(D-Register) @ [UDB=(0,0)][LB=1][MC=0]
         Total # of inputs        : 1
         Total # of product terms : 1
         List of special equations: 
@@ -2242,7 +2267,7 @@ LAB@[UDB=(0,1)][LB=1] #macrocells=4, #inputs=5, #pterms=4
         {
         }
 
-    [McSlotId=3]:     MacroCell: Name=\ledpwm:PWMUDB:status_2\, Mode=(Combinatorial) @ [UDB=(0,1)][LB=1][MC=3]
+    [McSlotId=1]:     MacroCell: Name=\ledpwm:PWMUDB:status_2\, Mode=(Combinatorial) @ [UDB=(0,0)][LB=1][MC=1]
         Total # of inputs        : 2
         Total # of product terms : 1
             Clock Enable: True
@@ -2254,6 +2279,9 @@ LAB@[UDB=(0,1)][LB=1] #macrocells=4, #inputs=5, #pterms=4
         Properties               : 
         {
         }
+
+    [McSlotId=2]: (empty)
+    [McSlotId=3]: (empty)
 }
 
 datapathcell: Name =\ledpwm:PWMUDB:sP8:pwmdp:u0\
@@ -2328,42 +2356,11 @@ controlcell: Name =\ledpwm:PWMUDB:genblk1:ctrlreg\
     Clock Polarity: Active High
     Clock Enable: True
 
-UDB [UDB=(1,0)] is empty.
-UDB [UDB=(1,1)] contents:
-LAB@[UDB=(1,1)][LB=0] #macrocells=3, #inputs=4, #pterms=3
+UDB [UDB=(0,1)] is empty.
+UDB [UDB=(1,0)] contents:
+LAB@[UDB=(1,0)][LB=0] #macrocells=4, #inputs=5, #pterms=4
 {
-    [McSlotId=0]:     MacroCell: Name=\tachPwm:PWMUDB:status_0\, Mode=(D-Register) @ [UDB=(1,1)][LB=0][MC=0]
-        Total # of inputs        : 2
-        Total # of product terms : 1
-        List of special equations: 
-            Clock  = (Net_676_digital) => Global
-            Clock Enable: True
-        Main Equation            : 1 pterm
-        (
-              !\tachPwm:PWMUDB:prevCompare1\ * \tachPwm:PWMUDB:cmp1_less\
-        );
-        Output = \tachPwm:PWMUDB:status_0\ (fanout=1)
-        Properties               : 
-        {
-        }
-
-    [McSlotId=1]:     MacroCell: Name=\tachPwm:PWMUDB:prevCompare1\, Mode=(D-Register) @ [UDB=(1,1)][LB=0][MC=1]
-        Total # of inputs        : 1
-        Total # of product terms : 1
-        List of special equations: 
-            Clock  = (Net_676_digital) => Global
-            Clock Enable: True
-        Main Equation            : 1 pterm
-        (
-              \tachPwm:PWMUDB:cmp1_less\
-        );
-        Output = \tachPwm:PWMUDB:prevCompare1\ (fanout=1)
-        Properties               : 
-        {
-        }
-
-    [McSlotId=2]: (empty)
-    [McSlotId=3]:     MacroCell: Name=\tachPwm:PWMUDB:status_2\, Mode=(Combinatorial) @ [UDB=(1,1)][LB=0][MC=3]
+    [McSlotId=0]:     MacroCell: Name=\tachPwm:PWMUDB:status_2\, Mode=(Combinatorial) @ [UDB=(1,0)][LB=0][MC=0]
         Total # of inputs        : 2
         Total # of product terms : 1
             Clock Enable: True
@@ -2375,11 +2372,8 @@ LAB@[UDB=(1,1)][LB=0] #macrocells=3, #inputs=4, #pterms=3
         Properties               : 
         {
         }
-}
 
-LAB@[UDB=(1,1)][LB=1] #macrocells=1, #inputs=1, #pterms=1
-{
-    [McSlotId=0]:     MacroCell: Name=\tachPwm:PWMUDB:runmode_enable\, Mode=(D-Register) @ [UDB=(1,1)][LB=1][MC=0]
+    [McSlotId=1]:     MacroCell: Name=\tachPwm:PWMUDB:runmode_enable\, Mode=(D-Register) @ [UDB=(1,0)][LB=0][MC=1]
         Total # of inputs        : 1
         Total # of product terms : 1
         List of special equations: 
@@ -2394,9 +2388,35 @@ LAB@[UDB=(1,1)][LB=1] #macrocells=1, #inputs=1, #pterms=1
         {
         }
 
-    [McSlotId=1]: (empty)
-    [McSlotId=2]: (empty)
-    [McSlotId=3]: (empty)
+    [McSlotId=2]:     MacroCell: Name=\tachPwm:PWMUDB:status_0\, Mode=(D-Register) @ [UDB=(1,0)][LB=0][MC=2]
+        Total # of inputs        : 2
+        Total # of product terms : 1
+        List of special equations: 
+            Clock  = (Net_676_digital) => Global
+            Clock Enable: True
+        Main Equation            : 1 pterm
+        (
+              !\tachPwm:PWMUDB:prevCompare1\ * \tachPwm:PWMUDB:cmp1_less\
+        );
+        Output = \tachPwm:PWMUDB:status_0\ (fanout=1)
+        Properties               : 
+        {
+        }
+
+    [McSlotId=3]:     MacroCell: Name=\tachPwm:PWMUDB:prevCompare1\, Mode=(D-Register) @ [UDB=(1,0)][LB=0][MC=3]
+        Total # of inputs        : 1
+        Total # of product terms : 1
+        List of special equations: 
+            Clock  = (Net_676_digital) => Global
+            Clock Enable: True
+        Main Equation            : 1 pterm
+        (
+              \tachPwm:PWMUDB:cmp1_less\
+        );
+        Output = \tachPwm:PWMUDB:prevCompare1\ (fanout=1)
+        Properties               : 
+        {
+        }
 }
 
 datapathcell: Name =\tachPwm:PWMUDB:sP8:pwmdp:u0\
@@ -2472,6 +2492,7 @@ controlcell: Name =\tachPwm:PWMUDB:genblk1:ctrlreg\
     Clock Polarity: Active High
     Clock Enable: True
 
+UDB [UDB=(1,1)] is empty.
 Intr container @ [IntrContainer=(0)]: 
   Intr@ [IntrContainer=(0)][IntrId=(1)] 
     interrupt: Name =tachTimer
@@ -2480,6 +2501,7 @@ Intr container @ [IntrContainer=(0)]:
         Properties:
         {
             int_type = "10"
+            is_nmi = 0
         }
   Intr@ [IntrContainer=(0)][IntrId=(2)] 
     interrupt: Name =swint
@@ -2488,6 +2510,7 @@ Intr container @ [IntrContainer=(0)]:
         Properties:
         {
             int_type = "10"
+            is_nmi = 0
         }
   Intr@ [IntrContainer=(0)][IntrId=(12)] 
     interrupt: Name =\BLE:bless_isr\
@@ -2496,8 +2519,9 @@ Intr container @ [IntrContainer=(0)]:
         Properties:
         {
             int_type = "10"
+            is_nmi = 0
         }
-Port 0 is empty
+Port 0 contains the following IO cells:
 Port 1 contains the following IO cells:
 [IoId=2]: 
 Pin : Name = POWERRIGHT(0)
@@ -2529,7 +2553,7 @@ Pin : Name = POWERRIGHT(0)
         SIO Vtrip: MULTIPLIER_0_5
         SIO Multiplier Index: 0
         SIO RefSel: VCC_IO
-        Required Capabilitites: DIGITAL
+        Required Capabilities: DIGITAL
         Initial Value: 1
         IO Voltage: 0
     PORT MAP (
@@ -2569,7 +2593,7 @@ Pin : Name = GNDRIGHT(0)
         SIO Vtrip: MULTIPLIER_0_5
         SIO Multiplier Index: 0
         SIO RefSel: VCC_IO
-        Required Capabilitites: DIGITAL
+        Required Capabilities: DIGITAL
         Initial Value: 0
         IO Voltage: 0
     PORT MAP (
@@ -2609,12 +2633,12 @@ Pin : Name = M2(0)
         SIO Vtrip: MULTIPLIER_0_5
         SIO Multiplier Index: 0
         SIO RefSel: VCC_IO
-        Required Capabilitites: DIGITAL
+        Required Capabilities: DIGITAL
         Initial Value: 1
         IO Voltage: 0
     PORT MAP (
         pa_out => M2(0)__PA ,
-        input => Net_254 ,
+        pin_input => Net_254 ,
         pad => M2(0)_PAD );
     Properties:
     {
@@ -2650,7 +2674,7 @@ Pin : Name = DIRRIGHT(0)
         SIO Vtrip: MULTIPLIER_0_5
         SIO Multiplier Index: 0
         SIO RefSel: VCC_IO
-        Required Capabilitites: DIGITAL
+        Required Capabilities: DIGITAL
         Initial Value: 0
         IO Voltage: 0
     PORT MAP (
@@ -2690,7 +2714,7 @@ Pin : Name = qd2b(0)
         SIO Vtrip: MULTIPLIER_0_5
         SIO Multiplier Index: 0
         SIO RefSel: VCC_IO
-        Required Capabilitites: DIGITAL, ROUTABLE
+        Required Capabilities: DIGITAL, ROUTABLE
         Initial Value: 0
         IO Voltage: 0
     PORT MAP (
@@ -2731,7 +2755,7 @@ Pin : Name = qd2a(0)
         SIO Vtrip: MULTIPLIER_0_5
         SIO Multiplier Index: 0
         SIO RefSel: VCC_IO
-        Required Capabilitites: DIGITAL, ROUTABLE
+        Required Capabilities: DIGITAL, ROUTABLE
         Initial Value: 0
         IO Voltage: 0
     PORT MAP (
@@ -2749,8 +2773,7 @@ Port 2 generates interrupt for logical port:
             in_reset => zero ,
             out_clock_en => tmpOE__Control_net_0 ,
             out_reset => zero ,
-            interrupt => Net_6 ,
-            in_clock => ClockBlock_HFCLK );
+            interrupt => Net_6 );
         Properties:
         {
             drive_mode = "010"
@@ -2759,7 +2782,7 @@ Port 2 generates interrupt for logical port:
             init_dr_st = "1"
             input_buffer_sel = "00"
             input_clk_en = 0
-            input_sync = "1"
+            input_sync = "0"
             input_sync_mode = "0"
             intr_mode = "10"
             invert_in_clock = 0
@@ -2794,13 +2817,13 @@ Port 2 generates interrupt for logical port:
             port_alias_group = ""
             port_alias_required = 0
             sio_group_cnt = 0
-            sio_hifreq = ""
+            sio_hifreq = "00000000"
             sio_hyst = "1"
             sio_ibuf = "00000000"
             sio_info = "00"
             sio_obuf = "00000000"
             sio_refsel = "00000000"
-            sio_vohsel = ""
+            sio_vohsel = "00000000"
             sio_vtrip = "00000000"
             slew_rate = "0"
             spanning = 0
@@ -2840,12 +2863,12 @@ Pin : Name = red(0)
         SIO Vtrip: MULTIPLIER_0_5
         SIO Multiplier Index: 0
         SIO RefSel: VCC_IO
-        Required Capabilitites: DIGITAL, ROUTABLE
+        Required Capabilities: DIGITAL, ROUTABLE
         Initial Value: 1
         IO Voltage: 0
     PORT MAP (
         pa_out => red(0)__PA ,
-        input => Net_938 ,
+        pin_input => Net_938 ,
         pad => red(0)_PAD );
     Properties:
     {
@@ -2855,14 +2878,14 @@ Pin : Name = red(0)
 Pin : Name = Control(0)
     Attributes:
         In Group/Port: True
-        In Sync Option: SYNC
+        In Sync Option: NOSYNC
         Out Sync Option: AUTO
         Interrupt generated: True
         Interrupt mode: FALLING
         Drive mode: RES_PULL_UP
         VTrip: CMOS
         Slew: FAST
-        Input Sync needed: True
+        Input Sync needed: False
         Output Sync needed: False
         SC shield enabled: False
         POR State: ANY
@@ -2881,7 +2904,7 @@ Pin : Name = Control(0)
         SIO Vtrip: MULTIPLIER_0_5
         SIO Multiplier Index: 0
         SIO RefSel: VCC_IO
-        Required Capabilitites: DIGITAL, ROUTABLE, PORT_INTERRUPT
+        Required Capabilities: DIGITAL, PORT_INTERRUPT
         Initial Value: 1
         IO Voltage: 0
     PORT MAP (
@@ -2922,12 +2945,12 @@ Pin : Name = M1(0)
         SIO Vtrip: MULTIPLIER_0_5
         SIO Multiplier Index: 0
         SIO RefSel: VCC_IO
-        Required Capabilitites: DIGITAL
+        Required Capabilities: DIGITAL
         Initial Value: 1
         IO Voltage: 0
     PORT MAP (
         pa_out => M1(0)__PA ,
-        input => Net_214 ,
+        pin_input => Net_214 ,
         pad => M1(0)_PAD );
     Properties:
     {
@@ -2963,7 +2986,7 @@ Pin : Name = DIRLEFT(0)
         SIO Vtrip: MULTIPLIER_0_5
         SIO Multiplier Index: 0
         SIO RefSel: VCC_IO
-        Required Capabilitites: DIGITAL
+        Required Capabilities: DIGITAL
         Initial Value: 0
         IO Voltage: 0
     PORT MAP (
@@ -3003,7 +3026,7 @@ Pin : Name = qd1a(0)
         SIO Vtrip: MULTIPLIER_0_5
         SIO Multiplier Index: 0
         SIO RefSel: VCC_IO
-        Required Capabilitites: DIGITAL, ROUTABLE
+        Required Capabilities: DIGITAL, ROUTABLE
         Initial Value: 0
         IO Voltage: 0
     PORT MAP (
@@ -3044,7 +3067,7 @@ Pin : Name = qd1b(0)
         SIO Vtrip: MULTIPLIER_0_5
         SIO Multiplier Index: 0
         SIO RefSel: VCC_IO
-        Required Capabilitites: DIGITAL, ROUTABLE
+        Required Capabilities: DIGITAL, ROUTABLE
         Initial Value: 0
         IO Voltage: 0
     PORT MAP (
@@ -3085,7 +3108,7 @@ Pin : Name = GNDLEFT(0)
         SIO Vtrip: MULTIPLIER_0_5
         SIO Multiplier Index: 0
         SIO RefSel: VCC_IO
-        Required Capabilitites: DIGITAL
+        Required Capabilities: DIGITAL
         Initial Value: 0
         IO Voltage: 0
     PORT MAP (
@@ -3125,7 +3148,7 @@ Pin : Name = POWERLEFT(0)
         SIO Vtrip: MULTIPLIER_0_5
         SIO Multiplier Index: 0
         SIO RefSel: VCC_IO
-        Required Capabilitites: DIGITAL
+        Required Capabilities: DIGITAL
         Initial Value: 1
         IO Voltage: 0
     PORT MAP (
@@ -3135,11 +3158,12 @@ Pin : Name = POWERLEFT(0)
     {
     }
 
-Port 4 is empty
-Port 5 is empty
-Port 6 is empty
+Port 4 contains the following IO cells:
+Port 5 contains the following IO cells:
+Port 6 contains the following IO cells:
+ARM group 0: empty
 Clock group 0: 
-    M0S8 Clock Block @ F(Clock,0): 
+    Clock Block @ F(Clock,0): 
     m0s8clockblockcell: Name =ClockBlock
         PORT MAP (
             hfclk => ClockBlock_HFCLK ,
@@ -3159,55 +3183,15 @@ Clock group 0:
         Properties:
         {
         }
-PM group 0: empty
-SPC group 0: empty
-WDT group 0: empty
-FSS group 0: empty
-LP Comparator group 0: empty
-Serial Communication (SCB) group 0: empty
-CapSense group 0: empty
-8-bit IDAC group 0: empty
-7-bit IDAC group 0: empty
-Timer/Counter/PWM group 0: 
+LCD group 0: empty
+PICU group 0: empty
+LPCOMP group 0: empty
+SCB group 0: empty
+CSD group 0: empty
+CSIDAC8 group 0: empty
+CSIDAC7 group 0: empty
+TCPWM group 0: 
     Tcpwm Block @ F(TCPWM,0): 
-    m0s8tcpwmcell: Name =\QDLEFT:cy_m0s8_tcpwm_1\
-        PORT MAP (
-            clock => Net_256_ff9 ,
-            capture => zero ,
-            count => Net_128 ,
-            reload => zero ,
-            stop => zero ,
-            start => Net_127 ,
-            tr_underflow => Net_132 ,
-            tr_overflow => Net_131 ,
-            tr_compare_match => Net_133 ,
-            line_out => Net_134 ,
-            line_out_compl => Net_135 ,
-            interrupt => Net_130 );
-        Properties:
-        {
-            cy_registers = ""
-        }
-    Tcpwm Block @ F(TCPWM,1): 
-    m0s8tcpwmcell: Name =\PWMRIGHT:cy_m0s8_tcpwm_1\
-        PORT MAP (
-            clock => Net_256_ff8 ,
-            capture => zero ,
-            count => tmpOE__Control_net_0 ,
-            reload => zero ,
-            stop => zero ,
-            start => zero ,
-            tr_underflow => Net_1983 ,
-            tr_overflow => Net_1982 ,
-            tr_compare_match => Net_1984 ,
-            line_out => Net_254 ,
-            line_out_compl => Net_1985 ,
-            interrupt => Net_1981 );
-        Properties:
-        {
-            cy_registers = ""
-        }
-    Tcpwm Block @ F(TCPWM,2): 
     m0s8tcpwmcell: Name =\QDRIGHT:cy_m0s8_tcpwm_1\
         PORT MAP (
             clock => Net_256_ff10 ,
@@ -3219,14 +3203,14 @@ Timer/Counter/PWM group 0:
             tr_underflow => Net_172 ,
             tr_overflow => Net_171 ,
             tr_compare_match => Net_173 ,
-            line_out => Net_174 ,
-            line_out_compl => Net_175 ,
+            line => Net_174 ,
+            line_compl => Net_175 ,
             interrupt => Net_170 );
         Properties:
         {
             cy_registers = ""
         }
-    Tcpwm Block @ F(TCPWM,3): 
+    Tcpwm Block @ F(TCPWM,1): 
     m0s8tcpwmcell: Name =\PWMLEFT:cy_m0s8_tcpwm_1\
         PORT MAP (
             clock => Net_256_ff7 ,
@@ -3238,17 +3222,54 @@ Timer/Counter/PWM group 0:
             tr_underflow => Net_1951 ,
             tr_overflow => Net_1950 ,
             tr_compare_match => Net_1952 ,
-            line_out => Net_214 ,
-            line_out_compl => Net_1953 ,
+            line => Net_214 ,
+            line_compl => Net_1953 ,
             interrupt => Net_1949 );
         Properties:
         {
             cy_registers = ""
         }
-Comparator/Opamp group 0: empty
-Die Temp group 0: empty
-SAR ADC group 0: empty
-Segment LCD group 0: empty
+    Tcpwm Block @ F(TCPWM,2): 
+    m0s8tcpwmcell: Name =\PWMRIGHT:cy_m0s8_tcpwm_1\
+        PORT MAP (
+            clock => Net_256_ff8 ,
+            capture => zero ,
+            count => tmpOE__Control_net_0 ,
+            reload => zero ,
+            stop => zero ,
+            start => zero ,
+            tr_underflow => Net_1983 ,
+            tr_overflow => Net_1982 ,
+            tr_compare_match => Net_1984 ,
+            line => Net_254 ,
+            line_compl => Net_1985 ,
+            interrupt => Net_1981 );
+        Properties:
+        {
+            cy_registers = ""
+        }
+    Tcpwm Block @ F(TCPWM,3): 
+    m0s8tcpwmcell: Name =\QDLEFT:cy_m0s8_tcpwm_1\
+        PORT MAP (
+            clock => Net_256_ff9 ,
+            capture => zero ,
+            count => Net_128 ,
+            reload => zero ,
+            stop => zero ,
+            start => Net_127 ,
+            tr_underflow => Net_132 ,
+            tr_overflow => Net_131 ,
+            tr_compare_match => Net_133 ,
+            line => Net_134 ,
+            line_compl => Net_135 ,
+            interrupt => Net_130 );
+        Properties:
+        {
+            cy_registers = ""
+        }
+OA group 0: empty
+TEMP group 0: empty
+SARADC group 0: empty
 CLK_GEN group 0: 
     M0S8 Clock Gen Block @ F(CLK_GEN,0): 
     m0s8clockgenblockcell: Name =ClockGenBlock
@@ -3260,17 +3281,21 @@ CLK_GEN group 0:
         }
 LPCOMPBLOCK group 0: empty
 PASSBLOCK group 0: empty
-ANAPUMP group 0: empty
 BLE group 0: 
     BLE Block @ F(BLE,0): 
     p4blecell: Name =\BLE:cy_m0s8_ble\
         PORT MAP (
             interrupt => \BLE:Net_15\ ,
-            rfctrl_extpa_en => \BLE:Net_63\ );
+            rfctrl_extpa_en => Net_2748 );
         Properties:
         {
+            cy_registers = ""
         }
-GANGED_PICU group 0: empty
+WCO group 0: empty
+SRSS group 0: empty
+CPUSS group 0: empty
+IOSS group 0: empty
+EXCO group 0: empty
 </CYPRESSTAG>
 <CYPRESSTAG name="Port Configuration Details">
 
@@ -3300,32 +3325,33 @@ Port | Pin | Fixed |      Type |       Drive Mode |          Name | Connections
 </CYPRESSTAG>
 </CYPRESSTAG>
 </CYPRESSTAG>
-Digital component placer commit/Report: Elapsed time ==> 0s.002ms
-Digital Placement phase: Elapsed time ==> 0s.734ms
+Digital component placer commit/Report: Elapsed time ==> 0s.038ms
+Digital Placement phase: Elapsed time ==> 0s.636ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Digital Routing">
+"C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\bin/sjrouter.exe" --xml-path "C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\dev\psoc4/3/128k/route_arch-rrg.cydata" --vh2-path "robot_r.vh2" --pcf-path "robot.pco" --des-name "robot" --dsf-path "robot.dsf" --sdc-path "robot.sdc" --lib-path "robot_r.lib"
 Routing successful.
-Digital Routing phase: Elapsed time ==> 0s.636ms
+Digital Routing phase: Elapsed time ==> 0s.665ms
 </CYPRESSTAG>
-<CYPRESSTAG name="Bitstream and API generation">
-Bitstream and API generation phase: Elapsed time ==> 0s.531ms
+<CYPRESSTAG name="Bitstream Generation">
+Bitstream Generation phase: Elapsed time ==> 0s.245ms
 </CYPRESSTAG>
-<CYPRESSTAG name="Bitstream verification">
-Bitstream verification phase: Elapsed time ==> 0s.047ms
+<CYPRESSTAG name="Bitstream Verification">
+Bitstream Verification phase: Elapsed time ==> 0s.025ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Static timing analysis">
 Timing report is in robot_timing.html.
-Static timing analysis phase: Elapsed time ==> 0s.320ms
+Static timing analysis phase: Elapsed time ==> 0s.293ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Data reporting">
 Data reporting phase: Elapsed time ==> 0s.000ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Database update...">
-Design database save phase: Elapsed time ==> 0s.182ms
+Design database save phase: Elapsed time ==> 0s.179ms
 </CYPRESSTAG>
-cydsfit: Elapsed time ==> 2s.939ms
+cydsfit: Elapsed time ==> 2s.629ms
 </CYPRESSTAG>
-Fitter phase: Elapsed time ==> 2s.986ms
-API generation phase: Elapsed time ==> 2s.263ms
-Dependency generation phase: Elapsed time ==> 0s.019ms
-Cleanup phase: Elapsed time ==> 0s.004ms
+Fitter phase: Elapsed time ==> 2s.630ms
+API generation phase: Elapsed time ==> 2s.152ms
+Dependency generation phase: Elapsed time ==> 0s.031ms
+Cleanup phase: Elapsed time ==> 0s.002ms
