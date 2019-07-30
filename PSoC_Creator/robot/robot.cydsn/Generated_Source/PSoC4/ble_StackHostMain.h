@@ -1,29 +1,27 @@
 /***************************************************************************//**
+* \file CyBle_HostMain.h
+*
 * \file CYBLE_StackHostMain.h
-* \version 2.30
-* 
+* \version 3.61
+*
 * \brief
 *  This file contains the constants of the BLE Host Stack IP
 * 
 * Related Document:
-*  BLE Standard Spec - CoreV4.1, CSS, CSAs, ESR05, ESR06
+*  BLE Standard Spec - CoreV4.2, CoreV4.1, CSS, CSAs, ESR05, ESR06
 * 
 ********************************************************************************
 * \copyright
-* Copyright 2014-2015, Cypress Semiconductor Corporation.  All rights reserved.
+* Copyright 2014-2019, Cypress Semiconductor Corporation.  All rights reserved.
 * You may use this file only in accordance with the license, terms, conditions,
 * disclaimers, and limitations in the end user license agreement accompanying
 * the software package with which this file was provided.
 *******************************************************************************/
 
-/**
- \addtogroup group_common_api_definitions
- @{
-*/
 
+#ifndef CYBLE_HOST_MAIN_H_
+#define CYBLE_HOST_MAIN_H_
 
-#ifndef CY_BLE_CYBLE_STACK_HOST_MAIN_H
-#define CY_BLE_CYBLE_STACK_HOST_MAIN_H
 
     
 /***************************************
@@ -31,44 +29,18 @@
 ***************************************/
 
 #include "BLE_Stack.h"
-    
-
-/***************************************
-* Constants
-***************************************/
-
-/* enable all features */
-#define GAP_CENTRAL
-#define GAP_PERIPHERAL
-#define GATT_SUPPORT_128_BIT_UUID
-#define GATT_SERVER
-#define GATT_CLIENT
-#define ATT_HANDLE_VALUE_NOTIFICATION_SUPPORT
-#define ATT_HANDLE_VALUE_INDICATION_SUPPORT
-#define ATT_MTU_EXCHANGE_SUPPORT
-#define ATT_FIND_INFO_SUPPORT
-#define ATT_FIND_BY_TYPE_VALUE_SUPPORT
-#define ATT_READ_BY_TYPE_SUPPORT
-#define ATT_READ_REQUEST_SUPPORT
-#define ATT_READ_BLOB_SUPPORT
-#define ATT_READ_MULTIPLE_SUPPORT
-#define ATT_READ_BY_GROUP_TYPE_SUPPORT
-#define ATT_WRITE_REQUEST_SUPPORT
-#define ATT_WRITE_COMMAND_SUPPORT
-#define ATT_QUEUED_WRITE_SUPPORT
-#define ATT_SIGNED_WRITE_SUPPORT    
-#define HOST_RESOLVE_PVT_ADDR
-#define L2CAP_SUPPORT_CBFC_MODE
-
-#define CYBLE_STACK_STATE_BUSY		   	0x01u
-#define CYBLE_STACK_STATE_FREE		   	0x00u
 
 
 /***************************************
 * Exported structures
 ***************************************/
 
-/* BLE stack timeout. This is received with CYBLE_EVT_TIMEOUT event 
+/**
+ \addtogroup group_common_api_definitions
+ @{
+*/
+
+/** BLE stack timeout. This is received with CYBLE_EVT_TIMEOUT event 
     It is application's responsibility to disconnect or keep the channel on depends on type of timeouts.
     i.e. GATT procedure timeout: Application may choose to disconnect.*/
 typedef enum
@@ -90,7 +62,7 @@ typedef enum
 /** @} */
 
 /**Event callback function prototype to receive events from stack */
-typedef void (*CYBLE_STACK_EV_CB_PF)(CYBLE_EVENT_T event, void* evParam);
+typedef void (*CYBLE_STACK_EV_CB_PF)(CYBLE_EVT_HOST_STACK_T event, void* evParam);
 
 
 /***************************************
@@ -107,7 +79,7 @@ typedef void (*CYBLE_STACK_EV_CB_PF)(CYBLE_EVENT_T event, void* evParam);
 ***************************************************************************//**
 * 
 *  This function instructs Stack to backup Stack internal RAM data into flash.
-*  This API must be called by application to backup stack data. If this API is not 
+*  This API function must be called by application to backup stack data. If this API function is not 
 *  called appropriately, stack internal data structure will not be available on
 *  power cycle.
 *     
@@ -133,9 +105,8 @@ CYBLE_API_RESULT_T CyBle_StoreStackData(uint8 isForceWrite);
 ***************************************************************************//**
 * 
 *  This function instructs the Stack to backup application specific data into 
-*  flash. This API must be called by application to backup application specific 
-*  data. If this API is not called appropriately, data will not be available on
-*  power cycle.
+*  flash. This API function must be called by application to backup application specific 
+*  data. 
 *     
 *  \param srcBuff: Source buffer
 *  \param destAddr: Destination address
@@ -152,6 +123,8 @@ CYBLE_API_RESULT_T CyBle_StoreStackData(uint8 isForceWrite);
 *   ------------                             | -----------
 *   CYBLE_ERROR_OK                           | On successful operation
 *   CYBLE_ERROR_FLASH_WRITE_NOT_PERMITED     | Flash Write is not permitted
+*   CYBLE_ERROR_INVALID_PARAMETER            | Invalid input parameter  
+*   CYBLE_ERROR_FLASH_WRITE                  | Error in flash Write	
 * 
 ******************************************************************************/
 CYBLE_API_RESULT_T CyBle_StoreAppData 
@@ -174,7 +147,12 @@ CYBLE_API_RESULT_T CyBle_StoreAppData
 *  updated only when there are LL activities. BLE stack internally takes care for 
 *  timing requirement for GATT, GAP and L2CAP signaling on going procedures.
 * 
-*  \param timeout: Timeout for which timer to be started in seconds.
+*  \param timeout: Timeout for which timer to be started.
+*                  IF MSBit of timeout == 1 then resolution is in millisecs,
+*                  ELSE resolution is seconds.
+*  
+*  This takes the assumption that no one would call timeout of,
+*  say, 32000 seconds.
 * 	
 * \return
 *  CYBLE_API_RESULT_T : Return value indicates if the function succeeded or
@@ -217,7 +195,7 @@ CYBLE_API_RESULT_T CyBle_StopTimer (void);
 
 /** @} */
 
-#endif /* CY_BLE_CYBLE_STACK_HOST_MAIN_H */
+#endif /* CYBLE_HOST_MAIN_H_ */
 
 
 /*EOF*/

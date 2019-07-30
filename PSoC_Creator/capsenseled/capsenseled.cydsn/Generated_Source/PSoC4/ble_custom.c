@@ -1,13 +1,13 @@
 /***************************************************************************//**
 * \file CYBLE_custom.c
-* \version 2.30
+* \version 3.61
 * 
 * \brief
 *  Contains the source code for the Custom Service.
 * 
 ********************************************************************************
 * \copyright
-* Copyright 2014-2015, Cypress Semiconductor Corporation.  All rights reserved.
+* Copyright 2014-2019, Cypress Semiconductor Corporation.  All rights reserved.
 * You may use this file only in accordance with the license, terms, conditions,
 * disclaimers, and limitations in the end user license agreement accompanying
 * the software package with which this file was provided.
@@ -18,7 +18,7 @@
 
 #ifdef CYBLE_CUSTOM_SERVER
 
-/* If any custom service with custom characterisctis is defined in the
+/* If any custom service with custom characteristics is defined in the
 * customizer's GUI their handles will be present in this array.
 */
 /* This array contains attribute handles for the defined Custom Services and their characteristics and descriptors.
@@ -88,17 +88,20 @@ void CyBle_CustomInit(void)
     
     for(locServIndex = 0u; locServIndex < CYBLE_CUSTOMC_SERVICE_COUNT; locServIndex++)
     {
-        for(locCharIndex = 0u; locCharIndex < cyBle_customCServ[locServIndex].charCount; locCharIndex++)
+        if(cyBle_serverInfo[CYBLE_SRVI_CUSTOMS + locServIndex].range.startHandle == CYBLE_GATT_INVALID_ATTR_HANDLE_VALUE)
         {
-            cyBle_customCServ[locServIndex].customServChar[locCharIndex].
-                customServCharHandle = 0u;
-            
-            for(locDescIndex = 0u; locDescIndex < 
-                cyBle_customCServ[locServIndex].customServChar[locCharIndex].descCount; 
-                    locDescIndex++)
+            for(locCharIndex = 0u; locCharIndex < cyBle_customCServ[locServIndex].charCount; locCharIndex++)
             {
                 cyBle_customCServ[locServIndex].customServChar[locCharIndex].
-                    customServCharDesc[locDescIndex].descHandle = 0u;
+                    customServCharHandle = 0u;
+                
+                for(locDescIndex = 0u; locDescIndex < 
+                    cyBle_customCServ[locServIndex].customServChar[locCharIndex].descCount; 
+                        locDescIndex++)
+                {
+                    cyBle_customCServ[locServIndex].customServChar[locCharIndex].
+                        customServCharDesc[locDescIndex].descHandle = 0u;
+                }
             }
         }
     }
@@ -292,8 +295,9 @@ CYBLE_GATT_ATTR_HANDLE_RANGE_T CyBle_CustomcGetCharRange(uint8 incrementIndex)
             charRange.endHandle = cyBle_customCServ[cyBle_customDisServIndex].
                                 customServChar[cyBle_customDisCharIndex].customServCharEndHandle;
         }
-    }while(((charRange.startHandle == (CYBLE_GATT_INVALID_ATTR_HANDLE_VALUE + 1u)) || 
-            (charRange.endHandle == CYBLE_GATT_INVALID_ATTR_HANDLE_VALUE) ||
+    }while(((charRange.startHandle <= cyBle_gattcDiscoveryRange.startHandle) || 
+            (charRange.startHandle > cyBle_gattcDiscoveryRange.endHandle) ||
+            (charRange.endHandle < cyBle_gattcDiscoveryRange.startHandle) ||
             (charRange.startHandle > charRange.endHandle)) && 
             (cyBle_customDisCharIndex < cyBle_customCServ[cyBle_customDisServIndex].charCount));
     

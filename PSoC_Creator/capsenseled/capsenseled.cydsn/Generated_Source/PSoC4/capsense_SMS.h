@@ -1,6 +1,6 @@
 /*******************************************************************************
 * File Name: capsense_SMS.h
-* Version 2.30
+* Version 2.60
 *
 * Description:
 *  This file provides the declarations of the wrapper between the CapSense CSD component
@@ -9,7 +9,7 @@
 * Note:
 *
 ********************************************************************************
-* Copyright 2013-2015, Cypress Semiconductor Corporation.  All rights reserved.
+* Copyright 2013-2016, Cypress Semiconductor Corporation.  All rights reserved.
 * You may use this file only in accordance with the license, terms, conditions,
 * disclaimers, and limitations in the end user license agreement accompanying
 * the software package with which this file was provided.

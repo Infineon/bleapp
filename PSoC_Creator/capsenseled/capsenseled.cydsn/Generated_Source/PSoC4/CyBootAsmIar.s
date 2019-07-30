@@ -1,12 +1,11 @@
 ;-------------------------------------------------------------------------------
-; FILENAME: CyBootAsmIar.s
-; Version 5.20
+; \file CyBootAsmIar.s
+; \version 5.80
 ;
-;  DESCRIPTION:
-;    Assembly routines for IAR Embedded Workbench IDE.
+; \brief Assembly routines for IAR Embedded Workbench IDE.
 ;
 ;-------------------------------------------------------------------------------
-; Copyright 2013-2015, Cypress Semiconductor Corporation.  All rights reserved.
+; Copyright 2013-2018, Cypress Semiconductor Corporation.  All rights reserved.
 ; You may use this file only in accordance with the license, terms, conditions,
 ; disclaimers, and limitations in the end user license agreement accompanying
 ; the software package with which this file was provided.
@@ -18,13 +17,8 @@
     PUBLIC CyExitCriticalSection
     THUMB
     INCLUDE cyfitter.h
-;Create temporary defines as a workaround for compiler behavior
-#ifndef CYIPBLOCK_m0s8cpussv2_VERSION
-  #define CYIPBLOCK_m0s8cpussv2_VERSION 0
-#endif
-#ifndef CYIPBLOCK_m0s8srssv2_VERSION
-  #define CYIPBLOCK_m0s8srssv2_VERSION 0
-#endif
+
+
 ;-------------------------------------------------------------------------------
 ; Function Name: CyDelayCycles
 ;-------------------------------------------------------------------------------
@@ -41,20 +35,40 @@
 ;-------------------------------------------------------------------------------
 ; void CyDelayCycles(uint32 cycles)
 
-CyDelayCycles: 
+CyDelayCycles:
     ADDS r0, r0, #2
     LSRS r0, r0, #2
     BEQ CyDelayCycles_done
-    #if ((CYIPBLOCK_m0s8cpussv2_VERSION == 1)&&(CYIPBLOCK_m0s8srssv2_VERSION == 1))
-        ; If device is using CPUSSv2 and SRSSv2 leave loop unaligned
+    #ifdef CYIPBLOCK_m0s8cpuss_VERSION
+        NOP                     ;    1    2    Loop alignment padding
     #else
-        NOP
+        #ifdef CYIPBLOCK_s8srsslt_VERSION
+            #ifdef CYIPBLOCK_m0s8cpussv2_VERSION
+                #ifdef CYIPBLOCK_mxusbpd_VERSION
+                    /* Do nothing */
+                #else
+                    #ifdef CYIPBLOCK_m0s8usbpd_VERSION
+                        /* Do nothing */
+                    #else
+                        NOP             ;    1    2    Loop alignment padding
+                    #endif
+                #endif
+            #endif
+        #endif
+        ;Leave loop unaligned
     #endif
 CyDelayCycles_loop:
-    SUBS r0, r0, #1
-    BNE CyDelayCycles_loop
-    NOP
-    NOP
+    #ifdef CYDEV_CM0P_BASE
+        ADDS r0, r0, #1
+        SUBS r0, r0, #2
+        BNE CyDelayCycles_loop
+        NOP
+    #else
+        SUBS r0, r0, #1
+        BNE CyDelayCycles_loop
+        NOP
+        NOP
+    #endif
 CyDelayCycles_done:
     BX lr
 
@@ -68,8 +82,8 @@ CyDelayCycles_done:
 ;
 ;  Note Implementation of CyEnterCriticalSection manipulates the IRQ enable bit
 ;  with interrupts still enabled. The test and set of the interrupt bits is not
-;  atomic. Therefore, to avoid corrupting processor state, it must be the policy 
-;  that all interrupt routines restore the interrupt enable bits as they were 
+;  atomic. Therefore, to avoid corrupting processor state, it must be the policy
+;  that all interrupt routines restore the interrupt enable bits as they were
 ;  found on entry.
 ;
 ; Parameters:

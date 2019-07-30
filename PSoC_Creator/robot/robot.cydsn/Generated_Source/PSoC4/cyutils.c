@@ -1,12 +1,12 @@
-/*******************************************************************************
-* FILENAME: cyutils.c
-* Version 5.20
+/***************************************************************************//**
+* \file cyutils.c
+* \version 5.80
 *
-*  Description:
-*   CyUtils provides a function to handle 24-bit value writes.
+* \brief Provides a function to handle 24-bit value writes.
 *
 ********************************************************************************
-* Copyright 2008-2015, Cypress Semiconductor Corporation.  All rights reserved.
+* \copyright
+* Copyright 2008-2018, Cypress Semiconductor Corporation.  All rights reserved.
 * You may use this file only in accordance with the license, terms, conditions,
 * disclaimers, and limitations in the end user license agreement accompanying
 * the software package with which this file was provided.
@@ -18,20 +18,14 @@
 
     /***************************************************************************
     * Function Name: CySetReg24
-    ****************************************************************************
+    ************************************************************************//**
     *
-    * Summary:
-    *  Writes a 24-bit value to the specified register.
+    * Writes a 24-bit value to the specified register.
     *
-    * Parameters:
-    *  addr : the address where data must be written.
-    *  value: the data that must be written.
+    * \param addr The address where data must be written.
+    * \param value The data that must be written.
     *
-    * Return:
-    *  None
-    *
-    * Reentrant:
-    *  No
+    * \reentrant No
     *
     ***************************************************************************/
     void CySetReg24(uint32 volatile * addr, uint32 value)
@@ -50,19 +44,13 @@
 
         /***************************************************************************
         * Function Name: CyGetReg24
-        ****************************************************************************
+        ************************************************************************//**
         *
-        * Summary:
-        *  Reads the 24-bit value from the specified register.
+        * Reads the 24-bit value from the specified register.
         *
-        * Parameters:
-        *  addr : the address where data must be read.
+        * \param addr The address where data must be read.
         *
-        * Return:
-        *  None
-        *
-        * Reentrant:
-        *  No
+        * \reentrant No
         *
         ***************************************************************************/
         uint32 CyGetReg24(uint32 const volatile * addr)

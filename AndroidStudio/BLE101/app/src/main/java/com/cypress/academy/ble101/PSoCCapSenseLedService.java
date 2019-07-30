@@ -79,13 +79,13 @@ public class PSoCCapSenseLedService extends Service {
     private static BluetoothGattDescriptor mCapSenseCccd;
 
     // UUIDs for the service and characteristics that the custom CapSenseLED service uses
-    private final static String baseUUID =                   "00000000-0000-1000-8000-00805f9b34f";
-    private final static String capsenseLedServiceUUID =      baseUUID + "0";
-    public  final static String ledCharacteristicUUID =       baseUUID + "1";
-    public  final static String capsenseCharacteristicUUID =  baseUUID + "2";
-    private final static String CccdUUID =                   "00002902-0000-1000-8000-00805f9b34fb";
+    private final static String baseUUID = "00000000-0000-1000-8000-00805f9b34f";
+    private final static String capsenseLedServiceUUID = baseUUID + "0";
+    public final static String ledCharacteristicUUID = baseUUID + "1";
+    public final static String capsenseCharacteristicUUID = baseUUID + "2";
+    private final static String CccdUUID = "00002902-0000-1000-8000-00805f9b34fb";
 
-     // Variables to keep track of the LED switch state and CapSense Value
+    // Variables to keep track of the LED switch state and CapSense Value
     private static boolean mLedSwitchState = false;
     private static String mCapSenseValue = "-1"; // This is the No Touch value (0xFFFF)
 
@@ -157,7 +157,7 @@ public class PSoCCapSenseLedService extends Service {
      */
     public void scan() {
         /* Scan for devices and look for the one with the service that we want */
-        UUID   capsenseLedService =       UUID.fromString(capsenseLedServiceUUID);
+        UUID capsenseLedService = UUID.fromString(capsenseLedServiceUUID);
         UUID[] capsenseLedServiceArray = {capsenseLedService};
 
         // Use old scan method for versions older than lollipop
@@ -247,13 +247,13 @@ public class PSoCCapSenseLedService extends Service {
     /**
      * This method is used to read the state of the LED from the device
      */
-     public void readLedCharacteristic() {
+    public void readLedCharacteristic() {
         if (mBluetoothAdapter == null || mBluetoothGatt == null) {
             Log.w(TAG, "BluetoothAdapter not initialized");
             return;
         }
         mBluetoothGatt.readCharacteristic(mLedCharacterisitc);
-     }
+    }
 
     /**
      * This method is used to turn the LED on or off
@@ -315,7 +315,7 @@ public class PSoCCapSenseLedService extends Service {
     /**
      * Implements the callback for when scanning for devices has found a device with
      * the service we are looking for.
-     *
+     * <p>
      * This is the callback for BLE scanning on versions prior to Lollipop
      */
     private BluetoothAdapter.LeScanCallback mLeScanCallback =
@@ -332,7 +332,7 @@ public class PSoCCapSenseLedService extends Service {
     /**
      * Implements the callback for when scanning for devices has faound a device with
      * the service we are looking for.
-     *
+     * <p>
      * This is the callback for BLE scanning for LOLLIPOP and later
      */
     private final ScanCallback mScanCallback = new ScanCallback() {
@@ -405,7 +405,7 @@ public class PSoCCapSenseLedService extends Service {
                 // In this case, the only read the app does is the LED state.
                 // If the application had additional characteristics to read we could
                 // use a switch statement here to operate on each one separately.
-                if(uuid.equalsIgnoreCase(ledCharacteristicUUID)) {
+                if (uuid.equalsIgnoreCase(ledCharacteristicUUID)) {
                     final byte[] data = characteristic.getValue();
                     // Set the LED switch state variable based on the characteristic value ttat was read
                     mLedSwitchState = ((data[0] & 0xff) != 0x00);
@@ -431,8 +431,8 @@ public class PSoCCapSenseLedService extends Service {
             // In this case, the only notification the apps gets is the CapSense value.
             // If the application had additional notifications we could
             // use a switch statement here to operate on each one separately.
-            if(uuid.equalsIgnoreCase(capsenseCharacteristicUUID)) {
-                mCapSenseValue = characteristic.getIntValue(BluetoothGattCharacteristic.FORMAT_SINT16,0).toString();
+            if (uuid.equalsIgnoreCase(capsenseCharacteristicUUID)) {
+                mCapSenseValue = characteristic.getIntValue(BluetoothGattCharacteristic.FORMAT_SINT16, 0).toString();
             }
 
             // Notify the main activity that new data is available

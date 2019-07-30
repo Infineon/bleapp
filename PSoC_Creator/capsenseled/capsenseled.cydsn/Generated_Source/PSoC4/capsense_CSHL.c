@@ -1,6 +1,6 @@
 /*******************************************************************************
 * File Name: capsense_CSHL.c
-* Version 2.30
+* Version 2.60
 *
 * Description:
 *  This file provides the source code to the High Level APIs for the CapSesne
@@ -9,7 +9,7 @@
 * Note:
 *
 ********************************************************************************
-* Copyright 2013-2015, Cypress Semiconductor Corporation.  All rights reserved.
+* Copyright 2013-2016, Cypress Semiconductor Corporation.  All rights reserved.
 * You may use this file only in accordance with the license, terms, conditions,
 * disclaimers, and limitations in the end user license agreement accompanying
 * the software package with which this file was provided.
@@ -62,7 +62,7 @@ uint8 capsense_lowBaselineReset[capsense_TOTAL_SENSOR_COUNT] = {
 
 
 #if (capsense_TUNING_METHOD == capsense__TUNING_AUTO)
-    extern capsense_CONFIG_TYPE_P4_v2_30 capsense_config;
+    extern capsense_CONFIG_TYPE_P4_v2_60 capsense_config;
 #endif  /* (capsense_TUNING_METHOD == capsense__TUNING_AUTO) */
 
 #if (capsense_RAW_FILTER_MASK != 0u)
@@ -413,7 +413,7 @@ void capsense_UpdateBaselineNoThreshold(uint32 sensor)
     #endif  /* (capsense_RAW_FILTER_MASK != 0u) */
 
     #if (capsense_TUNING_METHOD == capsense__TUNING_AUTO)
-        MeasureNoiseEnvelope_P4_v2_30(&capsense_config, (uint8)sensor, capsense_sensorRaw);
+        MeasureNoiseEnvelope_P4_v2_60(&capsense_config, (uint8)sensor, capsense_sensorRaw);
     #endif /* (capsense_TUNING_METHOD == capsense__TUNING_AUTO) */
 
     /* Baseline calculation */

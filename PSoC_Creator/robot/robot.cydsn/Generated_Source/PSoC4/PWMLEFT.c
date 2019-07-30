@@ -1,6 +1,6 @@
 /*******************************************************************************
 * File Name: PWMLEFT.c
-* Version 2.0
+* Version 2.10
 *
 * Description:
 *  This file provides the source code to the API for the PWMLEFT
@@ -10,7 +10,7 @@
 *  None
 *
 ********************************************************************************
-* Copyright 2013-2014, Cypress Semiconductor Corporation.  All rights reserved.
+* Copyright 2013-2015, Cypress Semiconductor Corporation.  All rights reserved.
 * You may use this file only in accordance with the license, terms, conditions,
 * disclaimers, and limitations in the end user license agreement accompanying
 * the software package with which this file was provided.
@@ -194,6 +194,12 @@ void PWMLEFT_Enable(void)
             PWMLEFT_TriggerCommand(PWMLEFT_MASK, PWMLEFT_CMD_START);
         #endif /* (0u == PWMLEFT_TC_START_SIGNAL_PRESENT) */
     #endif /* (PWMLEFT__TIMER == PWMLEFT_CONFIG) */
+    
+    #if (PWMLEFT__QUAD == PWMLEFT_CONFIG)
+        #if (0u != PWMLEFT_QUAD_AUTO_START)
+            PWMLEFT_TriggerCommand(PWMLEFT_MASK, PWMLEFT_CMD_RELOAD);
+        #endif /* (0u != PWMLEFT_QUAD_AUTO_START) */
+    #endif  /* (PWMLEFT__QUAD == PWMLEFT_CONFIG) */
 }
 
 
@@ -831,6 +837,14 @@ void PWMLEFT_SetPeriodSwap(uint32 swapEnable)
 * Return:
 *  None
 *
+* Note:
+*  It is not recommended to use the value equal to "0" or equal to 
+*  "period value" in Center or Asymmetric align PWM modes on the 
+*  PSoC 4100/PSoC 4200 devices.
+*  PSoC 4000 devices write the 16 bit compare register with the decremented 
+*  compare value in the Up counting mode (except 0x0u), and the incremented 
+*  compare value in the Down counting mode (except 0xFFFFu).
+*
 *******************************************************************************/
 void PWMLEFT_WriteCompare(uint32 compare)
 {
@@ -867,12 +881,20 @@ void PWMLEFT_WriteCompare(uint32 compare)
 * Summary:
 *  Reads the compare register. Not applicable for Timer/Counter with Capture
 *  or in Quadrature Decoder modes.
+*  PSoC 4000 devices read the incremented compare register value in the 
+*  Up counting mode (except 0xFFFFu), and the decremented value in the 
+*  Down counting mode (except 0x0u).
 *
 * Parameters:
 *  None
 *
 * Return:
 *  Compare value
+*
+* Note:
+*  PSoC 4000 devices read the incremented compare register value in the 
+*  Up counting mode (except 0xFFFFu), and the decremented value in the 
+*  Down counting mode (except 0x0u).
 *
 *******************************************************************************/
 uint32 PWMLEFT_ReadCompare(void)
@@ -920,6 +942,14 @@ uint32 PWMLEFT_ReadCompare(void)
 * Return:
 *  None
 *
+* Note:
+*  It is not recommended to use the value equal to "0" or equal to 
+*  "period value" in Center or Asymmetric align PWM modes on the 
+*  PSoC 4100/PSoC 4200 devices.
+*  PSoC 4000 devices write the 16 bit compare register with the decremented 
+*  compare value in the Up counting mode (except 0x0u), and the incremented 
+*  compare value in the Down counting mode (except 0xFFFFu).
+*
 *******************************************************************************/
 void PWMLEFT_WriteCompareBuf(uint32 compareBuf)
 {
@@ -960,6 +990,11 @@ void PWMLEFT_WriteCompareBuf(uint32 compareBuf)
 *
 * Return:
 *  Compare buffer value
+*
+* Note:
+*  PSoC 4000 devices read the incremented compare register value in the 
+*  Up counting mode (except 0xFFFFu), and the decremented value in the 
+*  Down counting mode (except 0x0u).
 *
 *******************************************************************************/
 uint32 PWMLEFT_ReadCompareBuf(void)
@@ -1218,10 +1253,10 @@ void PWMLEFT_SetCountMode(uint32 triggerMode)
 *  command: Enumerated command values. Capture command only applicable for
 *           Timer/Counter with Capture and PWM modes.
 *   Values:
-*     - PWMLEFT_CMD_CAPTURE    - Trigger Capture command
-*     - PWMLEFT_CMD_RELOAD     - Trigger Reload command
-*     - PWMLEFT_CMD_STOP       - Trigger Stop command
-*     - PWMLEFT_CMD_START      - Trigger Start command
+*     - PWMLEFT_CMD_CAPTURE    - Trigger Capture/Switch command
+*     - PWMLEFT_CMD_RELOAD     - Trigger Reload/Index command
+*     - PWMLEFT_CMD_STOP       - Trigger Stop/Kill command
+*     - PWMLEFT_CMD_START      - Trigger Start/phiB command
 *
 * Return:
 *  None

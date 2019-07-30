@@ -18,8 +18,8 @@
 #if !defined(CY_PWM_ledpwm_H)
 #define CY_PWM_ledpwm_H
 
-#include "cytypes.h"
 #include "cyfitter.h"
+#include "cytypes.h"
 #include "CyLib.h" /* For CyEnterCriticalSection() and CyExitCriticalSection() functions */
 
 extern uint8 ledpwm_initVar;

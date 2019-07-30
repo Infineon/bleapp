@@ -1,6 +1,6 @@
 /*******************************************************************************
 * File Name: capsense_IP.h
-* Version 2.30
+* Version 2.60
 *
 * Description:
 *  This file defined information about hardware IP blocks, available in silicone.
@@ -8,7 +8,7 @@
 * Note:
 *
 ********************************************************************************
-* Copyright 2014-2015, Cypress Semiconductor Corporation.  All rights reserved.
+* Copyright 2014-2016, Cypress Semiconductor Corporation.  All rights reserved.
 * You may use this file only in accordance with the license, terms, conditions,
 * disclaimers, and limitations in the end user license agreement accompanying
 * the software package with which this file was provided.
@@ -68,9 +68,11 @@
 #if defined(CYIPBLOCK_m0s8csd_VERSION)
     #define capsense_IS_M0S8CSD_BLOCK       (1u)
     #define capsense_M0S8CSD_BLOCK_VER      (CYIPBLOCK_m0s8csd_VERSION)
+    #define capsense_M0S8CSD_BLOCK_CNT      (1u)
 #else
     #define capsense_IS_M0S8CSD_BLOCK       (0u)
     #define capsense_M0S8CSD_BLOCK_VER      (0u)
+    #define capsense_M0S8CSD_BLOCK_CNT      (0u)
 #endif /* (CYIPBLOCK_m0s8csd_VERSION) */
 
 

@@ -31,6 +31,7 @@ http://www.cypress.com/products/bluetooth-low-energy-ble
 
 package com.cypress.academy.ble101;
 
+import androidx.appcompat.app.AppCompatActivity;
 import android.Manifest;
 import android.annotation.TargetApi;
 import android.app.Activity;
@@ -47,8 +48,7 @@ import android.content.ServiceConnection;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.IBinder;
-import android.support.annotation.NonNull;
-import android.support.v7.app.AppCompatActivity;
+import androidx.annotation.NonNull;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -56,8 +56,10 @@ import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.Switch;
 import android.widget.TextView;
+import android.os.Bundle;
 
 public class MainActivity extends AppCompatActivity {
+
 
     // TAG is used for informational messages
     private final static String TAG = MainActivity.class.getSimpleName();
@@ -161,7 +163,7 @@ public class MainActivity extends AppCompatActivity {
             }
         } //End of section for Android 6.0 (Marshmallow)
 
-         /* This will be called when the LED On/Off switch is touched */
+        /* This will be called when the LED On/Off switch is touched */
         led_switch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 // Turn the LED on or OFF based on the state of the switch
@@ -169,10 +171,10 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-         /* This will be called when the CapSense Notify On/Off switch is touched */
+        /* This will be called when the CapSense Notify On/Off switch is touched */
         cap_switch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                 // Turn CapSense Notifications on/off based on the state of the switch
+                // Turn CapSense Notifications on/off based on the state of the switch
                 mPSoCCapSenseLedService.writeCapSenseNotification(isChecked);
                 CapSenseNotifyState = isChecked;  // Keep track of CapSense notification state
                 if(isChecked) { // Notifications are now on so text has to say "No Touch"
@@ -320,7 +322,7 @@ public class MainActivity extends AppCompatActivity {
      *
      * @param view the view object
      */
-     public void Disconnect(View view) {
+    public void Disconnect(View view) {
         mPSoCCapSenseLedService.disconnect();
 
         /* After this we wait for the gatt callback to report the device is disconnected */
@@ -372,7 +374,7 @@ public class MainActivity extends AppCompatActivity {
                     // Enable the LED and CapSense switches
                     led_switch.setEnabled(true);
                     cap_switch.setEnabled(true);
-                     Log.d(TAG, "Services Discovered");
+                    Log.d(TAG, "Services Discovered");
                     break;
                 case PSoCCapSenseLedService.ACTION_DATA_RECEIVED:
                     // This is called after a notify or a read completes

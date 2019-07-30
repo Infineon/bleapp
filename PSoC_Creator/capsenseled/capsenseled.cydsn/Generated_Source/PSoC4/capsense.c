@@ -1,6 +1,6 @@
 /*******************************************************************************
 * File Name: capsense.c
-* Version 2.30
+* Version 2.60
 *
 * Description:
 *  This file provides the source code for scanning APIs for the CapSense CSD
@@ -9,7 +9,7 @@
 * Note:
 *
 ********************************************************************************
-* Copyright 2013-2015, Cypress Semiconductor Corporation.  All rights reserved.
+* Copyright 2013-2016, Cypress Semiconductor Corporation.  All rights reserved.
 * You may use this file only in accordance with the license, terms, conditions,
 * disclaimers, and limitations in the end user license agreement accompanying
 * the software package with which this file was provided.
@@ -56,7 +56,7 @@ uint16 capsense_sensorRaw[capsense_TOTAL_SENSOR_COUNT] = {0u};
 #endif /* (capsense_IDAC1_POLARITY == capsense__IDAC_SINK) */
 
 /* Global array of un-scanned sensors state */
-uint8 capsense_unscannedSnsDriveMode[capsense_TOTAL_SENSOR_COUNT];
+uint8 capsense_unscannedSnsDriveMode[capsense_PORT_PIN_CONFIG_TBL_ZISE];
 
 /* Backup array for capsense_sensorEnableMask */
 uint8 capsense_sensorEnableMaskBackup[(((capsense_TOTAL_SENSOR_COUNT - 1u) / 8u) + 1u)];
@@ -198,7 +198,7 @@ void capsense_Init(void)
 
     for(curSensor = 0u; curSensor < capsense_TOTAL_SENSOR_COUNT; curSensor++)
     {
-        capsense_unscannedSnsDriveMode[curSensor] = capsense_CONNECT_INACTIVE_SNS;
+        capsense_SetUnscannedSensorState(curSensor, capsense_CONNECT_INACTIVE_SNS);
     }
 
     capsense_CsdHwBlockInit();
@@ -1487,7 +1487,7 @@ void capsense_PreScan(uint32 sensor)
     /* `#START capsense_PreSettlingDelay_Debug` */
 
     /* `#END` */
-    
+
 #ifdef capsense_PRE_SCAN_PRE_SETTLING_DELAY_DEBUG_CALLBACK
     capsense_PreScan_Pre_SettlingDelay_Debug_Callback();
 #endif /* capsense_PRE_SCAN_PRE_SETTLING_DELAY_DEBUG_CALLBACK */
@@ -1497,7 +1497,7 @@ void capsense_PreScan(uint32 sensor)
     /* `#START capsense_PreScan_Debug` */
 
     /* `#END` */
-    
+
 #ifdef capsense_PRE_SCAN_DEBUG_CALLBACK
     capsense_PreScan_Debug_Callback();
 #endif /* capsense_PRE_SCAN_DEBUG_CALLBACK */
@@ -1542,7 +1542,7 @@ void capsense_PostScan(uint32 sensor)
     /* `#START capsense_PostScan_Debug` */
 
     /* `#END` */
-    
+
 #ifdef capsense_POST_SCAN_DEBUG_CALLBACK
     capsense_PostScan_Debug_Callback();
 #endif /* capsense_POST_SCAN_DEBUG_Callback */
@@ -2231,7 +2231,33 @@ uint32 capsense_GetIDACRange(void)
 *******************************************************************************/
 void capsense_SetUnscannedSensorState(uint32 sensor, uint32 sensorState)
 {
-    capsense_unscannedSnsDriveMode[sensor] = (uint8)sensorState;
+    #if(capsense_IS_COMPLEX_SCANSLOTS)
+        uint8 snsType;
+        uint8 curSensor;
+        uint16 snsNumber;
+
+        /* Read sensor type: single or complex */
+        snsType = capsense_portTable[sensor];
+
+        /* Check if sensor is complex */
+        if(0u != (snsType & capsense_COMPLEX_SS_FLAG))
+        {
+            snsType &= (uint8)~capsense_COMPLEX_SS_FLAG;
+            snsNumber = (uint16)capsense_maskTable[sensor];
+
+            for (curSensor=0u; curSensor < snsNumber; curSensor++)
+            {
+                sensor = capsense_indexTable[snsType + curSensor];
+                capsense_unscannedSnsDriveMode[sensor] = (uint8)sensorState;
+            }
+        }
+        else
+        {
+            capsense_unscannedSnsDriveMode[sensor] = (uint8)sensorState;
+        }
+    #else
+        capsense_unscannedSnsDriveMode[sensor] = (uint8)sensorState;
+    #endif /* (capsense_IS_COMPLEX_SCANSLOTS) */
 }
 
 #if(0u != capsense_TOTAL_CENTROIDS_COUNT)

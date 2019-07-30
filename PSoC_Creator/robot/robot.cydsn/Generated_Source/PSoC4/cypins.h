@@ -1,17 +1,16 @@
 /*******************************************************************************
-* File Name: cypins.h
-* Version 5.20
+* \file cypins.h
+* \version 5.80
 *
-*  Description:
-*   This file contains the function prototypes and constants used for port/pin
-*   in access and control.
+* \brief This file contains the function prototypes and constants used for
+* port/pin in access and control.
 *
-*  Note:
-*   Documentation of the API's in this file is located in the
-*   System Reference Guide provided with PSoC Creator.
+* \note Documentation of the API's in this file is located in the System
+* Reference Guide provided with PSoC Creator.
 *
 ********************************************************************************
-* Copyright 2008-2015, Cypress Semiconductor Corporation.  All rights reserved.
+* \copyright
+* Copyright 2008-2018, Cypress Semiconductor Corporation.  All rights reserved.
 * You may use this file only in accordance with the license, terms, conditions,
 * disclaimers, and limitations in the end user license agreement accompanying
 * the software package with which this file was provided.
@@ -21,6 +20,22 @@
 #define CY_BOOT_CYPINS_H
 
 #include "cytypes.h"
+
+/**
+* \addtogroup group_pins Pins
+* \brief For PSoC 4, there are status registers, data output registers, and port
+configuration registers only, so the macro takes two arguments: port register
+and pin number. Each port has these registers addresses defined:
+CYREG_PRTx_DR
+CYREG_PRTx_PS
+CYREG_PRTx_PC
+
+The x is the port number, and the second argument is the pin number.
+
+* @{
+*/
+
+/** @} group_pins */
 
 
 /**************************************
@@ -52,27 +67,7 @@
 *        Compatibility Macros
 **************************************/
 
-#if(CY_PSOC4A)
-    #define CYREG_GPIO_PRT0_DR                (CYREG_PRT0_DR)
-    #define CYREG_GPIO_PRT0_PS                (CYREG_PRT0_PS)
-    #define CYREG_GPIO_PRT0_PC                (CYREG_PRT0_PC)
-
-    #define CYREG_GPIO_PRT1_DR                (CYREG_PRT1_DR)
-    #define CYREG_GPIO_PRT1_PS                (CYREG_PRT1_PS)
-    #define CYREG_GPIO_PRT1_PC                (CYREG_PRT1_PC)
-
-    #define CYREG_GPIO_PRT2_DR                (CYREG_PRT2_DR)
-    #define CYREG_GPIO_PRT2_PS                (CYREG_PRT2_PS)
-    #define CYREG_GPIO_PRT2_PC                (CYREG_PRT2_PC)
-
-    #define CYREG_GPIO_PRT3_DR                (CYREG_PRT3_DR)
-    #define CYREG_GPIO_PRT3_PS                (CYREG_PRT3_PS)
-    #define CYREG_GPIO_PRT3_PC                (CYREG_PRT3_PC)
-
-    #define CYREG_GPIO_PRT4_DR                (CYREG_PRT4_DR)
-    #define CYREG_GPIO_PRT4_PS                (CYREG_PRT4_PS)
-    #define CYREG_GPIO_PRT4_PC                (CYREG_PRT4_PC)
-#else
+#if(CY_IP_HOBTO_DEVICE)
     #define CYREG_PRT0_DR                     (CYREG_GPIO_PRT0_DR)
     #define CYREG_PRT0_PS                     (CYREG_GPIO_PRT0_PS)
     #define CYREG_PRT0_PC                     (CYREG_GPIO_PRT0_PC)
@@ -136,32 +131,55 @@
     #define CYREG_PRT15_DR                    (CYREG_GPIO_PRT15_DR)
     #define CYREG_PRT15_PS                    (CYREG_GPIO_PRT15_PS)
     #define CYREG_PRT15_PC                    (CYREG_GPIO_PRT15_PC)
-#endif /* (CY_PSOC4A) */
+
+#else
+
+    #define CYREG_GPIO_PRT0_DR                (CYREG_PRT0_DR)
+    #define CYREG_GPIO_PRT0_PS                (CYREG_PRT0_PS)
+    #define CYREG_GPIO_PRT0_PC                (CYREG_PRT0_PC)
+
+    #define CYREG_GPIO_PRT1_DR                (CYREG_PRT1_DR)
+    #define CYREG_GPIO_PRT1_PS                (CYREG_PRT1_PS)
+    #define CYREG_GPIO_PRT1_PC                (CYREG_PRT1_PC)
+
+    #define CYREG_GPIO_PRT2_DR                (CYREG_PRT2_DR)
+    #define CYREG_GPIO_PRT2_PS                (CYREG_PRT2_PS)
+    #define CYREG_GPIO_PRT2_PC                (CYREG_PRT2_PC)
+
+    #define CYREG_GPIO_PRT3_DR                (CYREG_PRT3_DR)
+    #define CYREG_GPIO_PRT3_PS                (CYREG_PRT3_PS)
+    #define CYREG_GPIO_PRT3_PC                (CYREG_PRT3_PC)
+
+    #define CYREG_GPIO_PRT4_DR                (CYREG_PRT4_DR)
+    #define CYREG_GPIO_PRT4_PS                (CYREG_PRT4_PS)
+    #define CYREG_GPIO_PRT4_PC                (CYREG_PRT4_PC)
+#endif /* (CY_IP_HOBTO_DEVICE) */
 
 
 /**************************************
 *       Pin API Macros
 **************************************/
 
+/**
+* \defgroup group_pins Pins
+* @{
+*/
 
 /*******************************************************************************
 * Macro Name: CY_SYS_PINS_READ_PIN
-********************************************************************************
-* Summary:
-*  Reads the current value on the pin (pin state, PS).
+****************************************************************************//**
 *
-* Parameters:
-*   portPS: Address of the port pin status register (uint32).
-*   Definitions for each port are provided in the cydevice_trm.h file  in the
-*   form: CYREG_GPIO_PRTx_PS, where x is a port number. The actual number
-*   depends on the selected device.
+* Reads the current value on the pin (pin state, PS).
 *
-*   pin: pin number 0 - 7. The actual number depends on the selected device.
+* \param portPS Address of the port pin status register (uint32). Definitions
+* for each port are provided in the cydevice_trm.h file  in the form:
+* CYREG_GPIO_PRTx_PS, where x is a port number. The actual number depends on the
+* selected device.
 *
-* Return:
-*   Pin state:
-*    0: Logic low value
-*    Non-0: Logic high value
+* \param pin The pin number 0 - 7. The actual number depends on the selected
+* device.
+*
+* \return Zero - logic low, non-zero - logic high.
 *
 *******************************************************************************/
 #define CY_SYS_PINS_READ_PIN(portPS, pin) \
@@ -170,30 +188,26 @@
 
 /*******************************************************************************
 * Macro Name: CY_SYS_PINS_SET_PIN
-********************************************************************************
-* Summary:
-*  Set the output value for the pin (data register, DR) to a logic high.
-*  Note that this only has an effect for pins configured as software pins that
-*  are not driven by hardware.
+****************************************************************************//**
 *
-*  The macro operation is not atomic. It is not guaranteed that shared register
-*  will remain uncorrupted during simultaneous read-modify-write operations
-*  performed by two threads (main and interrupt threads). To guarantee data
-*  integrity in such cases, the macro should be invoked while the specific
-*  interrupt is disabled or within critical section (all interrupts are
-*  disabled).
+* Set the output value for the pin (data register, DR) to a logic high.
+* Note that this only has an effect for pins configured as software pins that
+* are not driven by hardware.
 *
-* Parameters:
-*   portDR:
-*   Address of the port output pin data register (uint32).
-*   Definitions for each port are provided in the cydevice_trm.h file  in the
-*   form: CYREG_GPIO_PRTx_PS, where x is a port number. The actual number
-*   depends on the selected device.
+* The macro operation is not atomic. It is not guaranteed that shared register
+* will remain uncorrupted during simultaneous read-modify-write operations
+* performed by two threads (main and interrupt threads). To guarantee data
+* integrity in such cases, the macro should be invoked while the specific
+* interrupt is disabled or within critical section (all interrupts are
+* disabled).
 *
-*   pin: pin number 0 - 7. The actual number depends on the selected device.
+* \param portDR Address of the port output pin data register (uint32).
+* Definitions for each port are provided in the cydevice_trm.h file  in the
+* form: CYREG_GPIO_PRTx_PS, where x is a port number. The actual number depends
+* on the selected device.
 *
-* Return:
-*   None
+* \param pin The pin number 0 - 7. The actual number depends on the selected
+* device.
 *
 *******************************************************************************/
 #define CY_SYS_PINS_SET_PIN(portDR, pin)     \
@@ -202,27 +216,23 @@
 
 /*******************************************************************************
 * Macro Name: CY_SYS_PINS_CLEAR_PIN
-********************************************************************************
-* Summary:
-*  This macro sets the state of the specified pin to zero.
+****************************************************************************//**
 *
-*  The macro operation is not atomic. It is not guaranteed that shared register
-*  will remain uncorrupted during simultaneous read-modify-write operations
-*  performed by two threads (main and interrupt threads). To guarantee data
-*  integrity in such cases, the macro should be invoked while the specific
-*  interrupt is disabled or within critical section (all interrupts are
-*  disabled).
+* This macro sets the state of the specified pin to zero.
 *
-* Parameters:
-*   portDR: Address of the port output pin data register (uint32).
-*   Definitions for each port are provided in the cydevice_trm.h file in the
-*   form: CYREG_GPIO_PRTx_PS, where x is a port number. The actual number
-*   depends on the selected device.
+* The macro operation is not atomic. It is not guaranteed that shared register
+* will remain uncorrupted during simultaneous read-modify-write operations
+* performed by two threads (main and interrupt threads). To guarantee data
+* integrity in such cases, the macro should be invoked while the specific
+* interrupt is disabled or within critical section (all interrupts are
+* disabled).
 *
-*   pin: pin number 0 - 7. The actual number depends on the selected device.
+* \param portDR Address of the port output pin data register (uint32).
+* Definitions for each port are provided in the cydevice_trm.h file in the
+* form: CYREG_GPIO_PRTx_PS, where x is a port number. The actual number
+* depends on the selected device.
 *
-* Return:
-*   None
+* \param pin The pin number 0 - 7. The actual number depends on the selected device.
 *
 *******************************************************************************/
 #define CY_SYS_PINS_CLEAR_PIN(portDR, pin)   \
@@ -231,26 +241,25 @@
 
 /*******************************************************************************
 * Macro Name: CY_SYS_PINS_SET_DRIVE_MODE
-********************************************************************************
-* Summary:
-*  Sets the drive mode for the pin (DM).
+****************************************************************************//**
 *
-*  The macro operation is not atomic. It is not guaranteed that shared register
-*  will remain uncorrupted during simultaneous read-modify-write operations
-*  performed by two threads (main and interrupt threads). To guarantee data
-*  integrity in such cases, the macro should be invoked while the specific
-*  interrupt is disabled or within critical section (all interrupts are
-*  disabled).
+* Sets the drive mode for the pin (DM).
 *
-* Parameters:
-*   portPC: Address of the port configuration register (uint32).
-*   Definitions for each port are provided in the cydevice_trm.h file  in the
-*   form: CYREG_GPIO_PRTx_PS, where x is a port number. The actual number
-*   depends on the selected device.
+* The macro operation is not atomic. It is not guaranteed that shared register
+* will remain uncorrupted during simultaneous read-modify-write operations
+* performed by two threads (main and interrupt threads). To guarantee data
+* integrity in such cases, the macro should be invoked while the specific
+* interrupt is disabled or within critical section (all interrupts are
+* disabled).
 *
-*   pin: pin number 0 - 7. The actual number depends on the selected device.
+* \param portPC: Address of the port configuration register (uint32).
+* Definitions for each port are provided in the cydevice_trm.h file  in the
+* form: CYREG_GPIO_PRTx_PS, where x is a port number. The actual number
+* depends on the selected device.
 *
-*   mode: Desired drive mode
+* \param pin The pin number 0 - 7. The actual number depends on the selected device.
+*
+* \param mode Desired drive mode.
 *
 *        Define                        Source
 *   CY_SYS_PINS_DM_ALG_HIZ        Analog HiZ
@@ -262,9 +271,6 @@
 *   CY_SYS_PINS_DM_STRONG         Strong CMOS Output
 *   CY_SYS_PINS_DM_RES_UPDWN      Resistive pull up/down
 *
-* Return:
-*   None
-*
 *******************************************************************************/
 #define CY_SYS_PINS_SET_DRIVE_MODE(portPC, pin, mode)    \
             ( *(reg32 *)(portPC) = (*(reg32 *)(portPC) & \
@@ -274,31 +280,27 @@
 
 /*******************************************************************************
 * Macro Name: CY_SYS_PINS_READ_DRIVE_MODE
-********************************************************************************
-* Summary:
-*  Reads the drive mode for the pin (DM).
+****************************************************************************//**
 *
-* Parameters:
-*   portPC: Address of the port configuration register (uint32).
-*   Definitions for each port are provided in the cydevice_trm.h file  in the
-*   form: CYREG_GPIO_PRTx_PS, where x is a port number. The actual number
-*   depends on the selected device.
+* Reads the drive mode for the pin (DM).
 *
-*   pin: pin number 0 - 7. The actual number depends on the selected device.
+* \param portPC Address of the port configuration register (uint32). Definitions
+* for each port are provided in the cydevice_trm.h file in the form:
+* CYREG_GPIO_PRTx_PS, where x is a port number. The actual number depends on the
+* selected device.
 *
+* \param pin The pin number 0 - 7. The actual number depends on the selected
+* device.
 *
-* Return:
-*   mode:  Current drive mode for the pin
-*
-*     Define                          Source
-*   CY_SYS_PINS_DM_ALG_HIZ        Analog HiZ
-*   CY_SYS_PINS_DM_DIG_HIZ        Digital HiZ
-*   CY_SYS_PINS_DM_RES_UP         Resistive pull up
-*   CY_SYS_PINS_DM_RES_DWN        Resistive pull down
-*   CY_SYS_PINS_DM_OD_LO          Open drain - drive low
-*   CY_SYS_PINS_DM_OD_HI          Open drain - drive high
-*   CY_SYS_PINS_DM_STRONG         Strong CMOS Output
-*   CY_SYS_PINS_DM_RES_UPDWN      Resistive pull up/down
+* \return mode Current drive mode for the pin:
+* - CY_SYS_PINS_DM_ALG_HIZ        Analog HiZ
+* - CY_SYS_PINS_DM_DIG_HIZ        Digital HiZ
+* - CY_SYS_PINS_DM_RES_UP         Resistive pull up
+* - CY_SYS_PINS_DM_RES_DWN        Resistive pull down
+* - CY_SYS_PINS_DM_OD_LO          Open drain - drive low
+* - CY_SYS_PINS_DM_OD_HI          Open drain - drive high
+* - CY_SYS_PINS_DM_STRONG         Strong CMOS Output
+* - CY_SYS_PINS_DM_RES_UPDWN      Resistive pull up/down
 *
 *******************************************************************************/
 #define CY_SYS_PINS_READ_DRIVE_MODE(portPC, pin)     \
@@ -306,6 +308,7 @@
         (CY_SYS_PINS_PC_DRIVE_MODE_MASK << ((pin) * CY_SYS_PINS_PC_DRIVE_MODE_BITS)) ) >> \
         (pin) * CY_SYS_PINS_PC_DRIVE_MODE_BITS)
 
+/** @} group_pins */
 
 /* Defines function macros for mapping PSoC 4 per-pin functions to PSoC 3/5LP style functions  */
 #define CyPins_ReadPin(name)                (CY_SYS_PINS_READ_PIN       (name ## _PS, name ## _SHIFT))

@@ -1,6 +1,6 @@
 /*******************************************************************************
 * File Name: POWERLEFT.h  
-* Version 2.10
+* Version 2.20
 *
 * Description:
 *  This file contains the Alias definitions for Per-Pin APIs in cypins.h. 
@@ -9,7 +9,7 @@
 * Note:
 *
 ********************************************************************************
-* Copyright 2008-2014, Cypress Semiconductor Corporation.  All rights reserved.
+* Copyright 2008-2015, Cypress Semiconductor Corporation.  All rights reserved.
 * You may use this file only in accordance with the license, terms, conditions, 
 * disclaimers, and limitations in the end user license agreement accompanying 
 * the software package with which this file was provided.
@@ -26,11 +26,14 @@
 /***************************************
 *              Constants        
 ***************************************/
-#define POWERLEFT_0		(POWERLEFT__0__PC)
+#define POWERLEFT_0			(POWERLEFT__0__PC)
 #define POWERLEFT_0_PS		(POWERLEFT__0__PS)
 #define POWERLEFT_0_PC		(POWERLEFT__0__PC)
 #define POWERLEFT_0_DR		(POWERLEFT__0__DR)
 #define POWERLEFT_0_SHIFT	(POWERLEFT__0__SHIFT)
+#define POWERLEFT_0_INTR	((uint16)((uint16)0x0003u << (POWERLEFT__0__SHIFT*2u)))
+
+#define POWERLEFT_INTR_ALL	 ((uint16)(POWERLEFT_0_INTR))
 
 
 #endif /* End Pins POWERLEFT_ALIASES_H */
